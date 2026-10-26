@@ -19,56 +19,64 @@ const frontendConfig = {
    landingPage: {
       HeroSection: {
          homeBackgroundImage: '/Home_bg.webp',
-         homeTitle: 'Ednora — Where Knowledge Finds Its Future',
+         homeTitle: 'Learn Today. Build Tomorrow.',
          homeParagraph:
-            'Empowering future leaders with industry-aligned technical education, innovative computing labs, dedicated mentorship, and hands-on project excellence.',
+            'At Ednora, learning goes beyond textbooks. We help students build strong technical skills, explore new ideas, solve real-world problems, and turn their curiosity into practical knowledge. Through hands-on learning, expert guidance, and project-based education, we prepare students for the opportunities of tomorrow.',
+         primaryCTA: 'Explore Our Courses',
+         secondaryCTA: 'Discover Ednora',
       },
       AboutSection: {
-         Heading_First: 'Empowering Young Minds, Shaping Bright Futures',
-         Heading_Second: 'Pioneering Excellence in Computing & Emerging Technologies',
+         Heading_First: 'Empowering Students to Shape the Future',
+         Heading_Second: 'Empowering Students to Shape the Future',
          paragraph_First:
-            'Ednora is a premier educational institution committed to imparting cutting-edge technical knowledge, creative problem-solving capabilities, and professional ethics. We believe in nurturing curious minds through innovative teaching methodologies, modern digital infrastructure, and comprehensive growth opportunities.',
+            'Ednora is a learning community focused on technology, innovation, and personal growth. We believe every student should have the opportunity to explore their interests, develop practical skills, and build the confidence to achieve their goals.',
          paragraph_Second:
-            'Our hands-on laboratory experiences, guided capstone projects, and industry-oriented curriculum prepare students to lead confidently in an increasingly digital world.',
+            'Our learning approach combines academic foundations with hands-on projects, modern computing facilities, and guided mentorship. From understanding core concepts to building real applications, we encourage students to learn by doing and prepare for a rapidly changing digital world.',
+         CTA: 'Learn More About Us',
          image_First: '/Rectangle_1.webp',
          image_Second: '/Rectangle-2.webp',
          image_Third: '/Rectangle.webp',
+      },
+      Mission_and_Goals_Info: {
+         heading: 'The Values That Drive Us',
+         introduction:
+            'We believe meaningful education develops more than technical knowledge. It builds curiosity, responsibility, creativity, and the ability to work with others.',
       },
       Mission_and_Goals: [
          {
             title: 'Innovation',
             content:
-               'Delivering next-generation curriculum in Software Engineering, Cloud Computing, and Artificial Intelligence.',
+               'We encourage students to explore emerging technologies, experiment with new ideas, and develop creative solutions to real-world challenges.',
             image: '/Bagpack.webp',
          },
          {
             title: 'Integrity',
             content:
-               'Cultivating an enduring culture of trust, intellectual honesty, and ethical leadership.',
+               'We promote honesty, accountability, respect, and ethical decision-making in every aspect of learning and professional growth.',
             image: '/Knowledge.webp',
          },
          {
             title: 'Excellence',
             content:
-               'Setting the benchmark for academic rigour, practical mastery, and career outcomes.',
+               'We strive for continuous improvement through strong academic foundations, practical experience, and a commitment to quality.',
             image: '/Student.webp',
          },
          {
             title: 'Diversity',
             content:
-               'Celebrating diverse perspectives, inclusive cultures, and collaborative learning environments.',
+               'We value different perspectives, backgrounds, and experiences, creating a learning environment where everyone has the opportunity to grow.',
             image: '/Clock.webp',
          },
          {
             title: 'Collaboration',
             content:
-               'Promoting teamwork, open-source projects, peer coding, and interdisciplinary hackathons.',
+               'We encourage teamwork through group projects, coding activities, open-source contributions, and collaborative problem-solving.',
             image: '/Webinar.webp',
          },
          {
             title: 'Sustainability',
             content:
-               'Fostering socially responsible technocrats equipped to engineer a greener and smarter tomorrow.',
+               'We inspire students to use technology responsibly and develop solutions that contribute to a smarter, more sustainable future.',
             image: '/Research.webp',
          },
       ],
@@ -77,171 +85,258 @@ const frontendConfig = {
    aboutPage: {
       AboutHero: {
          image: '/About_Hero.webp',
-         Heading: 'Ignite Curiosity, Master Technology, Shape Tomorrow',
+         Heading: 'Discover Your Potential. Develop Your Skills. Shape Your Future.',
          paragraph:
-            'Welcome to Ednora — an institution dedicated to fostering innovation, practical knowledge, and holistic personal growth. Our mission is to prepare tomorrow’s innovators by providing exceptional educational opportunities and encouraging intellectual exploration.',
+            'Every great achievement begins with curiosity and a willingness to learn. At Ednora, we create opportunities for students to explore technology, strengthen their knowledge, and develop the practical skills needed to turn ideas into meaningful outcomes.',
       },
       History: {
-         title: 'History & Heritage',
+         title: 'Built Around Learning, Driven by Innovation',
          paragraph_First:
-            'Founded with a clear commitment to world-class technical education, Ednora was established to address the rapidly evolving needs of the modern technology industry and digital economy.',
+            'Ednora was established with a clear purpose: to make technical education relevant to the needs of a changing world. We believe students learn best when strong academic foundations are combined with practical experience and opportunities to explore.',
          paragraph_Second:
-            'Over the years, our institution has emerged as a beacon of academic excellence and experiential learning, empowering thousands of aspiring scholars with practical engineering skills.',
+            'Our approach focuses on helping learners move beyond theory and understand how knowledge is applied in real situations. Through practical exercises, laboratory sessions, collaborative projects, and guided learning, students can develop skills that extend beyond the classroom.',
          paragraph_Third:
-            'Through continuous curriculum innovation, hands-on laboratory workshops, and industry partnerships, we have built an environment where curiosity transforms into capability.',
+            'As technology continues to evolve, we recognize the importance of keeping learning relevant. We encourage curiosity, independent thinking, and continuous skill development so students can adapt to new challenges and opportunities.',
          paragraph_Four:
-            'Today, Ednora continues to push boundaries, expanding modern computing facilities and fostering a culture of lifelong learning and technological leadership.',
+            'Our goal is to build a supportive learning environment where students can discover their strengths, develop their potential, and take confident steps toward their academic and professional aspirations.',
       },
       Vision_and_Mission: {
-         title: 'Vision & Mission',
+         title: 'Preparing Learners for a Changing World',
+         vision_title: 'Our Vision',
+         vision_text:
+            'To create a learning environment where technology, creativity, and knowledge come together to empower the next generation of innovators, problem-solvers, and technology professionals.',
+         mission_title: 'Our Mission',
+         mission_text:
+            'To provide accessible, practical, and relevant education that helps students develop strong technical foundations, professional skills, and the confidence to pursue their ambitions.',
+         beliefs_title: 'What We Believe',
+         beliefs: [
+            'Learn by doing: Practical experience makes knowledge meaningful.',
+            'Think critically: Asking questions leads to deeper understanding.',
+            'Build together: Collaboration creates better ideas and stronger solutions.',
+            'Keep growing: Continuous learning is essential in a world shaped by technology.',
+            'Act responsibly: Knowledge should be used ethically and thoughtfully.',
+         ],
          paragraph_First:
-            'Our vision is to be recognized globally as a premier center of excellence for computing sciences, application development, and technological entrepreneurship.',
+            'Our Vision: To create a learning environment where technology, creativity, and knowledge come together to empower the next generation of innovators, problem-solvers, and technology professionals.',
          paragraph_Second:
-            'Our mission is to deliver high-quality, accessible, and market-relevant education that empowers students from all backgrounds with 21st-century digital competencies.',
+            'Our Mission: To provide accessible, practical, and relevant education that helps students develop strong technical foundations, professional skills, and the confidence to pursue their ambitions.',
          paragraph_Third:
-            'We are dedicated to building a learning ecosystem rooted in ethical values, critical inquiry, problem-solving, and continuous innovation.',
+            'What We Believe: Learn by doing, think critically, build together, keep growing, and act responsibly with knowledge.',
          paragraph_Four:
-            'We maintain strong collaborative ties with global technology leaders to ensure immersive internship experiences, live project exposure, and outstanding career placement.',
+            'Continuous learning is essential in a world shaped by technology. We inspire students to innovate with purpose and integrity.',
+      },
+      LearningEnvironment: {
+         heading: 'A Space to Learn, Create, and Grow',
+         paragraph:
+            'A great learning environment supports both academic progress and personal development. Ednora aims to provide spaces and resources that encourage focused study, practical experimentation, collaboration, and creativity. From technology-enabled classrooms to hands-on computing facilities, the goal is to help students learn effectively and put their knowledge into practice.',
       },
       Description: {
          image: '/Knowledge.webp',
+         heading: 'Facilities Designed Around Student Growth',
          paragraph:
-            'Ednora provides comprehensive, state-of-the-art campus amenities designed to support students both academically and personally, fostering a productive and fulfilling campus life.',
-         price: 'All-Inclusive',
-         room: 'Smart Learning Spaces',
+            'The right environment can make learning more engaging and productive. Explore the facilities designed to support academic learning, practical skill development, student well-being, and campus life.',
+         price: 'Campus Facilities',
+         room: 'Student Spaces',
+      },
+      FacilitiesSection: {
+         heading: 'Facilities Designed Around Student Growth',
+         introduction:
+            'The right environment can make learning more engaging and productive. Explore the facilities designed to support academic learning, practical skill development, student well-being, and campus life.',
       },
       Facilities: [
          {
             title: 'Advanced Computer Labs',
-            Heading:
-               'Fully air-conditioned laboratories equipped with high-performance multi-core workstations, dual-screen setups, and high-speed fiber internet.',
+            Heading: 'Learn Technology Through Practice',
             description:
-               'Over 200 modern workstations pre-configured with Linux and Windows developer environments, database engines, and software toolchains.',
-            image: '/Knowledge.webp',
+               'Build practical computing skills in dedicated laboratory environments designed for programming, software development, database practice, and technical experimentation. These spaces help students apply classroom concepts, explore development tools, and work on practical assignments.',
+            image: 'https://imgs.search.brave.com/TpWi1gCy0AJYm6OHo-l4GKIFpBs3C0a3sTRDXwAPOQQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcmVz/aWRlbmN5dW5pdmVy/c2l0eS5pbi9hc3Nl/dHMvaW1hZ2VzL2Nv/bXB1dGVyLWxhYnMt/aW1nXzIud2VicA',
+            highlight: '6 Modern Labs',
             Number: '6 Modern Labs',
-            Price: 'Included in Tuition',
+            price: 'Academic Lab',
+            room: 'Lab 1 - 6',
          },
          {
             title: 'Digital Classrooms',
-            Heading:
-               'Smart lecture halls featuring interactive touch panels, high-definition projection, and high-fidelity acoustics for hybrid interactive pedagogy.',
+            Heading: 'A More Engaging Learning Experience',
             description:
-               'Equipped for recorded lectures, live guest webinars from global tech leaders, and immersive multimedia learning.',
-            image: '/Webinar.webp',
+               'Technology-enabled classrooms support interactive teaching, multimedia presentations, and collaborative learning. They provide opportunities for students to engage with concepts, participate in discussions, and learn through different teaching methods.',
+            image: 'https://imgs.search.brave.com/wmFh8bTS7tWzn4moQ0E2UjmIHPKfwdWc4_-Eim_xzVw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dmlkeWFsYXlhLm9y/Zy5pbi93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNS8wMy81MWM0/ODQ0ZGQ2YjMwMGMw/ODg5YjE1ODhiNWUw/ZWI1Ni5qcGc',
+            highlight: '20 Smart Rooms',
             Number: '20 Smart Rooms',
-            Price: 'Included in Tuition',
+            price: 'Smart Classroom',
+            room: 'Blocks A & B',
          },
          {
-            title: 'Comprehensive Library',
-            Heading:
-               'An expansive modern library housing thousands of printed technical volumes, journals, e-books, and 24/7 digital academic databases.',
+            title: 'Library',
+            Heading: 'A Place for Knowledge and Discovery',
             description:
-               'Dedicated quiet study pods, collaborative group research lounges, and direct online access to leading technical publishers.',
-            image: '/Bagpack.webp',
+               'Explore books, technical references, journals, and digital learning resources to support your studies and independent research. Quiet study areas and collaborative spaces encourage focused learning, knowledge sharing, and deeper exploration of subjects.',
+            image: 'https://imgs.search.brave.com/rr3d9sS74iqNn_7aZs6RiwToF2kdQWKkqrcSRAueA1I/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L3ByZW1pdW0tcGhv/dG8vbW9kZXJuLWxp/YnJhcnktaW50ZXJp/b3Itd2l0aC1yZWFk/aW5nLWFyZWFfODkw/ODU5LTY4MjM2Lmpw/Zz9zZW10PWFpc19o/eWJyaWQmdz03NDAm/cT04MA',
+            highlight: '15,000+ Books',
             Number: '15,000+ Books',
-            Price: 'Included in Tuition',
+            price: 'Resource Center',
+            room: 'Central Wing',
          },
          {
             title: 'Campus Hostels',
-            Heading:
-               'Safe, comfortable, and well-maintained residential hostels with dedicated blocks for male and female students.',
+            Heading: 'A Comfortable Place to Call Home',
             description:
-               'Furnished rooms with high-speed Wi-Fi, 24/7 security, power backup, recreational commons, and nutritious dining facilities.',
+               'Residential facilities are designed to support students who need accommodation during their studies. Furnished rooms, internet access, security arrangements, and shared dining and recreation facilities help create a supportive residential environment.',
             image:
                'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=600&auto=format&fit=crop',
+            highlight: '400+ Capacity',
             Number: '400+ Capacity',
-            Price: 4500,
+            price: 4500,
+            room: 'Residential Block',
          },
          {
             title: 'Campus Transport',
-            Heading:
-               'Extensive transport network connecting all major city zones and residential neighborhoods directly to campus.',
+            Heading: 'Convenient Connections to Campus',
             description:
-               'Fleet of GPS-monitored, comfortable buses operated by trained drivers ensuring punctual and safe daily transit.',
+               'Campus transport services help students travel between designated city locations and the institution. Planned routes and organized transportation support a more convenient daily commute.',
             image:
-               'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=600&auto=format&fit=crop',
+               'https://imgs.search.brave.com/ppJeDz_uTyqL-DdRyOWiEId0lJQ06wX0vACNMlJuvXc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvMTA1/ODQ1NDYvcGV4ZWxz/LXBob3RvLTEwNTg0/NTQ2LmpwZWc_Y3M9/dGlueXNyZ2ImZHBy/PTEmdz01MDA',
+            highlight: '15 City Routes',
             Number: '15 City Routes',
-            Price: 800,
+            price: 800,
+            room: 'Campus Bus Fleet',
          },
          {
             title: 'High-Speed Wi-Fi',
-            Heading:
-               'Campus-wide gigabit wireless connectivity across lecture halls, laboratory zones, cafeteria, and student lawns.',
+            Heading: 'Stay Connected. Keep Learning.',
             description:
-               'Secure optical-fiber internet backbone ensuring rapid access to developer documentation, cloud repositories, and learning platforms.',
-            image: '/Research.webp',
-            Number: '1 Gbps Speed',
-            Price: 'Included in Tuition',
+               'Internet connectivity supports research, online learning, software development, collaboration, and access to digital resources. Students can use connected learning spaces to explore documentation, work with development tools, and continue learning beyond textbooks.',
+            image: 'https://imgs.search.brave.com/faLTu8BMORPoxIx7nAkbJkZbo1GRDDyalK87Qts_9lc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L2ZyZWUtcGhvdG8v/dG9wLXZpZXctd2kt/Zmktcm91dGVyLXdp/dGgtc21hcnRwaG9u/ZS1ub3RlYm9va18y/My0yMTQ4Nzc5MjQ5/LmpwZz9nYT1HQTEu/MS4xNzkzNDY1NDk4/LjE3OTE5NTUxMDgm/c2VtdD1haXNfaHli/cmlkJnc9NzQwJnE9/ODA',
+            highlight: 'Up to 1 Gbps',
+            Number: 'Up to 1 Gbps',
+            price: 'Campus-Wide',
+            room: 'All Zones',
          },
          {
-            title: 'Innovation & Hackathon Lounge',
-            Heading:
-               'Creative makerspace designed for project building, startup incubation, and weekend hackathons.',
+            title: 'Innovation and Hackathon Lounge',
+            Heading: 'Turn Ideas Into Projects',
             description:
-               'Equipped with IoT hardware kits, testing devices, agile whiteboards, and presentation zones to bring student software ideas to life.',
-            image: '/Student.webp',
-            Number: '24/7 Access',
-            Price: 'Included in Tuition',
+               'A collaborative space for students to experiment, develop prototypes, work in teams, and explore new ideas. Project-building activities and hackathons encourage creative thinking, practical problem-solving, and the confidence to build something of their own.',
+            image: 'https://imgs.search.brave.com/0J8xZ2n5lhSo-_YeWt_9kgA4Cbwd19eAI3FrNALd28o/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc3RvY2tjYWtl/LmNvbS9wdWJsaWMv/ZS9iLzMvZWIzOWQ2/NDYtOGFjZi00ZDVj/LWE3ZjItNGM1NTFj/ZTU5NjA0X2xhcmdl/L2VuZ2luZWVyaW5n/LXRlYW0td29ya2lu/Zy1zdG9ja2Nha2Uu/anBn',
+            highlight: 'Dedicated Innovation Space',
+            Number: 'Dedicated Innovation Space',
+            price: 'Project Studio',
+            room: 'Maker Hub',
          },
          {
-            title: 'Health & Wellness Center',
-            Heading:
-               'On-campus medical clinic providing routine healthcare, emergency first-aid, and student counseling services.',
+            title: 'Health and Wellness',
+            Heading: 'Supporting Student Well-Being',
             description:
-               'Staffed by qualified medical practitioners ensuring student physical and psychological health throughout the academic year.',
+               'Student well-being is an important part of a positive learning experience. Health and wellness facilities aim to support students through basic medical assistance, first-aid services, and access to appropriate support when needed.',
             image:
-               'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop',
-            Number: 'Full-Time Medical Desk',
-            Price: 'Included in Tuition',
+               'https://imgs.search.brave.com/jYgAuTLpYiHY0bNRJ_aMEDo6f5NKo-qzzxzS_8Q6nD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bXVza2Vnb25jYy5l/ZHUvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjQvMDMvSGVhbHRo/X2FuZF9XZWxsbmVz/c19DZW50ZXJfMl8z/XzJfNjAwLmpwZw',
+            highlight: 'On-Campus Support',
+            Number: 'On-Campus Support',
+            price: 'Wellness Clinic',
+            room: 'Care Wing',
          },
          {
-            title: 'Sports & Athletics Complex',
-            Heading:
-               'Spacious outdoor playing fields and indoor sports arena promoting physical fitness, team bonding, and athletic recreation.',
+            title: 'Sports and Athletics',
+            Heading: 'Stay Active. Play Together. Grow Stronger.',
             description:
-               'Facilities for cricket, football, basketball, badminton, table tennis, and a dedicated fitness gymnasium.',
+               'Sports and recreational activities encourage physical fitness, teamwork, discipline, and healthy competition. Opportunities to participate in indoor and outdoor games help students balance academic responsibilities with an active campus life.',
             image:
                'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop',
-            Number: '3 Sports Grounds',
-            Price: 'Included in Tuition',
+            highlight: 'Indoor and Outdoor Activities',
+            Number: 'Indoor & Outdoor',
+            price: 'Sports Complex',
+            room: 'Arena & Fields',
          },
          {
-            title: 'Career Placement & Industry Cell',
-            Heading:
-               'Dedicated corporate relations department delivering placement preparation, resume reviews, and technical interview workshops.',
+            title: 'Career Development and Placement',
+            Heading: 'Prepare for Your Next Opportunity',
             description:
-               'Consistently facilitating on-campus recruitment with top technology firms, multinational enterprises, and high-growth startups.',
-            image: '/Clock.webp',
-            Number: '100+ Recruiter Network',
-            Price: 'Included in Tuition',
+               'Career preparation helps students understand professional expectations and develop the skills needed to pursue employment opportunities. Activities such as resume preparation, interview practice, technical workshops, and career guidance can help students approach their next steps with greater confidence.',
+            image: 'https://imgs.search.brave.com/bg6xfuD2xH9HB9PfzOMo5-ggvnbzDX54gdW7qnO11Lk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wY2Fj/cy5hYy5pbi93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNS8wMS9K/b2ItRmFpci0yMDI0/LTYuanBn',
+            highlight: 'Career Preparation and Guidance',
+            Number: 'Placement Cell',
+            price: 'Guidance Desk',
+            room: 'Career Center',
          },
       ],
    },
 
+   academicPrograms: {
+      heading: 'Find a Learning Path That Fits Your Goals',
+      introduction:
+         'Whether you want to build a foundation in computing, understand business, or develop practical web development skills, explore learning pathways designed around your interests and future ambitions.',
+      programs: [
+         {
+            name: 'Bachelor of Computer Applications (BCA)',
+            duration: '3 Years | 6 Semesters',
+            description:
+               'Develop a strong foundation in computer applications, programming, and information technology. Explore subjects such as web development, data structures, databases, cloud computing, and software architecture while building the knowledge needed to understand and create software applications.',
+            cta: 'Explore BCA',
+         },
+         {
+            name: 'Bachelor of Business Administration (BBA)',
+            duration: '3 Years | 6 Semesters',
+            description:
+               'Build an understanding of business operations, management, and organizational decision-making. Explore areas such as marketing, financial management, business analytics, and strategic planning to develop a foundation for further study and professional growth.',
+            cta: 'Explore BBA',
+         },
+         {
+            name: 'Full Stack Web Development Certification',
+            duration: '1 Year | Fast-Track Program',
+            description:
+               'Learn how modern web applications are designed, developed, and deployed. Build practical skills across frontend development, backend programming, databases, and application deployment using technologies such as React, Node.js, Next.js, PostgreSQL, and Docker.',
+            cta: 'Explore the Program',
+         },
+      ],
+   },
+
+   gallery: {
+      heading: 'Life at Ednora',
+      introduction:
+         'Learning happens in many places, from classrooms and computer labs to collaborative projects and campus events. Explore moments that reflect student creativity, teamwork, academic activities, and the experiences that make campus life meaningful.',
+   },
+
+   testimonials: {
+      heading: 'Experiences That Inspire Us',
+      introduction:
+         'Every learning journey is different. Student experiences can offer a valuable perspective on the teaching, resources, and opportunities that shape life at an institution.',
+   },
+
    contactPage: {
-      title: 'Contact Ednora',
-      subtitle:
-         'Have questions regarding admissions, curriculum, or facilities? Our academic team is here to assist you.',
+      title: "Let's Start a Conversation",
+      paragraph:
+         "Have questions about admissions, academic programs, campus facilities, or student life? We're here to help. Get in touch with our team to find the information you need and take the next step in your educational journey.",
       location: 'Ednora Campus, Knowledge City, Dhanbad, Jharkhand 826001',
       email: 'info@ednora.edu',
       phone: '+91 96613 42993',
-      hours: 'Monday to Saturday: 9:00 AM – 5:30 PM',
-      principal: 'Prof. Abhishek Gupta (Dean of Academics)',
+      hours: 'Monday to Saturday, 9:00 AM – 5:30 PM',
+      cta: 'Contact Our Team',
    },
 
    authPage: {
       Login: {
-         title: 'Welcome Back to Ednora',
+         title: 'Welcome Back!',
          paragraph:
-            'Access your student portal to review coursework, view attendance, download fee receipts, and stay updated.',
+            'Continue your learning journey with Ednora. Sign in to access your student portal, review available academic information, check attendance, download fee receipts, and stay informed about important updates.',
+         button: 'Sign In',
+         supporting: "Don't have an account? Create one to get started.",
          image: '/login.png',
       },
       SignUp: {
-         title: 'Join the Ednora Community',
+         title: 'Start Your Journey with Ednora',
          paragraph:
-            'Create your student account to register for admissions, track application progress, and connect with advisors.',
+            'Take the first step toward your academic goals. Create your account to begin the registration process, follow your application progress, and connect with the team for guidance on your next steps.',
+         button: 'Create Account',
+         supporting: 'Already have an account? Sign in.',
          image: '/signup.png',
       },
+   },
+
+   footer: {
+      heading: 'Ednora — Where Knowledge Finds Its Future',
+      paragraph:
+         'Helping learners build knowledge, develop practical skills, and explore new possibilities through education, technology, and innovation.',
+      closingLine: 'Learn with purpose. Build with confidence. Grow for the future.',
    },
 };
 
