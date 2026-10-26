@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { MdLaptopMac } from 'react-icons/md';
+import { FaGithub } from 'react-icons/fa';
 
 const SocialLink = React.memo(
    ({ href = '', label, isEmail = false }) => {
@@ -116,33 +117,30 @@ const Footer = React.memo(() => {
          </div>
 
          {/* Footer Bottom Bar */}
-         <div className='w-full mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600'>
-            <p className='text-center sm:text-left'>
-               © {new Date().getFullYear()} Ednora. All rights reserved. Managed by{' '}
-               <a
-                  href='https://github.com/NexGenStudioDev/ednora-web'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  className='text-blue-600 hover:text-blue-800 font-semibold underline underline-offset-2 transition'
-               >
-                  Abhishek nexgen
-               </a>
-            </p>
+         <div className='w-full mt-10 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs'>
+            {/* Left: Branding & Copyright */}
+            <div className='flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 text-center sm:text-left text-gray-500'>
+               <p className='font-medium text-gray-700'>
+                  © {new Date().getFullYear()} Ednora
+               </p>
+               <span className='hidden sm:inline text-gray-300'>•</span>
+               <p className='text-gray-500'>
+                  Where Knowledge Finds Its Future. All rights reserved.
+               </p>
+            </div>
 
-            {/* DMCA Protection Badge */}
+            {/* Right: GitHub Logo & Managed By Link */}
             <a
-               href='https://www.dmca.com/Protection/Status.aspx?ID=638734f7-8b37-47af-b022-7b03a77295f2'
-               title='DMCA.com Protection Status'
-               className='dmca-badge transition-opacity hover:opacity-80 inline-block'
+               href='https://github.com/NexGenStudioDev/ednora-web'
                target='_blank'
                rel='noopener noreferrer'
+               className='group flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 hover:border-gray-300 text-gray-700 hover:text-black transition-all shadow-xs'
+               title='Visit GitHub repository'
             >
-               <img
-                  src='https://images.dmca.com/Badges/DMCA_badge_grn_60w.png?ID=638734f7-8b37-47af-b022-7b03a77295f2'
-                  alt='DMCA.com Protection Status'
-                  className='h-auto max-w-full'
-                  loading='lazy'
-               />
+               <FaGithub size={18} className='text-gray-900 group-hover:scale-110 transition-transform' />
+               <span className='font-medium text-xs text-gray-700'>
+                  Managed by <span className='font-semibold text-blue-600 group-hover:text-blue-700'>Abhishek nexgen</span>
+               </span>
             </a>
          </div>
       </footer>
