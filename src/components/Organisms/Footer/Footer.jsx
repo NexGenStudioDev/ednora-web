@@ -5,6 +5,8 @@ import useSocialLinks from '../../../hooks/useSocialLinks';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { MdLaptopMac } from 'react-icons/md';
+
 const SocialLink = React.memo(
    ({ href = '', label, isEmail = false }) => {
       if (!href) return null;
@@ -63,6 +65,15 @@ const Footer = React.memo(() => {
                <Link to='/status'>Check Status</Link>
                <Link to='/testimonial'>Testimonials</Link>
                <Link to='/contact'>Contact Us</Link>
+               <a
+                  href='https://sourceforge.net/projects/ednora/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-1.5 text-blue-600 hover:text-blue-800 font-medium transition'
+               >
+                  <MdLaptopMac size={16} />
+                  <span>Download Desktop App</span>
+               </a>
             </div>
 
             <div className='flex max-[599px]:w-full items-start max-[599px]:items-center justify-between flex-col gap-4 mb-4 mx-8'>

@@ -13,7 +13,7 @@ import gsap from 'gsap';
 import AdminSidebarLink from '../../../Atoms/Links/AdminSidebarLink';
 import { FaBookBookmark } from 'react-icons/fa6';
 import { PiChalkboardTeacher } from 'react-icons/pi';
-import { MdSpaceDashboard } from 'react-icons/md';
+import { MdSpaceDashboard, MdLaptopMac } from 'react-icons/md';
 import { FaUserShield } from 'react-icons/fa';
 
 const links = [
@@ -21,6 +21,11 @@ const links = [
       name: 'Go to Website',
       link: '/',
       icon: <BiHomeSmile />,
+   },
+   {
+      name: 'Desktop App (Ednora)',
+      link: 'https://sourceforge.net/projects/ednora/',
+      icon: <MdLaptopMac />,
    },
    {
       name: 'Dashboard',

@@ -120,7 +120,7 @@ const StatusPage = () => {
             <div className='flex flex-col sm:flex-row items-center gap-3'>
                <div className='w-full'>
                   <ValidateUniqueIdInput
-                     getValidationStatus={status => setValidationStatus(status)}
+                     getValidationStatus={() => {}}
                      getStudentId={id => setStudentId(id)}
                      placeholder='e.g. CIITM-2026-9842'
                      className='w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition'

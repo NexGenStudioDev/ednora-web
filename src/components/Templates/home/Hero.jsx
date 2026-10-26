@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import NoticeCard from '../../Molecules/Cards/NoticeCard';
 import Loader from '../../Molecules/Loader/Loader';
-import H3 from '../../Atoms/Heading/H3';
 import P3 from '../../Atoms/Paragraph/P3';
 import H1 from '../../Atoms/Heading/H1';
 
@@ -48,8 +47,16 @@ const Hero = React.memo(() => {
          </div>
 
          <div className='card-container absolute bottom-[3vh] right-[2vw] lg:h-full w-full sm:max-w-md lg:w-1/2 flex items-end justify-end pb-10 flex-col gap-4 -mb-20'>
-            <NoticeCard title='Download Free Call' />
-            <NoticeCard title='Apply online admission 2025-2026' />
+            <NoticeCard
+               title='Download Desktop App (Ednora)'
+               link='https://sourceforge.net/projects/ednora/'
+               buttonText='Download'
+            />
+            <NoticeCard
+               title='Apply online admission 2026-2027'
+               link='/admission'
+               buttonText='Apply Now'
+            />
          </div>
       </section>
    );

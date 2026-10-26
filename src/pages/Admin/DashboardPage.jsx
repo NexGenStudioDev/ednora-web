@@ -18,6 +18,10 @@ let QuickLinkData = [
       path: '/admin/create/Album',
       text: 'Create Album',
    },
+   {
+      path: 'https://sourceforge.net/projects/ednora/',
+      text: 'Desktop App (Ednora)',
+   },
 ];
 
 const DashboardPage = () => {
