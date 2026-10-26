@@ -75,7 +75,7 @@ const Gallery = () => {
       try {
          const link = document.createElement('a');
          link.href = url;
-         link.download = `CIITM-Gallery-Photo-${index + 1}.jpg`;
+         link.download = `Ednora-Gallery-Photo-${index + 1}.jpg`;
          link.target = '_blank';
          link.rel = 'noopener noreferrer';
          document.body.appendChild(link);
@@ -115,15 +115,13 @@ const Gallery = () => {
          <div className='max-w-7xl mx-auto mb-10 text-center'>
             <div className='inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-blue-800 text-xs font-semibold uppercase tracking-wider mb-4 border border-blue-200'>
                <MdPhotoLibrary size={16} />
-               <span>CIITM Campus Life & Moments</span>
+               <span>Ednora Campus Life & Moments</span>
             </div>
             <h1 className='text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight'>
-               Campus Visual Gallery
+               Life at Ednora
             </h1>
             <p className='mt-3 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto'>
-               Explore memorable memories, academic workshops,
-               cultural fests, sports achievements, and vibrant
-               student life at CIITM Dhanbad.
+               Learning happens in many places, from classrooms and computer labs to collaborative projects and campus events. Explore moments that reflect student creativity, teamwork, academic activities, and the experiences that make campus life meaningful.
             </p>
          </div>
 

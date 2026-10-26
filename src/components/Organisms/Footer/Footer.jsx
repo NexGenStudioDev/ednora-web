@@ -45,9 +45,8 @@ const Footer = React.memo(() => {
                   className='h-10 sm:h-12 w-auto object-contain'
                />
             </Link>
-            <p className='w-[47%] text-sm lg:text-base max-[599px]:hidden text-[#333] max-[999px]:text-center max-[999px]:pb-6'>
-               See why students love learning with us and how
-               we&apos;ve made a difference in their journeys.
+            <p className='w-[47%] text-sm lg:text-base max-[599px]:hidden text-gray-600 max-[999px]:text-center max-[999px]:pb-6 leading-relaxed'>
+               Helping learners build knowledge, develop practical skills, and explore new possibilities through education, technology, and innovation.
             </p>
          </div>
 
@@ -127,8 +126,7 @@ const Footer = React.memo(() => {
                   •
                </span>
                <p className='text-gray-500'>
-                  Where Knowledge Finds Its Future. All rights
-                  reserved.
+                  Learn with purpose. Build with confidence. Grow for the future.
                </p>
             </div>
 

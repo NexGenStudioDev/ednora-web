@@ -100,12 +100,10 @@ const Signup = () => {
                </div>
 
                <h1 className='heading text-[1.8vw] max-[999px]:text-[4.5vw] font-semibold mb-2'>
-                  Let&apos;s Go Started Together
+                  Start Your Journey with Ednora
                </h1>
-               <p className='text-[0.9vw] max-[999px]:text-[2.5vw] mb-6'>
-                  Access to this Sign Up page is limited to Admin
-                  users. To obtain Admin privileges, please reach out
-                  to the Super Admin.
+               <p className='text-[0.9vw] max-[999px]:text-[2.5vw] mb-6 text-gray-600 leading-relaxed'>
+                  Take the first step toward your academic goals. Create your account to begin the registration process, follow your application progress, and connect with the team for guidance on your next steps.
                </p>
 
                <div className='w-full flex items-center justify-between gap-7'>
@@ -154,19 +152,19 @@ const Signup = () => {
                <div className='flex w-full items-center justify-center gap-6 max-[999px]:gap-4 my-2 max-[999px]:flex-col'>
                   <button
                      onClick={e => Handle_Signup(e)}
-                     className='bg-[#333] text-white font-medium rounded-lg p-3.5 w-1/2 text-[1vw] max-[999px]:text-[3vw] max-[999px]:w-full'
+                     className='bg-[#333] hover:bg-black transition text-white font-medium rounded-lg p-3.5 w-1/2 text-[1vw] max-[999px]:text-[3vw] max-[999px]:w-full'
                   >
-                     Sign Up
+                     Create Account
                   </button>
                   <button className='bg-[#333] text-white font-medium rounded-lg p-3.5 w-1/2 text-[1vw] max-[999px]:text-[3vw] max-[999px]:w-full'>
                      <Google_Wrapper text='Sign up with Google' />
                   </button>
                </div>
 
-               <p className='mt-4 text-[0.85vw] max-[999px]:text-[2.5vw] font-semibold'>
+               <p className='mt-4 text-[0.85vw] max-[999px]:text-[2.5vw] font-semibold text-gray-600'>
                   Already have an account?{' '}
-                  <Link to='/login' className='text-[#B83D00]'>
-                     Login
+                  <Link to='/login' className='text-[#B83D00] hover:underline'>
+                     Sign in.
                   </Link>
                </p>
             </form>

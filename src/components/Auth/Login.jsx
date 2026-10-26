@@ -102,12 +102,10 @@ const Login = () => {
                </div>
                <div className='text mb-4'>
                   <h1 className='text-[1.4vw] max-[999px]:text-[4.5vw] font-semibold font-[Poppins]'>
-                     Welcome Back
+                     Welcome Back!
                   </h1>
-                  <p className='text-[1vw] max-[999px]:text-[3vw] text-gray-600'>
-                     Access your Ednora student and administrative
-                     portal to manage coursework, fee payments, and
-                     academic records.
+                  <p className='text-[1vw] max-[999px]:text-[3vw] text-gray-600 mt-1 leading-relaxed'>
+                     Continue your learning journey with Ednora. Sign in to access your student portal, review available academic information, check attendance, download fee receipts, and stay informed about important updates.
                   </p>
                </div>
 
@@ -142,24 +140,24 @@ const Login = () => {
 
                <button
                   onClick={e => Handle_Login(e)}
-                  className='bg-[#333] text-white rounded-lg p-3.5 w-full text-[1.05vw] max-[999px]:text-[3.05vw] font-semibold mb-4'
+                  className='bg-[#333] hover:bg-black transition text-white rounded-lg p-3.5 w-full text-[1.05vw] max-[999px]:text-[3.05vw] font-semibold mb-4'
                   disabled={loading}
                >
-                  {loading ? 'Logging in...' : 'Log In'}
+                  {loading ? 'Signing in...' : 'Sign In'}
                </button>
 
                <button className='bg-white border border-gray-300 rounded-lg p-2 w-full text-[1.05vw] max-[999px]:text-[3.05vw]'>
                   <Google_Wrapper text='Sign In With Google' />
                </button>
 
-               {/* <div className='w-full flex items-center justify-end'>
-                  <p className='text-[1.05vw] font-semibold mt-4 max-[999px]:text-[3.05vw]'>
-                     Registered?{' '}
-                     <Link to='/signup' className='text-[#FF6603]'>
-                        Create an Account
+               <div className='w-full flex items-center justify-center mt-4'>
+                  <p className='text-sm text-gray-600'>
+                     Don&apos;t have an account?{' '}
+                     <Link to='/signup' className='text-[#FF6603] font-semibold hover:underline'>
+                        Create one to get started.
                      </Link>
                   </p>
-               </div> */}
+               </div>
             </form>
          </div>
 

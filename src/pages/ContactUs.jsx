@@ -129,12 +129,10 @@ const ContactUs = () => {
                <span>Ednora Admissions & Student Helpdesk</span>
             </div>
             <h1 className='text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight'>
-               Get in Touch with Ednora
+               Let&apos;s Start a Conversation
             </h1>
             <p className='mt-3 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto'>
-               Have queries regarding BCA, BBA, campus life,
-               admissions, or fees? Our dedicated faculty and
-               counselors are here to guide you.
+               Have questions about courses, admissions, or learning programs? Reach out to our team through any of the channels below or leave a message through the contact form.
             </p>
          </div>
 
@@ -471,13 +469,13 @@ const ContactUs = () => {
                         />
                         <span>
                            {isSubmitting
-                              ? 'Sending Your Inquiry...'
-                              : 'Submit Inquiry'}
+                              ? 'Sending Your Message...'
+                              : 'Contact Our Team'}
                         </span>
                      </button>
 
                      <p className='text-center text-xs text-gray-400'>
-                        By submitting, you agree to allow CIITM
+                        By submitting, you agree to allow Ednora
                         counselors to contact you regarding
                         educational programs.
                      </p>

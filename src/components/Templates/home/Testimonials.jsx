@@ -53,12 +53,14 @@ const Testimonials = () => {
       <section className='w-full py-[10vh] max-[700px]:px-[5vw] px-[2vw] text-white bg-[#333] p-[2vw] flex max-[600px]:flex-col items-center overflow-hidden'>
          {/* Header */}
          <div className='left-text w-[33vw] mb-8 max-[600px]:w-full ml-[2.5vw]'>
-            <h1 className='text-[3.1vw] max-[599px]:text-[8vw] font-semibold'>
-               Transforming Lives, One Story at a Time!
+            <span className='text-xs uppercase tracking-wider text-primary font-bold'>
+               Testimonials
+            </span>
+            <h1 className='text-[3.1vw] max-[599px]:text-[8vw] font-semibold mt-1'>
+               Experiences That Inspire Us
             </h1>
-            <p className='text-[1vw] max-[599px]:text-[3.5vw] font-light mt-4 w-[65%] max-[599px]:w-full'>
-               See why students love learning with us and how we’ve
-               made a difference in their journeys.
+            <p className='text-[1vw] max-[599px]:text-[3.5vw] font-light mt-4 w-[85%] max-[599px]:w-full leading-relaxed'>
+               Every learning journey is different. Student experiences can offer a valuable perspective on the teaching, resources, and opportunities that shape life at an institution.
             </p>
          </div>
 

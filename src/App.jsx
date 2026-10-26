@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import Body from './Body';
 import {
    BrowserRouter,
@@ -8,25 +8,30 @@ import {
 } from 'react-router-dom';
 
 import ErrorPage from './components/Templates/ErrorPage';
-import About from './pages/About';
-import Landing from './pages/Home';
-
-import Album_Image from './components/Templates/album/Album_Image';
-import ContactUs from './pages/ContactUs';
-import Admission from './pages/Admission';
-import Login from './components/Auth/Login';
-import Signup from './components/Auth/Signup';
-
-import PaymentPage from './pages/PaymentPage';
-import Gallery from './components/Templates/gallery/Gallery';
-
 import Loader from './components/Molecules/Loader/Loader';
-import ViewCourseDetail from './pages/ViewCourseDetail';
-import ForgotPassword from './components/Auth/ForgotPassword';
-import ResetPassword from './components/Auth/ResetPassword';
-import StatusPage from './pages/StatusPage';
-import Testimonial from './pages/Testimonial';
-import Success from './pages/Success';
+
+// Route-based code splitting
+const Landing = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const ViewCourseDetail = lazy(() => import('./pages/ViewCourseDetail'));
+const ContactUs = lazy(() => import('./pages/ContactUs'));
+const Gallery = lazy(() => import('./components/Templates/gallery/Gallery'));
+const Admission = lazy(() => import('./pages/Admission'));
+const PaymentPage = lazy(() => import('./pages/PaymentPage'));
+const StatusPage = lazy(() => import('./pages/StatusPage'));
+const Success = lazy(() => import('./pages/Success'));
+const Testimonial = lazy(() => import('./pages/Testimonial'));
+const Album_Image = lazy(
+   () => import('./components/Templates/album/Album_Image'),
+);
+const Login = lazy(() => import('./components/Auth/Login'));
+const Signup = lazy(() => import('./components/Auth/Signup'));
+const ForgotPassword = lazy(
+   () => import('./components/Auth/ForgotPassword'),
+);
+const ResetPassword = lazy(
+   () => import('./components/Auth/ResetPassword'),
+);
 
 // ✅ Scroll Position Handler
 const ScrollRestoration = () => {
@@ -49,7 +54,7 @@ const ScrollRestoration = () => {
 
       window.addEventListener('beforeunload', handleBeforeUnload);
       return () => {
-         handleBeforeUnload(); // Save scroll before leaving
+         handleBeforeUnload();
          window.removeEventListener(
             'beforeunload',
             handleBeforeUnload,
@@ -61,21 +66,14 @@ const ScrollRestoration = () => {
 };
 
 const App = () => {
-   useEffect(() => {
-      window.onload = () => {
-         return <Loader />;
-      };
-   }, []);
-
    return (
-      <>
-         <BrowserRouter basename='/'>
-            <ScrollRestoration />
+      <BrowserRouter basename='/'>
+         <ScrollRestoration />
+         <Suspense fallback={<Loader />}>
             <Routes>
                <Route path='*' element={<ErrorPage />} />
                <Route path='/' element={<Body />}>
                   <Route path='/' element={<Landing />} />
-
                   <Route path='/about' element={<About />} />
                   <Route
                      path='/course/:id'
@@ -111,8 +109,8 @@ const App = () => {
                   />
                </Route>
             </Routes>
-         </BrowserRouter>
-      </>
+         </Suspense>
+      </BrowserRouter>
    );
 };
 

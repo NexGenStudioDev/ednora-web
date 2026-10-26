@@ -124,15 +124,13 @@ const Testimonial = () => {
             <div>
                <div className='inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-blue-800 text-xs font-semibold uppercase tracking-wider mb-3 border border-blue-200'>
                   <MdSchool size={16} />
-                  <span>Student & Alumni Voices</span>
+                  <span>Ednora Community Voices</span>
                </div>
                <h1 className='text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight'>
-                  Student Testimonials & Stories
+                  Experiences That Inspire Us
                </h1>
                <p className='mt-2 text-sm sm:text-base text-gray-600 max-w-2xl'>
-                  Discover firsthand experiences from CIITM students
-                  and alumni on our academic curriculum, mentorship,
-                  and career growth.
+                  Every learning journey is different. Student experiences can offer a valuable perspective on the teaching, resources, and opportunities that shape life at an institution.
                </p>
             </div>
 

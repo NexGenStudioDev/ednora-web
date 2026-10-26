@@ -8,63 +8,85 @@ import axios from 'axios';
 import { setCources } from '../../../store/AboutSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import frontendConfig from '../../../config/frontend.config.js';
 
 const CourseCard = memo(({ data }) => {
    return (
-      <div className='card-1 h-full w-[25%] max-[599px]:w-full px-2 py-3 border-[1px] border-black rounded-xl max-[1098px]:w-[40%]'>
+      <div className='card-1 h-full w-[25%] max-[599px]:w-full px-3 py-4 border border-gray-200 shadow-sm rounded-xl max-[1098px]:w-[40%] bg-white flex flex-col justify-between hover:shadow-md transition-shadow'>
          <div
-            className='div w-full h-[35vh] rounded-xl bg-[#d9d9d9]'
+            className='div w-full h-[32vh] rounded-xl bg-gray-100 overflow-hidden'
             style={{
-               backgroundImage: `url(${data?.imageUrl || 'https://courses.msqfon.com/wp-content/uploads/2021/03/program-bachelor-of-science-in-computer-science-1920x1080-1.jpg'})`,
+               backgroundImage: `url(${data?.imageUrl || 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80'})`,
                backgroundSize: 'cover',
                backgroundPosition: 'center',
                backgroundRepeat: 'no-repeat',
             }}
-         ></div>
-         <h1 className='py-2 text-[1.25vw] max-[599px]:text-[4.8vw] font-bold'>
-            {data?.courseName}
-         </h1>
-         <div className='flex items-center justify-between'>
-            <p className='text-[#FF0000] underline text-[1vw] max-[599px]:text-[3.5vw] font-semibold'>
-               {data?.duration}
-            </p>
+         />
+         <div className='mt-3 flex-1 flex flex-col justify-between'>
+            <h3 className='py-1 text-base md:text-lg font-bold text-gray-900 leading-snug'>
+               {data?.courseName}
+            </h3>
+            {data?.description && (
+               <p className='text-xs text-gray-600 line-clamp-2 mt-1 mb-2 font-[Poppins]'>
+                  {data.description}
+               </p>
+            )}
+            <div className='flex items-center justify-between pt-2 border-t border-gray-100 mt-2'>
+               <p className='text-primary text-xs md:text-sm font-semibold'>
+                  {data?.duration}
+               </p>
 
-            <Link to={`/course/${data?._id}`}>
-               <button className='border-[1px] text-[1vw] max-[599px]:text-[3.5vw] border-[#d7d7d7] bg-[#F9F9F9] text-[#333] py-[7px] px-[27px] rounded-lg hover:bg-[#333] hover:text-white'>
-                  View Details
-               </button>
-            </Link>
+               {data?._id ? (
+                  <Link to={`/course/${data._id}`}>
+                     <button className='text-xs font-semibold bg-gray-900 text-white py-1.5 px-3.5 rounded-lg hover:bg-primary transition-colors'>
+                        View Details
+                     </button>
+                  </Link>
+               ) : (
+                  <Link to='/contact'>
+                     <button className='text-xs font-semibold bg-gray-900 text-white py-1.5 px-3.5 rounded-lg hover:bg-primary transition-colors'>
+                        Learn More
+                     </button>
+                  </Link>
+               )}
+            </div>
          </div>
       </div>
    );
 });
 
 const Courses = () => {
-   let [Error, setError] = useState(null);
-   let [courseData, setCourseData] = useState([]);
-   let dispatch = useDispatch();
+   const [Error, setError] = useState(null);
+   const [courseData, setCourseData] = useState([]);
+   const dispatch = useDispatch();
 
-   let courseSlice = useSelector(state => state.about.courses);
+   const courseSlice = useSelector(state => state.about.courses);
 
-   let fetchAllCourse = async () => {
+   const defaultPrograms =
+      frontendConfig.aboutPage?.academicPrograms?.programs || [];
+   const heading =
+      frontendConfig.aboutPage?.academicPrograms?.heading ||
+      'Find a Learning Path That Fits Your Goals';
+   const introduction =
+      frontendConfig.aboutPage?.academicPrograms?.introduction ||
+      'Whether you want to build a foundation in computing, understand business, or develop practical web development skills, explore learning pathways designed around your interests and future ambitions.';
+
+   const fetchAllCourse = async () => {
       try {
-         let res = await axios.get('/api/v1/user/findAllCourse');
-         let data = res.data?.data;
+         const res = await axios.get('/api/v1/user/findAllCourse');
+         const data = res.data?.data;
 
-         dispatch(setCources(data || []));
-
-         setCourseData(data || []);
+         if (data && data.length > 0) {
+            dispatch(setCources(data));
+            setCourseData(data);
+         }
          setError(null);
       } catch (error) {
          console.error(
             'Error fetching courses:',
             error.response ? error.response.data : error.message,
          );
-         setError(
-            error.response
-               ? error.response.data
-               : 'An unexpected error occurred',
-         );
+         // Keep existing or fallback
       }
    };
 
@@ -78,85 +100,69 @@ const Courses = () => {
       }
    }, [courseSlice]);
 
+   // Merge with fallback programs if backend has no courses yet
+   const displayCourses =
+      courseData.length > 0
+         ? courseData.map(data => ({
+              courseName: data?.courseName || 'Course Name',
+              duration: data?.courseDuration || 'Full Time',
+              imageUrl: data?.courseThumbnail || '',
+              _id: data?._id || '',
+              price: data?.coursePrice || '',
+              description: data?.courseDescription || '',
+           }))
+         : defaultPrograms.map(prog => ({
+              courseName: prog.title,
+              duration: prog.duration,
+              imageUrl: '',
+              _id: '',
+              price: '',
+              description: prog.description,
+           }));
+
    return (
-      <Suspense
-         fallback={
-            <div className='text-green-700'>
-               Fetching Course From Data Base
-            </div>
-         }
-      >
-         <section className='w-full px-10 py-20 max-[599px]:py-10 flex items-center justify-between flex-col gap-4'>
-            <div className='title text-[#333] text-[3.5vw] max-[599px]:text-[10vw] font-bold font-[Montserrat]'>
-               Our Courses
-            </div>
-
-            <p className='text text-[1vw] max-[599px]:text-[3vw] font-[Poppins] w-[40%] max-[599px]:w-[90%] text-center pb-8'>
-               We have a group of eminent Faculty members with great
-               personality and excellence in their specific domains.
-            </p>
-
-            <div className='cards w-full flex items-center justify-center max-[599px]:flex-col gap-4 max-[599px]:hidden max-[1103px]:flex-wrap'>
-               {Error ? (
-                  <p className='text-red-500'>{Error}</p>
-               ) : (
-                  courseData.map((data, index) => (
-                     <CourseCard
-                        key={index}
-                        data={{
-                           courseName:
-                              data?.courseName || 'Course Name',
-                           duration:
-                              data?.courseDuration ||
-                              'Course Duration',
-                           imageUrl: data?.courseThumbnail || '',
-                           _id: data?._id || '',
-                           price: data?.coursePrice || 'Course Price',
-                        }}
-                     />
-                  ))
-               )}
+      <Suspense fallback={<div className='p-8 text-center text-gray-500'>Loading Courses...</div>}>
+         <section
+            id='courses'
+            className='w-full px-6 lg:px-14 py-16 flex items-center justify-between flex-col gap-4 font-[Montserrat] bg-gray-50'
+         >
+            <div className='text-center max-w-2xl'>
+               <span className='text-xs uppercase tracking-wider text-primary font-bold'>
+                  Academic Programs
+               </span>
+               <h2 className='text-2xl lg:text-4xl font-bold text-gray-900 mt-2 mb-3'>
+                  {heading}
+               </h2>
+               <p className='text-gray-600 text-sm md:text-base leading-relaxed font-[Poppins]'>
+                  {introduction}
+               </p>
             </div>
 
-            <div className='w-full h-full hidden max-[599px]:block py-5'>
+            <div className='cards w-full flex items-stretch justify-center max-[599px]:flex-col gap-6 max-[599px]:hidden max-[1103px]:flex-wrap mt-4'>
+               {displayCourses.map((data, index) => (
+                  <CourseCard key={index} data={data} />
+               ))}
+            </div>
+
+            <div className='w-full h-full hidden max-[599px]:block py-4'>
                <Swiper
-                  spaceBetween={30}
+                  spaceBetween={20}
                   centeredSlides
                   autoplay={{
                      delay: 5000,
                      disableOnInteraction: true,
                   }}
-                  loop
+                  loop={displayCourses.length > 1}
                   modules={[Autoplay]}
                   className='mySwiper'
                >
-                  {Error ? (
-                     <p className='text-red-500'>{Error}</p>
-                  ) : (
-                     courseData.map((data, index) => (
-                        <SwiperSlide key={index}>
-                           <div className='w-full h-full flex items-center justify-center'>
-                              <CourseCard
-                                 key={index}
-                                 data={{
-                                    courseName:
-                                       data?.courseName ||
-                                       'Course Name',
-                                    duration:
-                                       data?.courseDuration ||
-                                       'Course Duration',
-                                    imageUrl:
-                                       data?.courseThumbnail || '',
-                                    _id: data?._id || '',
-                                    price:
-                                       data?.coursePrice ||
-                                       'Course Price',
-                                 }}
-                              />
-                           </div>
-                        </SwiperSlide>
-                     ))
-                  )}
+                  {displayCourses.map((data, index) => (
+                     <SwiperSlide key={index}>
+                        <div className='w-full h-full flex items-center justify-center p-2'>
+                           <CourseCard data={data} />
+                        </div>
+                     </SwiperSlide>
+                  ))}
                </Swiper>
             </div>
          </section>
