@@ -58,7 +58,7 @@ const Footer = React.memo(() => {
                <Link to='/'>Home</Link>
                <Link to='/about'>About Us</Link>
                <Link to='/gallery'>Gallery</Link>
-               <Link to='/students'>Student</Link>
+               <Link to='/admission'>Admissions</Link>
                <Link to='/contact'>Contact Us</Link>
             </div>
 

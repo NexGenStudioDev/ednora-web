@@ -61,15 +61,14 @@ const Login = () => {
 
          dispatch(setUser(user));
 
-         let Check_Role = user.role;
-
-         if (Check_Role === 'student') {
-            navigate('/student/Dashboard');
-         } else if (Check_Role === 'admin') {
-            navigate('/admin/DashBoard');
-         } else {
-            throw new Error('Invalid Role');
-         }
+         Swal.fire({
+            icon: 'success',
+            title: 'Logged in successfully',
+            text: 'All administrative and student portal features are accessible via the Ednora Desktop App.',
+            timer: 2000,
+            showConfirmButton: false,
+         });
+         navigate('/');
       } catch (error) {
          Swal.fire({
             icon: 'error',

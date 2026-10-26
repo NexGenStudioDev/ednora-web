@@ -8,10 +8,9 @@ import Image_Slice from './ImageSlice';
 import MenuSlice from './MenuSlice';
 import SocialLinkSlice from './SocialLinkSlice';
 import PaymentSlice from './PaymentSlice';
-import AdminUiSlice from './AdminUi';
 import InputSlice from './InputSlice';
 import NavigatorSlice from './NavigatorSlice';
-import testimonialsSlice from './Testimonials.slice'
+import testimonialsSlice from './Testimonials.slice';
 
 export const appStore = configureStore({
    reducer: {
@@ -24,7 +23,6 @@ export const appStore = configureStore({
       auth: authSlice,
       socialLink: SocialLinkSlice,
       Payment: PaymentSlice,
-      AdminUi: AdminUiSlice,
       Input: InputSlice,
       Navigator: NavigatorSlice,
       testimonials: testimonialsSlice,

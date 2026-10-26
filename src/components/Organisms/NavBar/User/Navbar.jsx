@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoMenu, IoClose, IoChevronDown } from 'react-icons/io5';
-import { FaUserCircle } from 'react-icons/fa'; // 👈 Profile icon
 import { MdLaptopMac, MdOpenInNew } from 'react-icons/md';
 import gsap from 'gsap';
 import logo from '../../../../assets/images/logo.png';
@@ -53,7 +52,7 @@ const Navbar = () => {
       { to: '/', label: 'Home' },
       { to: '/about', label: 'About Us' },
       { to: '/gallery', label: 'Gallery' },
-      { to: '/students', label: 'Students', dropdown: true },
+      { to: '#students', label: 'Admissions', dropdown: true },
       { to: '/contact', label: 'Contact Us' },
    ];
 
@@ -90,6 +89,13 @@ const Navbar = () => {
                      {isDropdownOpen && (
                         <div className='absolute bg-white text-black shadow rounded w-40'>
                            <NavLink
+                              to='/admission'
+                              onClick={() => setIsMenuOpen(false)}
+                              className='block px-4 py-2 hover:bg-gray-100 transition'
+                           >
+                              Admission
+                           </NavLink>
+                           <NavLink
                               to='/status'
                               onClick={() => setIsMenuOpen(false)}
                               className='block px-4 py-2 hover:bg-gray-100 transition'
@@ -110,29 +116,19 @@ const Navbar = () => {
             )}
 
             {/* Desktop App Download Button for Mobile */}
-            {user?.role !== 'admin' ? (
-               <div className='flex flex-col gap-4 w-full px-8'>
-                  <a
-                     href='https://sourceforge.net/projects/ednora/'
-                     target='_blank'
-                     rel='noopener noreferrer'
-                     onClick={() => setIsMenuOpen(false)}
-                     className='w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg text-center font-medium shadow-md transition'
-                  >
-                     <MdLaptopMac size={20} />
-                     <span>Download Desktop App</span>
-                     <MdOpenInNew size={16} className='opacity-80' />
-                  </a>
-               </div>
-            ) : (
-               <NavLink
-                  to='/admin/DashBoard'
+            <div className='flex flex-col gap-4 w-full px-8'>
+               <a
+                  href='https://sourceforge.net/projects/ednora/'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   onClick={() => setIsMenuOpen(false)}
-                  className='flex items-center justify-center mt-4'
+                  className='w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-lg text-center font-medium shadow-md transition'
                >
-                  <FaUserCircle size={28} className='text-white' />
-               </NavLink>
-            )}
+                  <MdLaptopMac size={20} />
+                  <span>Download Desktop App</span>
+                  <MdOpenInNew size={16} className='opacity-80' />
+               </a>
+            </div>
          </div>
 
          {/* Main Navbar */}
@@ -196,25 +192,16 @@ const Navbar = () => {
             </div>
 
             <div className='hidden md:flex gap-3 items-center'>
-               {user?.role !== 'admin' ? (
-                  <a
-                     href='https://sourceforge.net/projects/ednora/'
-                     target='_blank'
-                     rel='noopener noreferrer'
-                     className='flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-medium rounded-lg shadow-sm hover:shadow transition-all'
-                  >
-                     <MdLaptopMac size={18} />
-                     <span>Download Desktop App</span>
-                     <MdOpenInNew size={14} className='opacity-80' />
-                  </a>
-               ) : (
-                  <NavLink to='/admin/DashBoard'>
-                     <FaUserCircle
-                        size={28}
-                        className='text-[#333]'
-                     />
-                  </NavLink>
-               )}
+               <a
+                  href='https://sourceforge.net/projects/ednora/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-medium rounded-lg shadow-sm hover:shadow transition-all'
+               >
+                  <MdLaptopMac size={18} />
+                  <span>Download Desktop App</span>
+                  <MdOpenInNew size={14} className='opacity-80' />
+               </a>
             </div>
 
             <button
