@@ -1,4 +1,4 @@
-import React, { memo, Suspense, useState } from 'react';
+import React, { memo, Suspense, useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
@@ -68,13 +68,15 @@ const Courses = () => {
       }
    };
 
-   useState(() => {
+   useEffect(() => {
+      fetchAllCourse();
+   }, []);
+
+   useEffect(() => {
       if (courseSlice && courseSlice.length > 0) {
          setCourseData(courseSlice);
-      } else {
-         fetchAllCourse();
       }
-   }, [courseData]);
+   }, [courseSlice]);
 
    return (
       <Suspense

@@ -84,22 +84,24 @@ const Album = () => {
             )}
          </div>
 
-         <div className='bg-red-600 h-[63vh] w-full md:w-[35vw] mr-[1vw] md:mr-[2vw] rounded-lg relative'>
-            <AlbumPrimaryCard
-               image={albums[albums.length - 1]?.aImage_url}
-               title={albums[albums.length - 1]?.aName}
-               date={albums[albums.length - 1]?.createdAt}
-               isAdmin={userRole === 'admin'}
-               onClickViewUrl={`/album/${albums[albums.length - 1]?.aName}`}
-               onClickDelete={e =>
-                  handleAlbumDelete(e, albums[albums.length - 1])
-               }
-               containerClass='flex h-full w-full rounded-lg overflow-hidden relative bg-red-600 relative'
-               imageClass='h-full w-full object-cover object-top'
-               titleClass='text-[2vw] md:text-[1vw] text-white font-semibold'
-               dateClass='text-[2.3vw] md:text-[1vw] text-white'
-            />
-         </div>
+         {albums.length > 0 && (
+            <div className='h-[63vh] w-full md:w-[35vw] mr-[1vw] md:mr-[2vw] rounded-lg relative'>
+               <AlbumPrimaryCard
+                  image={albums[albums.length - 1]?.aImage_url}
+                  title={albums[albums.length - 1]?.aName}
+                  date={albums[albums.length - 1]?.createdAt}
+                  isAdmin={userRole === 'admin'}
+                  onClickViewUrl={`/album/${albums[albums.length - 1]?.aName}`}
+                  onClickDelete={e =>
+                     handleAlbumDelete(e, albums[albums.length - 1])
+                  }
+                  containerClass='flex h-full w-full rounded-lg overflow-hidden relative'
+                  imageClass='h-full w-full object-cover object-top'
+                  titleClass='text-[2vw] md:text-[1vw] text-white font-semibold'
+                  dateClass='text-[2.3vw] md:text-[1vw] text-white'
+               />
+            </div>
+         )}
       </div>
    );
 };

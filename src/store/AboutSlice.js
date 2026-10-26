@@ -2,15 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import frontendConfig from '../config/frontend.config.js';
 
 const defaultAboutPage = frontendConfig.aboutPage;
-const defaultTeachers = frontendConfig.aboutPage.Teachers;
-const defaultCourses = frontendConfig.aboutPage.Courses;
 
 const aboutSlice = createSlice({
    name: 'about',
    initialState: {
       aboutPage: defaultAboutPage,
-      teacher: defaultTeachers,
-      courses: defaultCourses,
+      teacher: [],
+      courses: [],
    },
    reducers: {
       setAboutPage: (state, action) => {

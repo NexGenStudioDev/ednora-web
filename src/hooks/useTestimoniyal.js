@@ -1,23 +1,21 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setTestimonital } from '../store/homeSlice';
 import axios from 'axios';
 import { Testimonital_EndPoint } from '../utils/constants';
 
 const useTestimonial = () => {
-   let Testimonital = useSelector(state => state.home.Testimonital);
-
    let dispatch = useDispatch();
+
    const handleTestimonial = async () => {
       try {
-         if (!Testimonital || Testimonital.length === 0) {
-            const response = await axios.get(Testimonital_EndPoint);
-            if (response.data?.data && response.data.data.length > 0) {
-               dispatch(setTestimonital(response.data.data));
-            }
+         const response = await axios.get(Testimonital_EndPoint);
+         const data = response.data?.data || response.data?.Find_Testimonial;
+         if (data && Array.isArray(data)) {
+            dispatch(setTestimonital(data));
          }
       } catch (error) {
-         console.warn('Testimonial API offline, using local configuration:', error.message);
+         console.error('Error fetching testimonials from backend API:', error.message);
       }
    };
 

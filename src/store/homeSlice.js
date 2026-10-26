@@ -2,15 +2,13 @@ import { createSlice } from '@reduxjs/toolkit';
 import frontendConfig from '../config/frontend.config.js';
 
 const defaultLandingPage = frontendConfig.landingPage;
-const defaultAlbums = frontendConfig.galleryPage.albums;
-const defaultTestimonials = frontendConfig.testimonials;
 
 const homeSlice = createSlice({
    name: 'home',
    initialState: {
       landingPage: defaultLandingPage,
-      Testimonital: defaultTestimonials,
-      Album: defaultAlbums,
+      Testimonital: [],
+      Album: [],
    },
    reducers: {
       setLandingPage: (state, action) => {
