@@ -1,11 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
+import frontendConfig from '../config/frontend.config.js';
 
 const uiSlice = createSlice({
    name: 'ui',
    initialState: {
-      landingPage: null,
-      aboutPage: null,
-      testimonials: null,
+      landingPage: frontendConfig.landingPage,
+      aboutPage: frontendConfig.aboutPage,
+      testimonials: frontendConfig.testimonials,
    },
    reducers: {
       setLandingPage: (state, action) => {

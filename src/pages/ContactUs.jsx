@@ -123,10 +123,10 @@ const ContactUs = () => {
          <div className='max-w-7xl mx-auto mb-12 text-center'>
             <div className='inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-blue-800 text-xs font-semibold uppercase tracking-wider mb-4 border border-blue-200'>
                <MdSchool size={16} />
-               <span>CIITM Admissions & Student Helpdesk</span>
+               <span>Ednora Admissions & Student Helpdesk</span>
             </div>
             <h1 className='text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight'>
-               Get in Touch with CIITM
+               Get in Touch with Ednora
             </h1>
             <p className='mt-3 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto'>
                Have queries regarding BCA, BBA, campus life, admissions, or fees? Our dedicated faculty and counselors are here to guide you.
@@ -142,10 +142,10 @@ const ContactUs = () => {
                   <div className='absolute -right-8 -bottom-8 w-40 h-40 bg-blue-50 rounded-full blur-2xl pointer-events-none'></div>
 
                   <h2 className='text-xl sm:text-2xl font-bold text-gray-900 mb-2'>
-                     Central Institute of Information Technology & Management
+                     Ednora Academy of Technology & Management
                   </h2>
                   <p className='text-sm text-gray-600 leading-relaxed mb-6'>
-                     Dhanbad&apos;s leading technical institution imparting quality education in computer applications, IT certifications, and management programs.
+                     Where Knowledge Finds Its Future. Premier technical institution imparting quality education in computer applications, IT certifications, and modern computing.
                   </p>
 
                   <div className='space-y-5'>
@@ -159,7 +159,7 @@ const ContactUs = () => {
                               Campus Address
                            </h3>
                            <p className='text-sm font-medium text-gray-800 mt-0.5'>
-                              CIITM Campus, Near City Center, Dhanbad, Jharkhand - 826001, India
+                              Ednora Campus, Knowledge City, Dhanbad, Jharkhand - 826001, India
                            </p>
                         </div>
                      </div>
@@ -174,12 +174,12 @@ const ContactUs = () => {
                               Direct Helplines
                            </h3>
                            <p className='text-sm font-semibold text-gray-800 mt-0.5'>
-                              <a href='tel:+919431125555' className='hover:text-blue-600 transition'>
-                                 +91 94311 25555
+                              <a href='tel:+919661342993' className='hover:text-blue-600 transition'>
+                                 +91 96613 42993
                               </a>
                            </p>
                            <p className='text-xs text-gray-500'>
-                              Admissions Line: +91 (0326) 220 1234
+                              Admissions Line: +91 98765 43210
                            </p>
                         </div>
                      </div>
@@ -194,12 +194,12 @@ const ContactUs = () => {
                               Official Emails
                            </h3>
                            <p className='text-sm font-semibold text-gray-800 mt-0.5'>
-                              <a href='mailto:info@ciitm.ac.in' className='hover:text-blue-600 transition'>
-                                 info@ciitm.ac.in
+                              <a href='mailto:info@ednora.edu' className='hover:text-blue-600 transition'>
+                                 info@ednora.edu
                               </a>
                            </p>
                            <p className='text-xs text-gray-500'>
-                              Admissions: admissions@ciitm.ac.in
+                              Admissions: admissions@ednora.edu
                            </p>
                         </div>
                      </div>
@@ -234,7 +234,7 @@ const ContactUs = () => {
                               href={socialLinks.facebook}
                               target='_blank'
                               rel='noopener noreferrer'
-                              aria-label='CIITM Facebook'
+                              aria-label='Ednora Facebook'
                               className='w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition shadow-sm'
                            >
                               <FaFacebook size={18} />
@@ -245,7 +245,7 @@ const ContactUs = () => {
                               href={socialLinks.instagram}
                               target='_blank'
                               rel='noopener noreferrer'
-                              aria-label='CIITM Instagram'
+                              aria-label='Ednora Instagram'
                               className='w-10 h-10 rounded-xl bg-pink-600 text-white flex items-center justify-center hover:bg-pink-700 transition shadow-sm'
                            >
                               <FaInstagram size={18} />
@@ -256,7 +256,7 @@ const ContactUs = () => {
                               href={socialLinks.linkedin}
                               target='_blank'
                               rel='noopener noreferrer'
-                              aria-label='CIITM LinkedIn'
+                              aria-label='Ednora LinkedIn'
                               className='w-10 h-10 rounded-xl bg-blue-800 text-white flex items-center justify-center hover:bg-blue-900 transition shadow-sm'
                            >
                               <FaLinkedin size={18} />
@@ -265,7 +265,7 @@ const ContactUs = () => {
                         {socialLinks?.email && (
                            <a
                               href={`mailto:${socialLinks.email}`}
-                              aria-label='Email CIITM'
+                              aria-label='Email Ednora'
                               className='w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center hover:bg-red-700 transition shadow-sm'
                            >
                               <MdEmail size={20} />

@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import Google_Wrapper from './Google_Wrapper';
 import Input from './Input';
 import signupImage from '../../assets/images/signup.png';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/images/logo.png';
+import { EDNORA_LOGO_URL } from '../../config/frontend.config.js';
 import Checkbox from './Checkbox';
 import { Sign_Up_EndPoint } from '../../utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
@@ -91,7 +92,11 @@ const Signup = () => {
          <div className='right w-1/2 max-[999px]:w-full h-full max-[999px]:px-6 max-[999px]:pt-[50vw] pt-32 px-16 flex flex-col items-start justify-center text-[#333]'>
             <form className='w-full h-full bg-[#FAFAFA] p-6'>
                <div className='logo mb-6'>
-                  <img src={logo} alt='CIITM Logo' className='h-8' />
+                  <img
+                     src={logo || EDNORA_LOGO_URL}
+                     alt='Ednora Logo'
+                     className='h-8 w-auto object-contain'
+                  />
                </div>
 
                <h1 className='heading text-[1.8vw] max-[999px]:text-[4.5vw] font-semibold mb-2'>

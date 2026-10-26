@@ -1,4 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import frontendConfig from '../config/frontend.config.js';
+
+const defaultAboutPage = frontendConfig.aboutPage;
+const defaultTeachers = frontendConfig.aboutPage.Teachers;
+const defaultCourses = frontendConfig.aboutPage.Courses;
 
 const defaultAboutPage = {
    AboutHero: {

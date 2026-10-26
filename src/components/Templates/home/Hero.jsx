@@ -4,13 +4,13 @@ import NoticeCard from '../../Molecules/Cards/NoticeCard';
 import Loader from '../../Molecules/Loader/Loader';
 import P3 from '../../Atoms/Paragraph/P3';
 import H1 from '../../Atoms/Heading/H1';
+import frontendConfig from '../../../config/frontend.config.js';
 
 const Hero = React.memo(() => {
-   const [image, setImage] = useState('');
-   const [heading, setHeading] = useState('');
-   const [paragraph, setParagraph] = useState(
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, nemo.',
-   );
+   const defaultHero = frontendConfig.landingPage.HeroSection;
+   const [image, setImage] = useState(defaultHero.homeBackgroundImage);
+   const [heading, setHeading] = useState(defaultHero.homeTitle);
+   const [paragraph, setParagraph] = useState(defaultHero.homeParagraph);
 
    const hero = useSelector(state => state.home.landingPage);
 
@@ -18,14 +18,11 @@ const Hero = React.memo(() => {
       if (hero?.HeroSection) {
          const { homeBackgroundImage, homeTitle, homeParagraph } =
             hero.HeroSection;
-         setImage(homeBackgroundImage || '');
-         setHeading(homeTitle || '');
-         setParagraph(
-            homeParagraph ||
-               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, nemo.',
-         );
+         setImage(homeBackgroundImage || defaultHero.homeBackgroundImage);
+         setHeading(homeTitle || defaultHero.homeTitle);
+         setParagraph(homeParagraph || defaultHero.homeParagraph);
       }
-   }, [hero]);
+   }, [hero, defaultHero]);
 
    if (!hero) return <Loader />;
 
@@ -33,7 +30,7 @@ const Hero = React.memo(() => {
       <section
          className='w-full min-h-screen flex flex-col lg:flex-row items-center justify-center text-white bg-cover bg-no-repeat px-10 relative overflow-clip'
          style={{
-            backgroundImage: `url(${image || 'defaultBackgroundImage.jpg'})`,
+            backgroundImage: `url(${image || '/Home_bg.webp'})`,
          }}
       >
          <div className='text w-full lg:w-1/2 h-full flex items-start justify-center lg:justify-center flex-col gap-3 absolute left-[3vw]'>

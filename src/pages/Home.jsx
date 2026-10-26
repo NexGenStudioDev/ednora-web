@@ -21,12 +21,11 @@ function Home() {
    return (
       <>
          <title>
-            Top BCA Colleges In Dhanbad | BCA Course In Dhanbad –
-            CIITM
+            Ednora — Where Knowledge Finds Its Future | Top Computing & IT Academy
          </title>
          <meta
             name='description'
-            content="Top BCA Colleges In Dhanbad: List of BCA Colleges offering Bachelor's Degree in Dhanbad, along with course duration, course fees, and other important details."
+            content="Ednora — Where Knowledge Finds Its Future. Premier technical academy offering BCA, BBA, Full-Stack Web Development, hands-on computing labs, and comprehensive placement assistance."
          />
 
          <Hero />

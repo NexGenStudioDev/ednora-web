@@ -1,22 +1,24 @@
 import React, { useEffect, useState, memo, Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import Loader from '../../Molecules/Loader/Loader';
+import frontendConfig from '../../../config/frontend.config.js';
 
 const AboutHero = () => {
-   const [image, setImage] = useState('');
-   const [para, setPara] = useState('');
-   const [heading, setHeading] = useState('');
+   const defaultAboutHero = frontendConfig.aboutPage.AboutHero;
+   const [image, setImage] = useState(defaultAboutHero.image);
+   const [para, setPara] = useState(defaultAboutHero.paragraph);
+   const [heading, setHeading] = useState(defaultAboutHero.Heading);
 
    const about = useSelector(state => state.about.aboutPage);
 
    useEffect(() => {
       if (about?.AboutHero) {
          const { image, paragraph, Heading } = about.AboutHero;
-         setImage(image || '');
-         setPara(paragraph || '');
-         setHeading(Heading || '');
+         setImage(image || defaultAboutHero.image);
+         setPara(paragraph || defaultAboutHero.paragraph);
+         setHeading(Heading || defaultAboutHero.Heading);
       }
-   }, [about]);
+   }, [about, defaultAboutHero]);
 
    if (!about) return <Loader />;
 

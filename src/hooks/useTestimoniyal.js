@@ -10,17 +10,14 @@ const useTestimonial = () => {
    let dispatch = useDispatch();
    const handleTestimonial = async () => {
       try {
-         if (!Testimonital) {
+         if (!Testimonital || Testimonital.length === 0) {
             const response = await axios.get(Testimonital_EndPoint);
-            console.log(
-               'Testimonial data fetched:',
-               response.data.data,
-            );
-            dispatch(setTestimonital(response.data.data));
+            if (response.data?.data && response.data.data.length > 0) {
+               dispatch(setTestimonital(response.data.data));
+            }
          }
-         // setTestimonials(data)
       } catch (error) {
-         console.log(error);
+         console.warn('Testimonial API offline, using local configuration:', error.message);
       }
    };
 

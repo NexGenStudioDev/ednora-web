@@ -21,8 +21,11 @@ const About = () => {
 
    return (
       <>
-         <title>About - CIITM Dhanbad</title>
-         <meta name='description' content='About My Website' />
+         <title>About Us — Ednora | Where Knowledge Finds Its Future</title>
+         <meta
+            name='description'
+            content='Learn about Ednora, our history, mission, modern computing facilities, and dedicated faculty preparing students for technical excellence.'
+         />
 
          <AboutHero />
          <History />

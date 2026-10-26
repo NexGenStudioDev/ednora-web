@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../../assets/images/ciitmLogo.png';
+import logo from '../../../assets/images/logo.png';
+import { EDNORA_LOGO_URL } from '../../../config/frontend.config.js';
 import useSocialLinks from '../../../hooks/useSocialLinks';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -37,7 +38,11 @@ const Footer = React.memo(() => {
       <footer className='relative w-full flex items-center justify-between px-4 md:p-10 max-[999px]:flex-col'>
          <div className='left w-[50%] max-[599px]:pb-10 max-[999px]:w-full flex items-start max-[999px]:items-center justify-center flex-col gap-4'>
             <Link to='/'>
-               <img src={logo} alt='Logo' />
+               <img
+                  src={logo || EDNORA_LOGO_URL}
+                  alt='Ednora Logo'
+                  className='h-10 sm:h-12 w-auto object-contain'
+               />
             </Link>
             <p className='w-[47%] text-sm lg:text-base max-[599px]:hidden text-[#333] max-[999px]:text-center max-[999px]:pb-6'>
                See why students love learning with us and how

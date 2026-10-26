@@ -2,20 +2,23 @@ import { useState, useEffect, memo } from 'react';
 import { useSelector } from 'react-redux';
 import P4 from '../../Atoms/Paragraph/P4';
 import H5 from '../../Atoms/Heading/H5';
+import frontendConfig from '../../../config/frontend.config.js';
 
 const Skills = () => {
-   const [goals, setGoals] = useState(null);
+   const defaultGoals = frontendConfig.landingPage.Mission_and_Goals;
+   const [goals, setGoals] = useState(defaultGoals);
    const [error, setError] = useState(false);
    const data = useSelector(state => state.home.landingPage);
 
    useEffect(() => {
-      if (!data?.Mission_and_Goals) {
-         setError(true);
-      } else {
+      if (data?.Mission_and_Goals && data.Mission_and_Goals.length > 0) {
          setGoals(data.Mission_and_Goals);
          setError(false);
+      } else {
+         setGoals(defaultGoals);
+         setError(false);
       }
-   }, [data]);
+   }, [data, defaultGoals]);
 
    if (error) {
       return (

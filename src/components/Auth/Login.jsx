@@ -4,7 +4,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import Google_Wrapper from './Google_Wrapper';
 import Input from './Input';
 import loginImage from '../../assets/images/login.png';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/images/logo.png';
+import { EDNORA_LOGO_URL } from '../../config/frontend.config.js';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import Checkbox from './Checkbox';
@@ -94,15 +95,18 @@ const Login = () => {
                )}
 
                <div className='logo mb-6'>
-                  <img src={logo} alt='CIITM Logo' className='h-8' />
+                  <img
+                     src={logo || EDNORA_LOGO_URL}
+                     alt='Ednora Logo'
+                     className='h-8 w-auto object-contain'
+                  />
                </div>
                <div className='text mb-4'>
                   <h1 className='text-[1.4vw] max-[999px]:text-[4.5vw] font-semibold font-[Poppins]'>
                      Welcome Back
                   </h1>
-                  <p className='text-[1vw] max-[999px]:text-[3vw]'>
-                     Allows you to pay online at all applications and
-                     website that accepts MasterCard cards
+                  <p className='text-[1vw] max-[999px]:text-[3vw] text-gray-600'>
+                     Access your Ednora student and administrative portal to manage coursework, fee payments, and academic records.
                   </p>
                </div>
 

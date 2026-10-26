@@ -1,4 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import frontendConfig from '../config/frontend.config.js';
+
+const defaultLandingPage = frontendConfig.landingPage;
+const defaultAlbums = frontendConfig.galleryPage.albums;
+const defaultTestimonials = frontendConfig.testimonials;
 
 const defaultLandingPage = {
    HeroSection: {

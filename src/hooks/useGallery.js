@@ -13,12 +13,12 @@ export let useGallery = () => {
             let res = await axios.get('/api/v1/user/get/All/Image');
 
             let data = res.data.data;
-
-            dispatch(set_Gallery([...data]));
+            if (data && data.length > 0) {
+               dispatch(set_Gallery([...data]));
+            }
          }
       } catch (error) {
-         console.error(error);
-         throw new Error(error.message);
+         console.warn('Gallery API offline, using local configuration:', error.message);
       }
    };
 

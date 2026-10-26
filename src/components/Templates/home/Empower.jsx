@@ -4,18 +4,20 @@ import arrow from '../../../assets/images/arrow.png';
 import H2 from '../../Atoms/Heading/H2';
 import H4 from '../../Atoms/Heading/H4';
 import P4 from '../../Atoms/Paragraph/P4';
+import frontendConfig from '../../../config/frontend.config.js';
 
 const Empower = () => {
+   const defaultAbout = frontendConfig.landingPage.AboutSection;
    const [images, setImages] = useState({
-      image1: null,
-      image2: null,
-      image3: null,
+      image1: defaultAbout.image_First,
+      image2: defaultAbout.image_Second,
+      image3: defaultAbout.image_Third,
    });
    const [textContent, setTextContent] = useState({
-      headingFirst: '',
-      headingSecond: '',
-      paragraphFirst: '',
-      paragraphSecond: '',
+      headingFirst: defaultAbout.Heading_First,
+      headingSecond: defaultAbout.Heading_Second,
+      paragraphFirst: defaultAbout.paragraph_First,
+      paragraphSecond: defaultAbout.paragraph_Second,
    });
 
    const about = useSelector(state => state.home.landingPage);
@@ -33,19 +35,19 @@ const Empower = () => {
          } = about.AboutSection;
 
          setImages({
-            image1: image_First || null,
-            image2: image_Second || null,
-            image3: image_Third || null,
+            image1: image_First || defaultAbout.image_First,
+            image2: image_Second || defaultAbout.image_Second,
+            image3: image_Third || defaultAbout.image_Third,
          });
 
          setTextContent({
-            headingFirst: Heading_First || '',
-            headingSecond: Heading_Second || '',
-            paragraphFirst: paragraph_First || '',
-            paragraphSecond: paragraph_Second || '',
+            headingFirst: Heading_First || defaultAbout.Heading_First,
+            headingSecond: Heading_Second || defaultAbout.Heading_Second,
+            paragraphFirst: paragraph_First || defaultAbout.paragraph_First,
+            paragraphSecond: paragraph_Second || defaultAbout.paragraph_Second,
          });
       }
-   }, [about]);
+   }, [about, defaultAbout]);
 
    const { image1, image2, image3 } = images;
    const {

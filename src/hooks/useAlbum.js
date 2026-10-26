@@ -12,14 +12,16 @@ const useAlbum = () => {
 
    const Handle_Album = async () => {
       try {
-         if (!Album) {
+         if (!Album || Album.length === 0) {
             const response = await axios.get(Album_EndPoint);
 
-            let data = response.data.data;
-            dispatch(setAlbum(data));
+            let data = response.data?.data;
+            if (data && data.length > 0) {
+               dispatch(setAlbum(data));
+            }
          }
       } catch (error) {
-         console.error(error.message);
+         console.warn('Album API offline, using local configuration:', error.message);
       }
    };
 

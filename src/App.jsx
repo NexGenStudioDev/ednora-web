@@ -19,34 +19,15 @@ import Signup from './components/Auth/Signup';
 
 import PaymentPage from './pages/PaymentPage';
 import Gallery from './components/Templates/gallery/Gallery';
-import Protected_Admin from './components/Protected/Protected_Admin';
+
 import Loader from './components/Molecules/Loader/Loader';
-import DashboardPage from './pages/Admin/DashboardPage';
-import ContactPage from './pages/Admin/ContactPage';
-import ViewContactPage from './pages/Admin/ViewContactPage';
-import ProfilePage from './pages/Admin/ProfilePage';
-import ImagePage from './pages/Admin/ImagePage';
-import StudentPage from './pages/Admin/StudentPage';
-import StudentViewPage from './pages/Admin/StudentViewPage';
-import AlbumPage from './pages/Admin/AlbumPage';
-import FeePay from './pages/Admin/FeePay';
-import CreateCourse from './pages/Admin/CreateCourse';
-import UpdateStatus from './pages/Admin/UpdateStatus';
 import ViewCourseDetail from './pages/ViewCourseDetail';
 import ForgotPassword from './components/Auth/ForgotPassword';
 import ResetPassword from './components/Auth/ResetPassword';
 import StatusPage from './pages/StatusPage';
-import Earning from './pages/Admin/Earning';
-import ViewBill from './pages/Admin/ViewBill';
-import StudentGroup from './pages/Student/StudentGroup';
-import Protected_Student from './components/Protected/Protected_Student';
 import Testimonial from './pages/Testimonial';
-import CreateTeacherPage from './pages/Admin/CreateTeacherPage';
-import AdminRoleManagement from './pages/Admin/AdminRoleManagement';
 import Success from './pages/Success';
-import Wallet from './pages/Student/Wallet';
-import FeeView from './pages/Student/FeeView';
-import StudentBill from './pages/Student/StudentBill';
+
 
 // ✅ Scroll Position Handler
 const ScrollRestoration = () => {
@@ -131,107 +112,8 @@ const App = () => {
                   />
                </Route>
 
-               <Route path='/admin' element={<Protected_Admin />}>
-                  <Route
-                     path='/admin/create-teacher'
-                     element={<CreateTeacherPage />}
-                  />
-
-                  <Route
-                     path='/admin/DashBoard'
-                     element={<DashboardPage />}
-                  />
-
-                  <Route
-                     path='/admin/Contact'
-                     element={<ContactPage />}
-                  />
-
-                  <Route
-                     path='/admin/Student/Earning'
-                     element={<Earning />}
-                  />
-
-                  <Route
-                     path='/admin/Student/bill/:Payment_id'
-                     element={<ViewBill />}
-                  />
-                  <Route
-                     path='/admin/Create/Contact'
-                     element={<CreateCourse />}
-                  />
-
-                  <Route
-                     path='/admin/Contact/:contactId'
-                     element={<ViewContactPage />}
-                  />
-
-                  <Route
-                     path='/admin/Profile'
-                     element={<ProfilePage />}
-                  />
-
-                  <Route
-                     path='/admin/Students'
-                     element={<StudentPage />}
-                  />
-
-                  <Route
-                     path='/admin/view/student/:studentId'
-                     element={<StudentViewPage />}
-                  />
-
-                  <Route
-                     path='/admin/create/image'
-                     element={<ImagePage />}
-                  />
-
-                  <Route
-                     path='/admin/create/Album'
-                     element={<AlbumPage />}
-                  />
-
-                  <Route
-                     path='/admin/student/pay/fee'
-                     element={<FeePay />}
-                  />
-
-                  <Route
-                     path='/admin/update/status'
-                     element={<UpdateStatus />}
-                  />
-
-                  <Route
-                     path='/admin/role-management'
-                     element={<AdminRoleManagement />}
-                  />
-
-                  <Route path='*' element={<ErrorPage />} />
-               </Route>
-
-               <Route path='/student' element={<Protected_Student />}>
-                  <Route
-                     path='/student/Dashboard'
-                     element={<StudentGroup />}
-                  />
-                  <Route
-                     path='/student/Group'
-                     element={<StudentGroup />}
-                  />
-                  {/* wallet/admission-fee */}
-                  <Route
-                     path='/student/Wallet'
-                     element={<Wallet />}
-                  />
-                  <Route
-                     path='/student/wallet/:FeeTypeName'
-                     element={<FeeView />}
-                  />
-                  <Route
-                     path='/student/fee/view/:BillId'
-                     element={<StudentBill />}
-                  />
-               </Route>
+            
+      
             </Routes>
          </BrowserRouter>
       </>

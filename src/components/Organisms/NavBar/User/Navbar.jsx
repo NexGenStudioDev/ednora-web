@@ -4,7 +4,8 @@ import { IoMenu, IoClose, IoChevronDown } from 'react-icons/io5';
 import { FaUserCircle } from 'react-icons/fa'; // 👈 Profile icon
 import { MdLaptopMac, MdOpenInNew } from 'react-icons/md';
 import gsap from 'gsap';
-import logo from '../../../../assets/images/ciitmLogo.png';
+import logo from '../../../../assets/images/logo.png';
+import { EDNORA_LOGO_URL } from '../../../../config/frontend.config.js';
 import { useSelector } from 'react-redux';
 
 const Navbar = () => {
@@ -137,7 +138,11 @@ const Navbar = () => {
          {/* Main Navbar */}
          <nav className='fixed top-0 left-0 w-full px-10 py-3 bg-white flex justify-between items-center z-50 shadow-md'>
             <NavLink to='/'>
-               <img src={logo} alt='Logo' />
+               <img
+                  src={logo || EDNORA_LOGO_URL}
+                  alt='Ednora Logo'
+                  className='h-10 sm:h-12 w-auto object-contain'
+               />
             </NavLink>
 
             <div className='hidden md:flex gap-6'>

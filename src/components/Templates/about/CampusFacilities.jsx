@@ -1,6 +1,7 @@
 import { useEffect, useState, memo } from 'react';
 import { useSelector } from 'react-redux';
 import bulletPoint from '../../../assets/images/bulletPoint.svg';
+import frontendConfig from '../../../config/frontend.config.js';
 
 const FacilitiesCard = memo(({ title, index, isActive, onClick }) => {
    return (
@@ -23,19 +24,26 @@ const FacilitiesCard = memo(({ title, index, isActive, onClick }) => {
 });
 
 const CampusFacilities = () => {
-   const [facilities, setFacilities] = useState([]);
-   const [description, setDescription] = useState({});
-   const [activeTab, setActiveTab] = useState(null);
+   const defaultFacilities = frontendConfig.aboutPage.Facilities;
+   const defaultDesc = frontendConfig.aboutPage.Description;
+
+   const [facilities, setFacilities] = useState(defaultFacilities);
+   const [description, setDescription] = useState(defaultDesc);
+   const [activeTab, setActiveTab] = useState(defaultFacilities[0]);
 
    const aboutPage = useSelector(state => state.about.aboutPage);
 
    useEffect(() => {
       if (aboutPage?.Facilities?.length) {
          setFacilities(aboutPage.Facilities);
-         setDescription(aboutPage.Description || {});
+         setDescription(aboutPage.Description || defaultDesc);
          setActiveTab(aboutPage.Facilities[0]);
+      } else {
+         setFacilities(defaultFacilities);
+         setDescription(defaultDesc);
+         setActiveTab(defaultFacilities[0]);
       }
-   }, [aboutPage]);
+   }, [aboutPage, defaultFacilities, defaultDesc]);
 
    return (
       <section className='w-full h-full px-8 max-[599px]:px-6 py-12 bg-[#333] flex items-center justify-between gap-2 max-[599px]:gap-10 max-[599px]:flex-col'>

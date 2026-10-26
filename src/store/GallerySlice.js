@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import frontendConfig from '../config/frontend.config.js';
 
 let GallerySlice = createSlice({
    name: 'gallery',
-   initialState: [],
+   initialState: frontendConfig.galleryPage.images || [],
    reducers: {
       set_Gallery: (state, action) => {
          return action.payload; // Directly return the new state

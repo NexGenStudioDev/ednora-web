@@ -5,7 +5,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { resetPasswordSchema } from '../../validation/resetPassword.schema';
 
 import resetImage from '../../assets/images/reset.jpg';
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/images/logo.png';
+import { EDNORA_LOGO_URL } from '../../config/frontend.config.js';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
@@ -59,7 +60,11 @@ const ResetPassword = () => {
                className='w-full bg-[#FAFAFA] p-[clamp(1rem,4vw,2rem)] flex flex-col justify-center'
             >
                <div className='logo mb-[clamp(1rem,2vw,1.5rem)]'>
-                  <img src={logo} alt='CIITM Logo' className='h-8' />
+                  <img
+                     src={logo || EDNORA_LOGO_URL}
+                     alt='Ednora Logo'
+                     className='h-8 w-auto object-contain'
+                  />
                </div>
 
                <h1 className='text-[clamp(1.4rem,2vw,2rem)] font-semibold mb-[clamp(1rem,2vw,1.5rem)]'>

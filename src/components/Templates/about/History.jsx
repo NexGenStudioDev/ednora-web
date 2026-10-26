@@ -1,10 +1,14 @@
 import { useEffect, useState, memo } from 'react';
 import { useSelector } from 'react-redux';
 import useAbout from '../../../hooks/useAbout.js';
+import frontendConfig from '../../../config/frontend.config.js';
 
 const History = () => {
-   const [history, setHistory] = useState(null);
-   const [vision, setVision] = useState(null);
+   const defaultHistory = frontendConfig.aboutPage.History;
+   const defaultVision = frontendConfig.aboutPage.Vision_and_Mission;
+
+   const [history, setHistory] = useState(defaultHistory);
+   const [vision, setVision] = useState(defaultVision);
 
    const aboutPage = useSelector(state => state.about.aboutPage);
 
@@ -12,10 +16,10 @@ const History = () => {
 
    useEffect(() => {
       if (aboutPage) {
-         setHistory(aboutPage.History || {});
-         setVision(aboutPage.Vision_and_Mission || {});
+         setHistory(aboutPage.History || defaultHistory);
+         setVision(aboutPage.Vision_and_Mission || defaultVision);
       }
-   }, [aboutPage]);
+   }, [aboutPage, defaultHistory, defaultVision]);
 
    return (
       <section className='w-full px-10 max-[599px]:px-6 py-20 max-[599px]:py-4 flex items-center gap-3 justify-center max-[599px]:gap-10 font-[Montserrat] max-[599px]:flex-col'>
