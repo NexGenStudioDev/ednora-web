@@ -12,70 +12,70 @@ importers:
         specifier: ^2.10.3
         version: 2.10.3
       '@cashfreepayments/cashfree-js':
-        specifier: ^1.0.5
+        specifier: ^1.0.7
         version: 1.0.7
       '@gsap/react':
         specifier: ^2.1.2
         version: 2.1.2(gsap@3.15.0)(react@19.3.1)
       '@hookform/resolvers':
-        specifier: ^5.2.2
+        specifier: ^5.9.2
         version: 5.9.2(@standard-schema/spec@1.1.0)(react-hook-form@7.91.0(@types/react@18.3.31)(react@19.3.1))(yup@1.7.1)(zod@3.25.76)
       '@react-oauth/google':
         specifier: ^0.12.2
         version: 0.12.2(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@reduxjs/toolkit':
-        specifier: ^2.11.0
+        specifier: ^2.13.0
         version: 2.13.0(react-redux@9.3.0(@types/react@18.3.31)(react@19.3.1)(redux@5.0.1))(react@19.3.1)
       '@vitejs/plugin-react':
-        specifier: ^5.1.1
+        specifier: ^5.2.0
         version: 5.2.0(vite@6.4.5(jiti@1.21.7))
       axios:
-        specifier: ^1.13.2
+        specifier: ^1.20.0
         version: 1.20.0
       chart.js:
-        specifier: ^4.5.1
+        specifier: ^4.6.1
         version: 4.6.1
       dompurify:
-        specifier: ^3.3.0
+        specifier: ^3.4.17
         version: 3.4.17
       emoji-picker-react:
-        specifier: ^4.16.1
+        specifier: ^4.22.3
         version: 4.22.3(react@19.3.1)
       gsap:
-        specifier: ^3.13.0
+        specifier: ^3.15.0
         version: 3.15.0
       jquery:
         specifier: ^3.7.1
         version: 3.7.1
       lenis:
-        specifier: ^1.3.15
+        specifier: ^1.3.27
         version: 1.3.27(react@19.3.1)
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
       react:
-        specifier: ^19.2.0
+        specifier: ^19.3.1
         version: 19.3.1
       react-chartjs-2:
         specifier: ^5.3.1
         version: 5.3.1(chart.js@4.6.1)(react@19.3.1)
       react-dom:
-        specifier: ^19.2.0
+        specifier: ^19.3.1
         version: 19.3.1(react@19.3.1)
       react-hook-form:
-        specifier: ^7.67.0
+        specifier: ^7.91.0
         version: 7.91.0(@types/react@18.3.31)(react@19.3.1)
       react-icons:
-        specifier: ^5.5.0
+        specifier: ^5.7.0
         version: 5.7.0(react@19.3.1)
       react-razorpay:
         specifier: ^3.0.1
         version: 3.0.1(react@19.3.1)
       react-redux:
-        specifier: ^9.2.0
+        specifier: ^9.3.0
         version: 9.3.0(@types/react@18.3.31)(react@19.3.1)(redux@5.0.1)
       react-router-dom:
-        specifier: ^7.9.6
+        specifier: ^7.18.4
         version: 7.18.4(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react-slick:
         specifier: ^0.30.3
@@ -84,16 +84,16 @@ importers:
         specifier: ^0.16.1
         version: 0.16.1(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react-toastify:
-        specifier: ^11.0.5
+        specifier: ^11.1.0
         version: 11.1.0(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       slick-carousel:
         specifier: ^1.8.1
         version: 1.8.1(jquery@3.7.1)
       socket.io-client:
-        specifier: ^4.8.1
+        specifier: ^4.8.4
         version: 4.8.4
       sweetalert2:
-        specifier: ^11.26.3
+        specifier: ^11.26.25
         version: 11.26.25
       swiper:
         specifier: ^11.2.10
@@ -106,10 +106,10 @@ importers:
         version: 3.25.76
     devDependencies:
       '@eslint/js':
-        specifier: ^9.39.1
+        specifier: ^9.39.5
         version: 9.39.5
       '@types/react':
-        specifier: ^18.3.27
+        specifier: ^18.3.31
         version: 18.3.31
       '@types/react-dom':
         specifier: ^18.3.7
@@ -118,10 +118,10 @@ importers:
         specifier: ^3.11.0
         version: 3.11.0(vite@6.4.5(jiti@1.21.7))
       autoprefixer:
-        specifier: ^10.4.22
+        specifier: ^10.6.1
         version: 10.6.1(postcss@8.5.31)
       eslint:
-        specifier: ^9.39.1
+        specifier: ^9.39.5
         version: 9.39.5(jiti@1.21.7)
       eslint-plugin-react:
         specifier: ^7.37.5
@@ -130,22 +130,22 @@ importers:
         specifier: ^5.2.0
         version: 5.2.0(eslint@9.39.5(jiti@1.21.7))
       eslint-plugin-react-refresh:
-        specifier: ^0.4.24
+        specifier: ^0.4.26
         version: 0.4.26(eslint@9.39.5(jiti@1.21.7))
       globals:
         specifier: ^15.15.0
         version: 15.15.0
       postcss:
-        specifier: ^8.5.6
+        specifier: ^8.5.31
         version: 8.5.31
       prettier:
         specifier: 3.4.2
         version: 3.4.2
       tailwindcss:
-        specifier: ^3.4.18
+        specifier: ^3.4.19
         version: 3.4.19
       vite:
-        specifier: ^6.4.1
+        specifier: ^6.4.5
         version: 6.4.5(jiti@1.21.7)
 
 packages:

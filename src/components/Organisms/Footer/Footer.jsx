@@ -35,7 +35,7 @@ const Footer = React.memo(() => {
    const socialLinks = useSelector(state => state.socialLink.links);
 
    return (
-      <footer className='relative w-full flex items-center justify-between px-4 md:p-10 max-[999px]:flex-col'>
+      <footer className='relative w-full flex items-center justify-between px-4 md:p-10 max-[999px]:flex-col flex-wrap'>
          <div className='left w-[50%] max-[599px]:pb-10 max-[999px]:w-full flex items-start max-[999px]:items-center justify-center flex-col gap-4'>
             <Link to='/'>
                <img
@@ -115,12 +115,25 @@ const Footer = React.memo(() => {
             </div>
          </div>
 
-         {/* DMCA Protection Badge - No Script Version */}
-         <div className='relative min-[1000px]:absolute bottom-0 left-0 h-fit  w-full   dmca-badge-container  flex justify-center  pt-4 border-t border-gray-200'>
+         {/* Footer Bottom Bar */}
+         <div className='w-full mt-8 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600'>
+            <p className='text-center sm:text-left'>
+               © {new Date().getFullYear()} Ednora. All rights reserved. Managed by{' '}
+               <a
+                  href='https://github.com/NexGenStudioDev/ednora-web'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-blue-600 hover:text-blue-800 font-semibold underline underline-offset-2 transition'
+               >
+                  Abhishek nexgen
+               </a>
+            </p>
+
+            {/* DMCA Protection Badge */}
             <a
                href='https://www.dmca.com/Protection/Status.aspx?ID=638734f7-8b37-47af-b022-7b03a77295f2'
                title='DMCA.com Protection Status'
-               className='dmca-badge transition-opacity hover:opacity-80'
+               className='dmca-badge transition-opacity hover:opacity-80 inline-block'
                target='_blank'
                rel='noopener noreferrer'
             >
