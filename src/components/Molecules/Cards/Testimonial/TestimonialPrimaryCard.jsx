@@ -29,17 +29,20 @@ const TestimonialPrimaryCard = ({
 }) => {
    let dispatch = useDispatch();
    const user = useSelector(state => state.auth.user);
-   const { loading } = useSelector((state) => state.testimonials);
+   const { loading } = useSelector(state => state.testimonials);
 
    const handleTestimonialDelete = () => {
-
-      if (window.confirm('Are you sure you want to delete this testimonial?')) {
+      if (
+         window.confirm(
+            'Are you sure you want to delete this testimonial?',
+         )
+      ) {
          dispatch(deleteTestimonial(_id))
             .unwrap()
             .then(() => {
                toast.success('Testimonial deleted successfully!'); // Optional: Show success toast
             })
-            .catch((err) => {
+            .catch(err => {
                toast.error(err || 'Failed to delete testimonial'); // Optional: Show error toast
             });
       }
@@ -48,15 +51,14 @@ const TestimonialPrimaryCard = ({
    return (
       <div
          className={`card cursor-grab w-[30vw] max-[599px]:w-full bg-white text-black rounded-xl px-6 py-8  shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between  h-full ${containerClass}`}
-
       >
          {user?.role === 'admin' && (
-            <div className="w-full h-[5vh] flex items-center justify-end text-[2rem]">
+            <div className='w-full h-[5vh] flex items-center justify-end text-[2rem]'>
                <button
-                  className="bg-black text-white rounded-full p-2 cursor-pointer"
+                  className='bg-black text-white rounded-full p-2 cursor-pointer'
                   onClick={handleTestimonialDelete}
                   disabled={loading}
-                  aria-label="Delete testimonial"
+                  aria-label='Delete testimonial'
                >
                   <MdDelete />
                </button>

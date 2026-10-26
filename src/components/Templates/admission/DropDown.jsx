@@ -59,7 +59,7 @@ const Dropdown = ({
             dispatch(setAdmission({ name, value: selectedOption }));
          }
       }
-   }, [selectedOption,admission]);
+   }, [selectedOption, admission]);
 
    const validateDropdown = () => {
       if (

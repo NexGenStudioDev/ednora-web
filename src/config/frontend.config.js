@@ -85,7 +85,8 @@ const frontendConfig = {
    aboutPage: {
       AboutHero: {
          image: '/About_Hero.webp',
-         Heading: 'Discover Your Potential. Develop Your Skills. Shape Your Future.',
+         Heading:
+            'Discover Your Potential. Develop Your Skills. Shape Your Future.',
          paragraph:
             'Every great achievement begins with curiosity and a willingness to learn. At Ednora, we create opportunities for students to explore technology, strengthen their knowledge, and develop the practical skills needed to turn ideas into meaningful outcomes.',
       },
@@ -182,8 +183,7 @@ const frontendConfig = {
             Heading: 'A Comfortable Place to Call Home',
             description:
                'Residential facilities are designed to support students who need accommodation during their studies. Furnished rooms, internet access, security arrangements, and shared dining and recreation facilities help create a supportive residential environment.',
-            image:
-               'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=600&auto=format&fit=crop',
+            image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=600&auto=format&fit=crop',
             highlight: '400+ Capacity',
             Number: '400+ Capacity',
             price: 4500,
@@ -194,8 +194,7 @@ const frontendConfig = {
             Heading: 'Convenient Connections to Campus',
             description:
                'Campus transport services help students travel between designated city locations and the institution. Planned routes and organized transportation support a more convenient daily commute.',
-            image:
-               'https://imgs.search.brave.com/ppJeDz_uTyqL-DdRyOWiEId0lJQ06wX0vACNMlJuvXc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvMTA1/ODQ1NDYvcGV4ZWxz/LXBob3RvLTEwNTg0/NTQ2LmpwZWc_Y3M9/dGlueXNyZ2ImZHBy/PTEmdz01MDA',
+            image: 'https://imgs.search.brave.com/ppJeDz_uTyqL-DdRyOWiEId0lJQ06wX0vACNMlJuvXc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucGV4ZWxzLmNv/bS9waG90b3MvMTA1/ODQ1NDYvcGV4ZWxz/LXBob3RvLTEwNTg0/NTQ2LmpwZWc_Y3M9/dGlueXNyZ2ImZHBy/PTEmdz01MDA',
             highlight: '15 City Routes',
             Number: '15 City Routes',
             price: 800,
@@ -228,8 +227,7 @@ const frontendConfig = {
             Heading: 'Supporting Student Well-Being',
             description:
                'Student well-being is an important part of a positive learning experience. Health and wellness facilities aim to support students through basic medical assistance, first-aid services, and access to appropriate support when needed.',
-            image:
-               'https://imgs.search.brave.com/jYgAuTLpYiHY0bNRJ_aMEDo6f5NKo-qzzxzS_8Q6nD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bXVza2Vnb25jYy5l/ZHUvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjQvMDMvSGVhbHRo/X2FuZF9XZWxsbmVz/c19DZW50ZXJfMl8z/XzJfNjAwLmpwZw',
+            image: 'https://imgs.search.brave.com/jYgAuTLpYiHY0bNRJ_aMEDo6f5NKo-qzzxzS_8Q6nD4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bXVza2Vnb25jYy5l/ZHUvd3AtY29udGVu/dC91cGxvYWRzLzIw/MjQvMDMvSGVhbHRo/X2FuZF9XZWxsbmVz/c19DZW50ZXJfMl8z/XzJfNjAwLmpwZw',
             highlight: 'On-Campus Support',
             Number: 'On-Campus Support',
             price: 'Wellness Clinic',
@@ -240,8 +238,7 @@ const frontendConfig = {
             Heading: 'Stay Active. Play Together. Grow Stronger.',
             description:
                'Sports and recreational activities encourage physical fitness, teamwork, discipline, and healthy competition. Opportunities to participate in indoor and outdoor games help students balance academic responsibilities with an active campus life.',
-            image:
-               'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop',
+            image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=600&auto=format&fit=crop',
             highlight: 'Indoor and Outdoor Activities',
             Number: 'Indoor & Outdoor',
             price: 'Sports Complex',
@@ -306,7 +303,8 @@ const frontendConfig = {
       title: "Let's Start a Conversation",
       paragraph:
          "Have questions about admissions, academic programs, campus facilities, or student life? We're here to help. Get in touch with our team to find the information you need and take the next step in your educational journey.",
-      location: 'Ednora Campus, Knowledge City, Dhanbad, Jharkhand 826001',
+      location:
+         'Ednora Campus, Knowledge City, Dhanbad, Jharkhand 826001',
       email: 'info@ednora.edu',
       phone: '+91 96613 42993',
       hours: 'Monday to Saturday, 9:00 AM – 5:30 PM',
@@ -319,7 +317,8 @@ const frontendConfig = {
          paragraph:
             'Continue your learning journey with Ednora. Sign in to access your student portal, review available academic information, check attendance, download fee receipts, and stay informed about important updates.',
          button: 'Sign In',
-         supporting: "Don't have an account? Create one to get started.",
+         supporting:
+            "Don't have an account? Create one to get started.",
          image: '/login.png',
       },
       SignUp: {
@@ -336,7 +335,8 @@ const frontendConfig = {
       heading: 'Ednora — Where Knowledge Finds Its Future',
       paragraph:
          'Helping learners build knowledge, develop practical skills, and explore new possibilities through education, technology, and innovation.',
-      closingLine: 'Learn with purpose. Build with confidence. Grow for the future.',
+      closingLine:
+         'Learn with purpose. Build with confidence. Grow for the future.',
    },
 };
 

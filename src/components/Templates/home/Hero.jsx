@@ -8,9 +8,13 @@ import frontendConfig from '../../../config/frontend.config.js';
 
 const Hero = React.memo(() => {
    const defaultHero = frontendConfig.landingPage.HeroSection;
-   const [image, setImage] = useState(defaultHero.homeBackgroundImage);
+   const [image, setImage] = useState(
+      defaultHero.homeBackgroundImage,
+   );
    const [heading, setHeading] = useState(defaultHero.homeTitle);
-   const [paragraph, setParagraph] = useState(defaultHero.homeParagraph);
+   const [paragraph, setParagraph] = useState(
+      defaultHero.homeParagraph,
+   );
 
    const hero = useSelector(state => state.home.landingPage);
 
@@ -18,7 +22,9 @@ const Hero = React.memo(() => {
       if (hero?.HeroSection) {
          const { homeBackgroundImage, homeTitle, homeParagraph } =
             hero.HeroSection;
-         setImage(homeBackgroundImage || defaultHero.homeBackgroundImage);
+         setImage(
+            homeBackgroundImage || defaultHero.homeBackgroundImage,
+         );
          setHeading(homeTitle || defaultHero.homeTitle);
          setParagraph(homeParagraph || defaultHero.homeParagraph);
       }

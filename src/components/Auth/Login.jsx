@@ -105,7 +105,9 @@ const Login = () => {
                      Welcome Back
                   </h1>
                   <p className='text-[1vw] max-[999px]:text-[3vw] text-gray-600'>
-                     Access your Ednora student and administrative portal to manage coursework, fee payments, and academic records.
+                     Access your Ednora student and administrative
+                     portal to manage coursework, fee payments, and
+                     academic records.
                   </p>
                </div>
 

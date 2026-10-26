@@ -1,113 +1,143 @@
 name: 💡 Feature Request
 description: Suggest a new feature or improvement for this project
-title: "[FEATURE]: "
-labels: ["enhancement", "feature request", "needs triage"]
+title: '[FEATURE]: '
+labels: ['enhancement', 'feature request', 'needs triage']
 assignees:
-  - abhishek-nexgen-dev
+   - abhishek-nexgen-dev
 body:
-  - type: markdown
-    attributes:
-      value: |
-        # 💡 Feature Request
-        
-        Thanks for taking the time to suggest a new feature! Your ideas help make this project better for everyone.
-        
-        Before submitting, please check if a similar feature has already been requested.
-  
-  - type: input
-    id: contact
-    attributes:
-      label: 📧 Contact Details
-      description: How can we get in touch with you if we need more info about your suggestion?
-      placeholder: email@example.com or Discord username 
-    validations:
-      required: false
-  
-  - type: textarea
-    id: problem
-    attributes:
-      label: 🎯 Problem to Solve
-      description: What problem would this feature solve? Why is this important?
-      placeholder: Currently, users struggle with... / I find it difficult to...
-    validations:
-      required: true
-  
-  - type: textarea
-    id: solution
-    attributes:
-      label: 💭 Proposed Solution
-      description: Describe your feature or enhancement idea. What should it do?
-      placeholder: A new component that... / An enhancement to... / A system for...
-    validations:
-      required: true
+   - type: markdown
+     attributes:
+        value: |
+           # 💡 Feature Request
 
-  - type: textarea
-    id: alternatives
-    attributes:
-      label: 🔄 Alternatives Considered
-      description: Have you considered any alternative solutions or workarounds?
-      placeholder: I've tried... / Another approach could be...
+           Thanks for taking the time to suggest a new feature! Your ideas help make this project better for everyone.
 
-  - type: textarea
-    id: implementation
-    attributes:
-      label: 🛠️ Implementation Details
-      description: Do you have ideas about how this could be implemented?
-      placeholder: This could be built using... / Potential libraries include...
+           Before submitting, please check if a similar feature has already been requested.
 
-  - type: dropdown
-    id: priority
-    attributes:
-      label: 🔥 Priority
-      description: How important is this feature to you?
-      options:
-        - Critical (blocking my use of the application)
-        - High (significantly impacts my workflow)
-        - Medium (would improve my experience)
-        - Low (would be nice to have)
-      default: 2
-    validations:
-      required: true
-  
-  - type: dropdown
-    id: user_type
-    attributes:
-      label: 👤 User Type
-      description: What type of user would benefit most from this feature?
-      multiple: true
-      options:
-        - Students
-        - Administrators
-        - Parents
-        - Faculty
-        - Visitors
-        - Developers
-        - Everyone
-    validations:
-      required: true
+   - type: input
+     id: contact
+     attributes:
+        label: 📧 Contact Details
+        description:
+           How can we get in touch with you if we need more info about
+           your suggestion?
+        placeholder: email@example.com or Discord username
+     validations:
+        required: false
 
-  - type: textarea
-    id: mockups
-    attributes:
-      label: 🖼️ Mockups or Examples
-      description: If you have mockups, screenshots, drawings, or examples from other products, add them here
-      placeholder: Drag and drop images or add links to similar implementations
+   - type: textarea
+     id: problem
+     attributes:
+        label: 🎯 Problem to Solve
+        description:
+           What problem would this feature solve? Why is this
+           important?
+        placeholder:
+           Currently, users struggle with... / I find it difficult
+           to...
+     validations:
+        required: true
 
-  - type: checkboxes
-    id: community
-    attributes:
-      label: 🤝 Community
-      options:
-        - label: I have joined the [Discord community](https://discord.com/invite/pZH3NymxtA) for discussions
-        - label: I've searched for similar feature requests before creating this
-          required: true
-        - label: I'm willing to help implement this feature (not required)
-  
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: 📜 Code of Conduct
-      description: By submitting this feature request, you agree to follow our [Code of Conduct](https://github.com/NexGenStudioDev/ciitm-frontend/blob/main/CODE_OF_CONDUCT.md)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+   - type: textarea
+     id: solution
+     attributes:
+        label: 💭 Proposed Solution
+        description:
+           Describe your feature or enhancement idea. What should it
+           do?
+        placeholder:
+           A new component that... / An enhancement to... / A system
+           for...
+     validations:
+        required: true
+
+   - type: textarea
+     id: alternatives
+     attributes:
+        label: 🔄 Alternatives Considered
+        description:
+           Have you considered any alternative solutions or
+           workarounds?
+        placeholder: I've tried... / Another approach could be...
+
+   - type: textarea
+     id: implementation
+     attributes:
+        label: 🛠️ Implementation Details
+        description:
+           Do you have ideas about how this could be implemented?
+        placeholder:
+           This could be built using... / Potential libraries
+           include...
+
+   - type: dropdown
+     id: priority
+     attributes:
+        label: 🔥 Priority
+        description: How important is this feature to you?
+        options:
+           - Critical (blocking my use of the application)
+           - High (significantly impacts my workflow)
+           - Medium (would improve my experience)
+           - Low (would be nice to have)
+        default: 2
+     validations:
+        required: true
+
+   - type: dropdown
+     id: user_type
+     attributes:
+        label: 👤 User Type
+        description:
+           What type of user would benefit most from this feature?
+        multiple: true
+        options:
+           - Students
+           - Administrators
+           - Parents
+           - Faculty
+           - Visitors
+           - Developers
+           - Everyone
+     validations:
+        required: true
+
+   - type: textarea
+     id: mockups
+     attributes:
+        label: 🖼️ Mockups or Examples
+        description:
+           If you have mockups, screenshots, drawings, or examples
+           from other products, add them here
+        placeholder:
+           Drag and drop images or add links to similar
+           implementations
+
+   - type: checkboxes
+     id: community
+     attributes:
+        label: 🤝 Community
+        options:
+           - label:
+                I have joined the [Discord
+                community](https://discord.com/invite/pZH3NymxtA) for
+                discussions
+           - label:
+                I've searched for similar feature requests before
+                creating this
+             required: true
+           - label:
+                I'm willing to help implement this feature (not
+                required)
+
+   - type: checkboxes
+     id: terms
+     attributes:
+        label: 📜 Code of Conduct
+        description:
+           By submitting this feature request, you agree to follow our
+           [Code of
+           Conduct](https://github.com/NexGenStudioDev/ciitm-frontend/blob/main/CODE_OF_CONDUCT.md)
+        options:
+           - label: I agree to follow this project's Code of Conduct
+             required: true

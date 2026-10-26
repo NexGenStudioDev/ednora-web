@@ -36,7 +36,10 @@ const Form_schema = yup
          .string()
          .trim()
          .required('Phone number is required')
-         .matches(/^[0-9+\s-]{7,15}$/, 'Please enter a valid phone number (7-15 digits)'),
+         .matches(
+            /^[0-9+\s-]{7,15}$/,
+            'Please enter a valid phone number (7-15 digits)',
+         ),
       cMessage: yup
          .string()
          .trim()
@@ -129,7 +132,9 @@ const ContactUs = () => {
                Get in Touch with Ednora
             </h1>
             <p className='mt-3 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto'>
-               Have queries regarding BCA, BBA, campus life, admissions, or fees? Our dedicated faculty and counselors are here to guide you.
+               Have queries regarding BCA, BBA, campus life,
+               admissions, or fees? Our dedicated faculty and
+               counselors are here to guide you.
             </p>
          </div>
 
@@ -145,7 +150,10 @@ const ContactUs = () => {
                      Ednora Academy of Technology & Management
                   </h2>
                   <p className='text-sm text-gray-600 leading-relaxed mb-6'>
-                     Where Knowledge Finds Its Future. Premier technical institution imparting quality education in computer applications, IT certifications, and modern computing.
+                     Where Knowledge Finds Its Future. Premier
+                     technical institution imparting quality education
+                     in computer applications, IT certifications, and
+                     modern computing.
                   </p>
 
                   <div className='space-y-5'>
@@ -159,7 +167,8 @@ const ContactUs = () => {
                               Campus Address
                            </h3>
                            <p className='text-sm font-medium text-gray-800 mt-0.5'>
-                              Ednora Campus, Knowledge City, Dhanbad, Jharkhand - 826001, India
+                              Ednora Campus, Knowledge City, Dhanbad,
+                              Jharkhand - 826001, India
                            </p>
                         </div>
                      </div>
@@ -174,7 +183,10 @@ const ContactUs = () => {
                               Direct Helplines
                            </h3>
                            <p className='text-sm font-semibold text-gray-800 mt-0.5'>
-                              <a href='tel:+919661342993' className='hover:text-blue-600 transition'>
+                              <a
+                                 href='tel:+919661342993'
+                                 className='hover:text-blue-600 transition'
+                              >
                                  +91 96613 42993
                               </a>
                            </p>
@@ -194,7 +206,10 @@ const ContactUs = () => {
                               Official Emails
                            </h3>
                            <p className='text-sm font-semibold text-gray-800 mt-0.5'>
-                              <a href='mailto:info@ednora.edu' className='hover:text-blue-600 transition'>
+                              <a
+                                 href='mailto:info@ednora.edu'
+                                 className='hover:text-blue-600 transition'
+                              >
                                  info@ednora.edu
                               </a>
                            </p>
@@ -217,7 +232,8 @@ const ContactUs = () => {
                               Monday – Saturday: 9:00 AM – 5:30 PM IST
                            </p>
                            <p className='text-xs text-gray-500'>
-                              Sunday: Closed (Online admissions active 24/7)
+                              Sunday: Closed (Online admissions active
+                              24/7)
                            </p>
                         </div>
                      </div>
@@ -278,11 +294,17 @@ const ContactUs = () => {
                {/* Quick Response Pledge */}
                <div className='bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-6 text-white shadow-md'>
                   <div className='flex items-center gap-2 font-bold text-base mb-2'>
-                     <MdCheckCircle size={20} className='text-emerald-300' />
+                     <MdCheckCircle
+                        size={20}
+                        className='text-emerald-300'
+                     />
                      <span>Guaranteed Rapid Response</span>
                   </div>
                   <p className='text-xs sm:text-sm text-blue-100 leading-relaxed'>
-                     All course inquiries, prospective admission questions, and syllabus counseling queries submitted through this portal receive a personalized reply within one working day.
+                     All course inquiries, prospective admission
+                     questions, and syllabus counseling queries
+                     submitted through this portal receive a
+                     personalized reply within one working day.
                   </p>
                </div>
             </div>
@@ -295,18 +317,23 @@ const ContactUs = () => {
                         Send an Inquiry
                      </h2>
                      <p className='text-sm text-gray-500 mt-1'>
-                        Please fill in your details below and our team will get in touch.
+                        Please fill in your details below and our team
+                        will get in touch.
                      </p>
                   </div>
 
-                  <form onSubmit={handleSubmit(onSubmit)} className='space-y-6'>
+                  <form
+                     onSubmit={handleSubmit(onSubmit)}
+                     className='space-y-6'
+                  >
                      {/* Full Name */}
                      <div>
                         <label
                            htmlFor='cName'
                            className='block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2'
                         >
-                           Full Name <span className='text-red-500'>*</span>
+                           Full Name{' '}
+                           <span className='text-red-500'>*</span>
                         </label>
                         <div className='relative'>
                            <div className='absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400'>
@@ -339,7 +366,8 @@ const ContactUs = () => {
                               htmlFor='cEmail'
                               className='block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2'
                            >
-                              Email Address <span className='text-red-500'>*</span>
+                              Email Address{' '}
+                              <span className='text-red-500'>*</span>
                            </label>
                            <div className='relative'>
                               <div className='absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400'>
@@ -370,7 +398,8 @@ const ContactUs = () => {
                               htmlFor='cNumber'
                               className='block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2'
                            >
-                              Phone Number <span className='text-red-500'>*</span>
+                              Phone Number{' '}
+                              <span className='text-red-500'>*</span>
                            </label>
                            <div className='relative'>
                               <div className='absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400'>
@@ -403,7 +432,8 @@ const ContactUs = () => {
                               htmlFor='cMessage'
                               className='block text-xs font-semibold text-gray-700 uppercase tracking-wider'
                            >
-                              Your Message / Inquiry <span className='text-red-500'>*</span>
+                              Your Message / Inquiry{' '}
+                              <span className='text-red-500'>*</span>
                            </label>
                            <span className='text-[11px] text-gray-400'>
                               {messageValue.length}/500 chars
@@ -433,12 +463,23 @@ const ContactUs = () => {
                         disabled={isSubmitting}
                         className='w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-xl text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed'
                      >
-                        <FaPaperPlane size={14} className={isSubmitting ? 'animate-pulse' : ''} />
-                        <span>{isSubmitting ? 'Sending Your Inquiry...' : 'Submit Inquiry'}</span>
+                        <FaPaperPlane
+                           size={14}
+                           className={
+                              isSubmitting ? 'animate-pulse' : ''
+                           }
+                        />
+                        <span>
+                           {isSubmitting
+                              ? 'Sending Your Inquiry...'
+                              : 'Submit Inquiry'}
+                        </span>
                      </button>
 
                      <p className='text-center text-xs text-gray-400'>
-                        By submitting, you agree to allow CIITM counselors to contact you regarding educational programs.
+                        By submitting, you agree to allow CIITM
+                        counselors to contact you regarding
+                        educational programs.
                      </p>
                   </form>
                </div>

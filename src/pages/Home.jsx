@@ -21,11 +21,12 @@ function Home() {
    return (
       <>
          <title>
-            Ednora — Where Knowledge Finds Its Future | Top Computing & IT Academy
+            Ednora — Where Knowledge Finds Its Future | Top Computing
+            & IT Academy
          </title>
          <meta
             name='description'
-            content="Ednora — Where Knowledge Finds Its Future. Premier technical academy offering BCA, BBA, Full-Stack Web Development, hands-on computing labs, and comprehensive placement assistance."
+            content='Ednora — Where Knowledge Finds Its Future. Premier technical academy offering BCA, BBA, Full-Stack Web Development, hands-on computing labs, and comprehensive placement assistance.'
          />
 
          <Hero />

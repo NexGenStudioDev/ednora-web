@@ -1,14 +1,20 @@
 blank_issues_enabled: true
 
 contact_links:
-  - name: 💬 CIITM Project Discussions
-    url: https://github.com/NexGenStudioDev/ciitm-frontend/discussions
-    about: Ask questions, share ideas, or discuss ways to improve the CIITM project.
+   - name: 💬 CIITM Project Discussions
+     url: https://github.com/NexGenStudioDev/ciitm-frontend/discussions
+     about:
+        Ask questions, share ideas, or discuss ways to improve the
+        CIITM project.
 
-  - name: 🔒 Report a Security Vulnerability
-    url: mailto:abhishek.nexgen.dev@gmail.com?subject=Security%20Vulnerability%20Report%20for%20CIITM
-    about: Please report any security issues privately via email for responsible disclosure.
+   - name: 🔒 Report a Security Vulnerability
+     url: mailto:abhishek.nexgen.dev@gmail.com?subject=Security%20Vulnerability%20Report%20for%20CIITM
+     about:
+        Please report any security issues privately via email for
+        responsible disclosure.
 
-  - name: 📱 Join Our Discord Community
-    url: https://discord.com/invite/pZH3NymxtA
-    about: Connect with the team and community for real-time help, feedback, and updates.
+   - name: 📱 Join Our Discord Community
+     url: https://discord.com/invite/pZH3NymxtA
+     about:
+        Connect with the team and community for real-time help,
+        feedback, and updates.

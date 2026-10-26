@@ -583,7 +583,9 @@ If someone breaks the license:
 
 ### ✨ The Amazing People Behind This Project
 
-We're incredibly grateful to everyone who has contributed to the CIITM Frontend project. Your time, expertise, and passion drive this project forward and make it better every day!
+We're incredibly grateful to everyone who has contributed to the CIITM
+Frontend project. Your time, expertise, and passion drive this project
+forward and make it better every day!
 
 <div align="center">
   <a href="https://github.com/NexGenStudioDev/ciitm-frontend/graphs/contributors">
@@ -591,13 +593,10 @@ We're incredibly grateful to everyone who has contributed to the CIITM Frontend 
   </a>
 </div>
 
-
-
-
-
 ### 🌟 Wall of Fame
 
-Each contributor brings unique skills and perspectives that have shaped this project:
+Each contributor brings unique skills and perspectives that have
+shaped this project:
 
 - **Code Warriors** - Those who build features and squash bugs
 - **Documentation Heroes** - Those who make our project understandable
@@ -609,10 +608,13 @@ Each contributor brings unique skills and perspectives that have shaped this pro
 Want to see yourself here? We'd love to have your contributions!
 
 1. Check out our [contribution guidelines](#-contributing)
-2. Find an [open issue](https://github.com/NexGenStudioDev/ciitm-frontend/issues) or create one
+2. Find an
+   [open issue](https://github.com/NexGenStudioDev/ciitm-frontend/issues)
+   or create one
 3. Make your mark on this exciting project
 
-Every pull request, issue report, and suggestion helps us build a better platform for CIITM Dhanbad.
+Every pull request, issue report, and suggestion helps us build a
+better platform for CIITM Dhanbad.
 
 ### 📬 Contact
 

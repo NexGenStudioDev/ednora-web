@@ -144,7 +144,11 @@ const Navbar = () => {
             <div className='hidden md:flex gap-6'>
                {navLinks.map(link =>
                   !link.dropdown ? (
-                     <NavLink key={link.to} to={link.to} className='hover:text-blue-600 transition font-medium text-gray-700'>
+                     <NavLink
+                        key={link.to}
+                        to={link.to}
+                        className='hover:text-blue-600 transition font-medium text-gray-700'
+                     >
                         {link.label}
                      </NavLink>
                   ) : (

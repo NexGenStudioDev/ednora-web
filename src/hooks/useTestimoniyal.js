@@ -10,12 +10,16 @@ const useTestimonial = () => {
    const handleTestimonial = async () => {
       try {
          const response = await axios.get(Testimonital_EndPoint);
-         const data = response.data?.data || response.data?.Find_Testimonial;
+         const data =
+            response.data?.data || response.data?.Find_Testimonial;
          if (data && Array.isArray(data)) {
             dispatch(setTestimonital(data));
          }
       } catch (error) {
-         console.error('Error fetching testimonials from backend API:', error.message);
+         console.error(
+            'Error fetching testimonials from backend API:',
+            error.message,
+         );
       }
    };
 

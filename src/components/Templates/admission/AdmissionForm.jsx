@@ -7,7 +7,11 @@ const AdmissionForm = () => {
          <div className='max-w-6xl mx-auto'>
             <div className='bg-blue-50/70 border border-blue-200/80 rounded-2xl p-5 mb-6 text-sm sm:text-base text-gray-700 leading-relaxed'>
                <span className='font-bold text-blue-900'>Note: </span>
-               Welcome to CIITM Dhanbad, an institution dedicated to fostering innovation, knowledge, and personal growth. Our mission is to empower students with technical excellence, modern industry skills, and holistic career opportunities.
+               Welcome to CIITM Dhanbad, an institution dedicated to
+               fostering innovation, knowledge, and personal growth.
+               Our mission is to empower students with technical
+               excellence, modern industry skills, and holistic career
+               opportunities.
             </div>
 
             <div className='bg-white rounded-3xl border border-gray-200 shadow-sm p-6 sm:p-10'>
@@ -17,7 +21,9 @@ const AdmissionForm = () => {
                         Online Admission Application (2026-2027)
                      </h1>
                      <p className='text-xs sm:text-sm text-gray-500 mt-1'>
-                        Please fill in all required academic, personal, and guardian details carefully before submitting your application.
+                        Please fill in all required academic,
+                        personal, and guardian details carefully
+                        before submitting your application.
                      </p>
                   </div>
                </div>

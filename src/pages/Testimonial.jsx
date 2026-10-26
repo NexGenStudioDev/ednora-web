@@ -33,7 +33,8 @@ const Testimonial = () => {
       setIsLoadingList(true);
       try {
          const res = await axios.get('/api/v1/findAllTestimonials');
-         const list = res.data?.data || res.data?.Find_Testimonial || [];
+         const list =
+            res.data?.data || res.data?.Find_Testimonial || [];
          setTestimonialsList(list);
       } catch (err) {
          console.error('Error fetching testimonials:', err);
@@ -74,11 +75,15 @@ const Testimonial = () => {
             form.append('image', imageFile);
          }
 
-         const res = await axios.post('/api/v1/createTestimonial', form, {
-            headers: {
-               'Content-Type': 'multipart/form-data',
+         const res = await axios.post(
+            '/api/v1/createTestimonial',
+            form,
+            {
+               headers: {
+                  'Content-Type': 'multipart/form-data',
+               },
             },
-         });
+         );
 
          Swal.fire({
             title: 'Thank You!',
@@ -125,7 +130,9 @@ const Testimonial = () => {
                   Student Testimonials & Stories
                </h1>
                <p className='mt-2 text-sm sm:text-base text-gray-600 max-w-2xl'>
-                  Discover firsthand experiences from CIITM students and alumni on our academic curriculum, mentorship, and career growth.
+                  Discover firsthand experiences from CIITM students
+                  and alumni on our academic curriculum, mentorship,
+                  and career growth.
                </p>
             </div>
 
@@ -154,9 +161,12 @@ const Testimonial = () => {
                   <div className='w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-3'>
                      <MdSchool size={32} />
                   </div>
-                  <h3 className='text-lg font-bold text-gray-900 mb-1'>No Testimonials Yet</h3>
+                  <h3 className='text-lg font-bold text-gray-900 mb-1'>
+                     No Testimonials Yet
+                  </h3>
                   <p className='text-xs text-gray-500 mb-6'>
-                     Be the first student or alumnus to share your experience with CIITM!
+                     Be the first student or alumnus to share your
+                     experience with CIITM!
                   </p>
                   <button
                      onClick={() => setShowSubmitModal(true)}
@@ -168,7 +178,10 @@ const Testimonial = () => {
             ) : (
                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                   {testimonialsList.map((item, idx) => {
-                     const starsCount = Math.min(Math.max(Number(item.star) || 5, 1), 5);
+                     const starsCount = Math.min(
+                        Math.max(Number(item.star) || 5, 1),
+                        5,
+                     );
                      const avatarUrl =
                         item.image ||
                         `https://ui-avatars.com/api/?name=${encodeURIComponent(item.name || 'Student')}&background=2563eb&color=fff`;
@@ -190,7 +203,9 @@ const Testimonial = () => {
                                        key={i}
                                        size={18}
                                        className={
-                                          i < starsCount ? 'text-amber-400' : 'text-gray-200'
+                                          i < starsCount
+                                             ? 'text-amber-400'
+                                             : 'text-gray-200'
                                        }
                                     />
                                  ))}
@@ -214,8 +229,13 @@ const Testimonial = () => {
                               />
                               <div>
                                  <div className='flex items-center gap-1'>
-                                    <h3 className='text-sm font-bold text-gray-900'>{item.name}</h3>
-                                    <MdVerified size={15} className='text-blue-600' />
+                                    <h3 className='text-sm font-bold text-gray-900'>
+                                       {item.name}
+                                    </h3>
+                                    <MdVerified
+                                       size={15}
+                                       className='text-blue-600'
+                                    />
                                  </div>
                                  <p className='text-xs text-gray-500 font-medium'>
                                     {item.job_Role || 'CIITM Student'}
@@ -246,7 +266,8 @@ const Testimonial = () => {
                         Share Your Experience
                      </h2>
                      <p className='text-xs text-gray-500 mt-1'>
-                        Your feedback inspires future students and helps improve institutional programs.
+                        Your feedback inspires future students and
+                        helps improve institutional programs.
                      </p>
                   </div>
 
@@ -264,7 +285,10 @@ const Testimonial = () => {
                                  className='w-full h-full object-cover'
                               />
                            ) : (
-                              <MdCloudUpload size={24} className='text-gray-400' />
+                              <MdCloudUpload
+                                 size={24}
+                                 className='text-gray-400'
+                              />
                            )}
                         </div>
                         <div>
@@ -273,9 +297,13 @@ const Testimonial = () => {
                               onClick={() => fileRef.current?.click()}
                               className='text-xs font-semibold text-blue-600 hover:text-blue-800'
                            >
-                              {previewImage ? 'Change Photo' : 'Upload Profile Picture'}
+                              {previewImage
+                                 ? 'Change Photo'
+                                 : 'Upload Profile Picture'}
                            </button>
-                           <p className='text-[10px] text-gray-400'>JPG, PNG up to 5MB</p>
+                           <p className='text-[10px] text-gray-400'>
+                              JPG, PNG up to 5MB
+                           </p>
                         </div>
                         <input
                            type='file'
@@ -323,7 +351,9 @@ const Testimonial = () => {
                               type='text'
                               required
                               value={jobRole}
-                              onChange={e => setJobRole(e.target.value)}
+                              onChange={e =>
+                                 setJobRole(e.target.value)
+                              }
                               placeholder='e.g. BCA Student / Alumnus'
                               className='w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:bg-white focus:border-blue-500'
                            />
@@ -338,7 +368,9 @@ const Testimonial = () => {
                            required
                            rows={4}
                            value={testimonial}
-                           onChange={e => setTestimonial(e.target.value)}
+                           onChange={e =>
+                              setTestimonial(e.target.value)
+                           }
                            placeholder='Share your thoughts about CIITM faculty, courses, campus life, or career support...'
                            className='w-full p-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:bg-white focus:border-blue-500 resize-none'
                         />
@@ -359,7 +391,9 @@ const Testimonial = () => {
                                  <MdStar
                                     size={26}
                                     className={
-                                       starNum <= star ? 'text-amber-400' : 'text-gray-200'
+                                       starNum <= star
+                                          ? 'text-amber-400'
+                                          : 'text-gray-200'
                                     }
                                  />
                               </button>
@@ -375,7 +409,9 @@ const Testimonial = () => {
                         disabled={isSubmitting}
                         className='w-full py-3.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-2xl text-sm shadow-md transition disabled:opacity-60'
                      >
-                        {isSubmitting ? 'Submitting Testimonial...' : 'Submit Testimonial'}
+                        {isSubmitting
+                           ? 'Submitting Testimonial...'
+                           : 'Submit Testimonial'}
                      </button>
                   </form>
                </div>

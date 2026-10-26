@@ -6,7 +6,11 @@ import { IoClose } from 'react-icons/io5';
 
 import PropTypes from 'prop-types';
 
-const NoticeCard = ({ title, link = '#', buttonText = 'Explore Now' }) => {
+const NoticeCard = ({
+   title,
+   link = '#',
+   buttonText = 'Explore Now',
+}) => {
    const box_ref = useRef();
 
    useGSAP(() => {

@@ -1,5 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useState, useMemo, useCallback, memo } from 'react';
+import React, {
+   useEffect,
+   useState,
+   useMemo,
+   useCallback,
+   memo,
+} from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { useDispatch, useSelector } from 'react-redux';
@@ -62,7 +68,9 @@ const Album_Image = () => {
          Swal.fire({
             icon: 'error',
             title: 'Album Not Loaded',
-            text: error.response?.data?.message || 'Unable to load photos for this album. Please try again.',
+            text:
+               error.response?.data?.message ||
+               'Unable to load photos for this album. Please try again.',
          });
       } finally {
          setLoading(false);
@@ -74,21 +82,24 @@ const Album_Image = () => {
    }, [rawAlbumName]);
 
    // Handle Single Photo Download
-   const handleDownloadPhoto = useCallback((url, index) => {
-      try {
-         const link = document.createElement('a');
-         link.href = url;
-         link.download = `${albumName || 'CIITM-Album'}-Photo-${index + 1}.jpg`;
-         link.target = '_blank';
-         link.rel = 'noopener noreferrer';
-         document.body.appendChild(link);
-         link.click();
-         document.body.removeChild(link);
-      } catch (err) {
-         console.error('Download error:', err);
-         window.open(url, '_blank');
-      }
-   }, [albumName]);
+   const handleDownloadPhoto = useCallback(
+      (url, index) => {
+         try {
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `${albumName || 'CIITM-Album'}-Photo-${index + 1}.jpg`;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+         } catch (err) {
+            console.error('Download error:', err);
+            window.open(url, '_blank');
+         }
+      },
+      [albumName],
+   );
 
    // Lightbox navigation keyboard shortcuts
    useEffect(() => {
@@ -96,15 +107,20 @@ const Album_Image = () => {
          if (activePhotoIndex === null) return;
          if (e.key === 'Escape') setActivePhotoIndex(null);
          if (e.key === 'ArrowLeft') {
-            setActivePhotoIndex(prev => (prev > 0 ? prev - 1 : images.length - 1));
+            setActivePhotoIndex(prev =>
+               prev > 0 ? prev - 1 : images.length - 1,
+            );
          }
          if (e.key === 'ArrowRight') {
-            setActivePhotoIndex(prev => (prev < images.length - 1 ? prev + 1 : 0));
+            setActivePhotoIndex(prev =>
+               prev < images.length - 1 ? prev + 1 : 0,
+            );
          }
       };
 
       window.addEventListener('keydown', handleKeyDown);
-      return () => window.removeEventListener('keydown', handleKeyDown);
+      return () =>
+         window.removeEventListener('keydown', handleKeyDown);
    }, [activePhotoIndex, images.length]);
 
    return (
@@ -112,10 +128,23 @@ const Album_Image = () => {
          {/* Top Header / Breadcrumb Section */}
          <div className='max-w-7xl mx-auto mb-8'>
             {/* Breadcrumb */}
-            <nav className='flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-4' aria-label='Breadcrumb'>
-               <Link to='/' className='hover:text-blue-600 transition'>Home</Link>
+            <nav
+               className='flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-4'
+               aria-label='Breadcrumb'
+            >
+               <Link
+                  to='/'
+                  className='hover:text-blue-600 transition'
+               >
+                  Home
+               </Link>
                <span>/</span>
-               <Link to='/gallery' className='hover:text-blue-600 transition'>Gallery</Link>
+               <Link
+                  to='/gallery'
+                  className='hover:text-blue-600 transition'
+               >
+                  Gallery
+               </Link>
                <span>/</span>
                <span className='text-gray-900 font-medium truncate max-w-[200px] sm:max-w-none'>
                   {displayTitle}
@@ -138,8 +167,14 @@ const Album_Image = () => {
                         {displayTitle}
                      </h1>
                      <p className='text-xs sm:text-sm text-gray-500 mt-0.5 flex items-center gap-1.5'>
-                        <MdPhotoLibrary className='text-blue-600' size={16} />
-                        <span>Central Institute of Information Technology & Management</span>
+                        <MdPhotoLibrary
+                           className='text-blue-600'
+                           size={16}
+                        />
+                        <span>
+                           Central Institute of Information Technology
+                           & Management
+                        </span>
                      </p>
                   </div>
                </div>
@@ -147,7 +182,10 @@ const Album_Image = () => {
                <div className='flex items-center gap-3'>
                   <div className='px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-semibold flex items-center gap-1.5'>
                      <span className='w-2 h-2 rounded-full bg-blue-600 animate-pulse'></span>
-                     <span>{images.length} {images.length === 1 ? 'Photo' : 'Photos'}</span>
+                     <span>
+                        {images.length}{' '}
+                        {images.length === 1 ? 'Photo' : 'Photos'}
+                     </span>
                   </div>
                   <button
                      onClick={fetchAlbumImages}
@@ -183,7 +221,9 @@ const Album_Image = () => {
                      No Photos Found in this Album
                   </h2>
                   <p className='text-sm text-gray-500 mb-6'>
-                     Photos for &ldquo;{displayTitle}&rdquo; have not been uploaded yet or are being processed by administration.
+                     Photos for &ldquo;{displayTitle}&rdquo; have not
+                     been uploaded yet or are being processed by
+                     administration.
                   </p>
                   <div className='flex items-center justify-center gap-3'>
                      <Link
@@ -204,10 +244,13 @@ const Album_Image = () => {
                /* Photo Gallery Grid */
                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
                   {images.map((item, index) => {
-                     const photoUrl = typeof item === 'string' ? item : item?.url;
+                     const photoUrl =
+                        typeof item === 'string' ? item : item?.url;
                      return (
                         <Album_Card
-                           key={item.id || item._id || photoUrl || index}
+                           key={
+                              item.id || item._id || photoUrl || index
+                           }
                            url={photoUrl}
                            index={index}
                            title={`${displayTitle} - #${index + 1}`}
@@ -243,8 +286,12 @@ const Album_Image = () => {
                   <div className='flex items-center gap-3'>
                      <button
                         onClick={() => {
-                           const currentPhoto = images[activePhotoIndex];
-                           const url = typeof currentPhoto === 'string' ? currentPhoto : currentPhoto?.url;
+                           const currentPhoto =
+                              images[activePhotoIndex];
+                           const url =
+                              typeof currentPhoto === 'string'
+                                 ? currentPhoto
+                                 : currentPhoto?.url;
                            handleDownloadPhoto(url, activePhotoIndex);
                         }}
                         className='flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition'
@@ -312,7 +359,19 @@ const Album_Image = () => {
                   className='text-center text-xs text-gray-400 py-1'
                   onClick={e => e.stopPropagation()}
                >
-                  Use keyboard <span className='text-gray-200 font-semibold'>←</span> and <span className='text-gray-200 font-semibold'>→</span> keys to navigate, <span className='text-gray-200 font-semibold'>Esc</span> to exit
+                  Use keyboard{' '}
+                  <span className='text-gray-200 font-semibold'>
+                     ←
+                  </span>{' '}
+                  and{' '}
+                  <span className='text-gray-200 font-semibold'>
+                     →
+                  </span>{' '}
+                  keys to navigate,{' '}
+                  <span className='text-gray-200 font-semibold'>
+                     Esc
+                  </span>{' '}
+                  to exit
                </div>
             </div>
          )}

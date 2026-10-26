@@ -69,7 +69,10 @@ const DMCABadge = ({
       }
 
       // Analytics tracking (optional)
-      if (typeof window !== 'undefined' && typeof window.gtag !== 'undefined') {
+      if (
+         typeof window !== 'undefined' &&
+         typeof window.gtag !== 'undefined'
+      ) {
          window.gtag('event', 'dmca_badge_click', {
             event_category: 'protection',
             event_label: 'dmca_status_check',

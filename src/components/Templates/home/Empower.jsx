@@ -42,9 +42,12 @@ const Empower = () => {
 
          setTextContent({
             headingFirst: Heading_First || defaultAbout.Heading_First,
-            headingSecond: Heading_Second || defaultAbout.Heading_Second,
-            paragraphFirst: paragraph_First || defaultAbout.paragraph_First,
-            paragraphSecond: paragraph_Second || defaultAbout.paragraph_Second,
+            headingSecond:
+               Heading_Second || defaultAbout.Heading_Second,
+            paragraphFirst:
+               paragraph_First || defaultAbout.paragraph_First,
+            paragraphSecond:
+               paragraph_Second || defaultAbout.paragraph_Second,
          });
       }
    }, [about, defaultAbout]);

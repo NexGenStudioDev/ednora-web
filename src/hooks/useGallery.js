@@ -14,7 +14,10 @@ export const useGallery = () => {
             dispatch(set_Gallery([...data]));
          }
       } catch (error) {
-         console.error('Error fetching gallery images from backend API:', error.message);
+         console.error(
+            'Error fetching gallery images from backend API:',
+            error.message,
+         );
       }
    };
 

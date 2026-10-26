@@ -123,9 +123,12 @@ const Footer = React.memo(() => {
                <p className='font-medium text-gray-700'>
                   © {new Date().getFullYear()} Ednora
                </p>
-               <span className='hidden sm:inline text-gray-300'>•</span>
+               <span className='hidden sm:inline text-gray-300'>
+                  •
+               </span>
                <p className='text-gray-500'>
-                  Where Knowledge Finds Its Future. All rights reserved.
+                  Where Knowledge Finds Its Future. All rights
+                  reserved.
                </p>
             </div>
 
@@ -137,9 +140,15 @@ const Footer = React.memo(() => {
                className='group flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-gray-200 bg-gray-50 hover:bg-gray-100 hover:border-gray-300 text-gray-700 hover:text-black transition-all shadow-xs'
                title='Visit GitHub repository'
             >
-               <FaGithub size={18} className='text-gray-900 group-hover:scale-110 transition-transform' />
+               <FaGithub
+                  size={18}
+                  className='text-gray-900 group-hover:scale-110 transition-transform'
+               />
                <span className='font-medium text-xs text-gray-700'>
-                  Managed by <span className='font-semibold text-blue-600 group-hover:text-blue-700'>Abhishek nexgen</span>
+                  Managed by{' '}
+                  <span className='font-semibold text-blue-600 group-hover:text-blue-700'>
+                     Abhishek nexgen
+                  </span>
                </span>
             </a>
          </div>

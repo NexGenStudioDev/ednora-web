@@ -11,7 +11,10 @@ const Skills = () => {
    const data = useSelector(state => state.home.landingPage);
 
    useEffect(() => {
-      if (data?.Mission_and_Goals && data.Mission_and_Goals.length > 0) {
+      if (
+         data?.Mission_and_Goals &&
+         data.Mission_and_Goals.length > 0
+      ) {
          setGoals(data.Mission_and_Goals);
          setError(false);
       } else {

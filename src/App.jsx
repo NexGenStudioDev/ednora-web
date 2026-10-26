@@ -28,7 +28,6 @@ import StatusPage from './pages/StatusPage';
 import Testimonial from './pages/Testimonial';
 import Success from './pages/Success';
 
-
 // ✅ Scroll Position Handler
 const ScrollRestoration = () => {
    const location = useLocation();
@@ -111,9 +110,6 @@ const App = () => {
                      element={<ResetPassword />}
                   />
                </Route>
-
-            
-      
             </Routes>
          </BrowserRouter>
       </>

@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { MdZoomIn, MdDownload, MdImage } from 'react-icons/md';
 
-const GalleryCard = ({ url, index = 0, onView, onDownload, title = '', album = '' }) => {
+const GalleryCard = ({
+   url,
+   index = 0,
+   onView,
+   onDownload,
+   title = '',
+   album = '',
+}) => {
    const [imgLoaded, setImgLoaded] = useState(false);
    const [imgError, setImgError] = useState(false);
 
@@ -22,7 +29,9 @@ const GalleryCard = ({ url, index = 0, onView, onDownload, title = '', album = '
          {imgError ? (
             <div className='w-full h-full flex flex-col items-center justify-center bg-gray-100 text-gray-400 p-4 text-center'>
                <MdImage size={40} className='mb-2 opacity-50' />
-               <span className='text-xs font-medium'>Image unavailable</span>
+               <span className='text-xs font-medium'>
+                  Image unavailable
+               </span>
             </div>
          ) : (
             <img

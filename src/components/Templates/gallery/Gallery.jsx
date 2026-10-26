@@ -1,4 +1,10 @@
-import { useEffect, useState, useMemo, useCallback, memo } from 'react';
+import {
+   useEffect,
+   useState,
+   useMemo,
+   useCallback,
+   memo,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useGallery } from '../../../hooks/useGallery';
@@ -43,7 +49,11 @@ const Gallery = () => {
       if (!searchQuery.trim()) return gallery;
       const q = searchQuery.toLowerCase();
       return gallery.filter(img => {
-         const albumName = (img.albumName || img.name || '').toLowerCase();
+         const albumName = (
+            img.albumName ||
+            img.name ||
+            ''
+         ).toLowerCase();
          const url = (img.url || '').toLowerCase();
          return albumName.includes(q) || url.includes(q);
       });
@@ -83,15 +93,20 @@ const Gallery = () => {
          if (activePhotoIndex === null) return;
          if (e.key === 'Escape') setActivePhotoIndex(null);
          if (e.key === 'ArrowLeft') {
-            setActivePhotoIndex(prev => (prev > 0 ? prev - 1 : filteredImages.length - 1));
+            setActivePhotoIndex(prev =>
+               prev > 0 ? prev - 1 : filteredImages.length - 1,
+            );
          }
          if (e.key === 'ArrowRight') {
-            setActivePhotoIndex(prev => (prev < filteredImages.length - 1 ? prev + 1 : 0));
+            setActivePhotoIndex(prev =>
+               prev < filteredImages.length - 1 ? prev + 1 : 0,
+            );
          }
       };
 
       window.addEventListener('keydown', handleKeyDown);
-      return () => window.removeEventListener('keydown', handleKeyDown);
+      return () =>
+         window.removeEventListener('keydown', handleKeyDown);
    }, [activePhotoIndex, filteredImages.length]);
 
    return (
@@ -106,7 +121,9 @@ const Gallery = () => {
                Campus Visual Gallery
             </h1>
             <p className='mt-3 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto'>
-               Explore memorable memories, academic workshops, cultural fests, sports achievements, and vibrant student life at CIITM Dhanbad.
+               Explore memorable memories, academic workshops,
+               cultural fests, sports achievements, and vibrant
+               student life at CIITM Dhanbad.
             </p>
          </div>
 
@@ -147,7 +164,11 @@ const Gallery = () => {
                   type='text'
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  placeholder={activeTab === 'all' ? 'Search photos...' : 'Search albums...'}
+                  placeholder={
+                     activeTab === 'all'
+                        ? 'Search photos...'
+                        : 'Search albums...'
+                  }
                   className='w-full pl-10 pr-9 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs sm:text-sm text-gray-800 placeholder-gray-400 focus:outline-none focus:bg-white focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition'
                />
                {searchQuery && (
@@ -181,9 +202,13 @@ const Gallery = () => {
                      <div className='w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4'>
                         <MdPhotoLibrary size={32} />
                      </div>
-                     <h3 className='text-lg font-bold text-gray-900 mb-1'>No Albums Found</h3>
+                     <h3 className='text-lg font-bold text-gray-900 mb-1'>
+                        No Albums Found
+                     </h3>
                      <p className='text-sm text-gray-500 mb-4'>
-                        {searchQuery ? `No albums match "${searchQuery}"` : 'No institutional albums have been published yet.'}
+                        {searchQuery
+                           ? `No albums match "${searchQuery}"`
+                           : 'No institutional albums have been published yet.'}
                      </p>
                      {searchQuery && (
                         <button
@@ -204,7 +229,10 @@ const Gallery = () => {
                         >
                            <div className='relative aspect-[16/10] overflow-hidden bg-gray-100'>
                               <img
-                                 src={albumItem.aImage_url || 'defaultBackgroundImage.jpg'}
+                                 src={
+                                    albumItem.aImage_url ||
+                                    'defaultBackgroundImage.jpg'
+                                 }
                                  alt={albumItem.aName}
                                  loading='lazy'
                                  className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500'
@@ -232,11 +260,16 @@ const Gallery = () => {
                                     <MdCalendarToday size={14} />
                                     <span>
                                        {albumItem.createdAt
-                                          ? new Date(albumItem.createdAt).toLocaleDateString('en-IN', {
-                                               day: 'numeric',
-                                               month: 'short',
-                                               year: 'numeric',
-                                            })
+                                          ? new Date(
+                                               albumItem.createdAt,
+                                            ).toLocaleDateString(
+                                               'en-IN',
+                                               {
+                                                  day: 'numeric',
+                                                  month: 'short',
+                                                  year: 'numeric',
+                                               },
+                                            )
                                           : 'Recent'}
                                     </span>
                                  </div>
@@ -250,143 +283,172 @@ const Gallery = () => {
                      ))}
                   </div>
                )
+            ) : /* All Photos Grid */
+            filteredImages.length === 0 ? (
+               <div className='bg-white rounded-2xl p-12 text-center shadow-sm border border-gray-100 max-w-xl mx-auto my-12'>
+                  <div className='w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4'>
+                     <MdFilterList size={32} />
+                  </div>
+                  <h3 className='text-lg font-bold text-gray-900 mb-1'>
+                     No Photos Found
+                  </h3>
+                  <p className='text-sm text-gray-500 mb-4'>
+                     {searchQuery
+                        ? `No photos match "${searchQuery}"`
+                        : 'No gallery photos are available at this moment.'}
+                  </p>
+                  {searchQuery && (
+                     <button
+                        onClick={() => setSearchQuery('')}
+                        className='px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-medium hover:bg-blue-700 transition'
+                     >
+                        Clear Search
+                     </button>
+                  )}
+               </div>
             ) : (
-               /* All Photos Grid */
-               filteredImages.length === 0 ? (
-                  <div className='bg-white rounded-2xl p-12 text-center shadow-sm border border-gray-100 max-w-xl mx-auto my-12'>
-                     <div className='w-16 h-16 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4'>
-                        <MdFilterList size={32} />
-                     </div>
-                     <h3 className='text-lg font-bold text-gray-900 mb-1'>No Photos Found</h3>
-                     <p className='text-sm text-gray-500 mb-4'>
-                        {searchQuery ? `No photos match "${searchQuery}"` : 'No gallery photos are available at this moment.'}
-                     </p>
-                     {searchQuery && (
-                        <button
-                           onClick={() => setSearchQuery('')}
-                           className='px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-medium hover:bg-blue-700 transition'
-                        >
-                           Clear Search
-                        </button>
-                     )}
-                  </div>
-               ) : (
-                  <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
-                     {filteredImages.map((img, index) => {
-                        const url = typeof img === 'string' ? img : img.url;
-                        return (
-                           <GalleryCard
-                              key={img.id || img._id || url || index}
-                              url={url}
-                              index={index}
-                              title={img.name || `CIITM Campus Life`}
-                              album={img.albumName || ''}
-                              onView={idx => setActivePhotoIndex(idx)}
-                              onDownload={handleDownloadPhoto}
-                           />
-                        );
-                     })}
-                  </div>
-               )
+               <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+                  {filteredImages.map((img, index) => {
+                     const url =
+                        typeof img === 'string' ? img : img.url;
+                     return (
+                        <GalleryCard
+                           key={img.id || img._id || url || index}
+                           url={url}
+                           index={index}
+                           title={img.name || `CIITM Campus Life`}
+                           album={img.albumName || ''}
+                           onView={idx => setActivePhotoIndex(idx)}
+                           onDownload={handleDownloadPhoto}
+                        />
+                     );
+                  })}
+               </div>
             )}
          </div>
 
          {/* Fullscreen Lightbox Modal */}
-         {activePhotoIndex !== null && filteredImages[activePhotoIndex] && (
-            <div
-               className='fixed inset-0 z-[120] bg-black/95 flex flex-col justify-between backdrop-blur-md p-4 animate-in fade-in duration-200 select-none'
-               onClick={() => setActivePhotoIndex(null)}
-            >
-               {/* Lightbox Topbar */}
+         {activePhotoIndex !== null &&
+            filteredImages[activePhotoIndex] && (
                <div
-                  className='flex items-center justify-between text-white p-2 z-10'
-                  onClick={e => e.stopPropagation()}
+                  className='fixed inset-0 z-[120] bg-black/95 flex flex-col justify-between backdrop-blur-md p-4 animate-in fade-in duration-200 select-none'
+                  onClick={() => setActivePhotoIndex(null)}
                >
-                  <div className='flex items-center gap-3'>
-                     <span className='text-sm font-semibold tracking-wide'>
-                        CIITM Gallery Preview
-                     </span>
-                     <span className='text-xs px-2.5 py-0.5 rounded-full bg-white/20 text-white'>
-                        {activePhotoIndex + 1} / {filteredImages.length}
-                     </span>
+                  {/* Lightbox Topbar */}
+                  <div
+                     className='flex items-center justify-between text-white p-2 z-10'
+                     onClick={e => e.stopPropagation()}
+                  >
+                     <div className='flex items-center gap-3'>
+                        <span className='text-sm font-semibold tracking-wide'>
+                           CIITM Gallery Preview
+                        </span>
+                        <span className='text-xs px-2.5 py-0.5 rounded-full bg-white/20 text-white'>
+                           {activePhotoIndex + 1} /{' '}
+                           {filteredImages.length}
+                        </span>
+                     </div>
+
+                     <div className='flex items-center gap-3'>
+                        <button
+                           onClick={() => {
+                              const currentPhoto =
+                                 filteredImages[activePhotoIndex];
+                              const url =
+                                 typeof currentPhoto === 'string'
+                                    ? currentPhoto
+                                    : currentPhoto?.url;
+                              handleDownloadPhoto(
+                                 url,
+                                 activePhotoIndex,
+                              );
+                           }}
+                           className='flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition'
+                           title='Download photo'
+                        >
+                           <MdDownload size={18} />
+                           <span>Download</span>
+                        </button>
+                        <button
+                           onClick={() => setActivePhotoIndex(null)}
+                           className='p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition'
+                           title='Close (Esc)'
+                           aria-label='Close photo preview'
+                        >
+                           <MdClose size={24} />
+                        </button>
+                     </div>
                   </div>
 
-                  <div className='flex items-center gap-3'>
+                  {/* Lightbox Main Stage */}
+                  <div
+                     className='relative flex-1 flex items-center justify-center overflow-hidden my-2'
+                     onClick={e => e.stopPropagation()}
+                  >
+                     {/* Previous Button */}
                      <button
-                        onClick={() => {
-                           const currentPhoto = filteredImages[activePhotoIndex];
-                           const url = typeof currentPhoto === 'string' ? currentPhoto : currentPhoto?.url;
-                           handleDownloadPhoto(url, activePhotoIndex);
-                        }}
-                        className='flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition'
-                        title='Download photo'
+                        onClick={() =>
+                           setActivePhotoIndex(prev =>
+                              prev > 0
+                                 ? prev - 1
+                                 : filteredImages.length - 1,
+                           )
+                        }
+                        className='absolute left-2 sm:left-4 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition border border-white/20'
+                        aria-label='Previous photo'
                      >
-                        <MdDownload size={18} />
-                        <span>Download</span>
+                        <MdNavigateBefore size={32} />
                      </button>
+
+                     {/* Active Photo */}
+                     <img
+                        src={
+                           typeof filteredImages[activePhotoIndex] ===
+                           'string'
+                              ? filteredImages[activePhotoIndex]
+                              : filteredImages[activePhotoIndex]?.url
+                        }
+                        alt={`Gallery full view ${activePhotoIndex + 1}`}
+                        className='max-h-[82vh] max-w-[92vw] object-contain rounded-lg shadow-2xl transition-all duration-300'
+                     />
+
+                     {/* Next Button */}
                      <button
-                        onClick={() => setActivePhotoIndex(null)}
-                        className='p-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white transition'
-                        title='Close (Esc)'
-                        aria-label='Close photo preview'
+                        onClick={() =>
+                           setActivePhotoIndex(prev =>
+                              prev < filteredImages.length - 1
+                                 ? prev + 1
+                                 : 0,
+                           )
+                        }
+                        className='absolute right-2 sm:right-4 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition border border-white/20'
+                        aria-label='Next photo'
                      >
-                        <MdClose size={24} />
+                        <MdNavigateNext size={32} />
                      </button>
                   </div>
-               </div>
 
-               {/* Lightbox Main Stage */}
-               <div
-                  className='relative flex-1 flex items-center justify-center overflow-hidden my-2'
-                  onClick={e => e.stopPropagation()}
-               >
-                  {/* Previous Button */}
-                  <button
-                     onClick={() =>
-                        setActivePhotoIndex(prev =>
-                           prev > 0 ? prev - 1 : filteredImages.length - 1,
-                        )
-                     }
-                     className='absolute left-2 sm:left-4 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition border border-white/20'
-                     aria-label='Previous photo'
+                  {/* Lightbox Bottom Info */}
+                  <div
+                     className='text-center text-xs text-gray-400 py-1'
+                     onClick={e => e.stopPropagation()}
                   >
-                     <MdNavigateBefore size={32} />
-                  </button>
-
-                  {/* Active Photo */}
-                  <img
-                     src={
-                        typeof filteredImages[activePhotoIndex] === 'string'
-                           ? filteredImages[activePhotoIndex]
-                           : filteredImages[activePhotoIndex]?.url
-                     }
-                     alt={`Gallery full view ${activePhotoIndex + 1}`}
-                     className='max-h-[82vh] max-w-[92vw] object-contain rounded-lg shadow-2xl transition-all duration-300'
-                  />
-
-                  {/* Next Button */}
-                  <button
-                     onClick={() =>
-                        setActivePhotoIndex(prev =>
-                           prev < filteredImages.length - 1 ? prev + 1 : 0,
-                        )
-                     }
-                     className='absolute right-2 sm:right-4 z-20 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition border border-white/20'
-                     aria-label='Next photo'
-                  >
-                     <MdNavigateNext size={32} />
-                  </button>
+                     Use keyboard{' '}
+                     <span className='text-gray-200 font-semibold'>
+                        ←
+                     </span>{' '}
+                     and{' '}
+                     <span className='text-gray-200 font-semibold'>
+                        →
+                     </span>{' '}
+                     keys to navigate,{' '}
+                     <span className='text-gray-200 font-semibold'>
+                        Esc
+                     </span>{' '}
+                     to exit
+                  </div>
                </div>
-
-               {/* Lightbox Bottom Info */}
-               <div
-                  className='text-center text-xs text-gray-400 py-1'
-                  onClick={e => e.stopPropagation()}
-               >
-                  Use keyboard <span className='text-gray-200 font-semibold'>←</span> and <span className='text-gray-200 font-semibold'>→</span> keys to navigate, <span className='text-gray-200 font-semibold'>Esc</span> to exit
-               </div>
-            </div>
-         )}
+            )}
       </div>
    );
 };

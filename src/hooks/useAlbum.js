@@ -16,7 +16,10 @@ const useAlbum = () => {
             dispatch(setAlbum(data));
          }
       } catch (error) {
-         console.error('Error fetching album from backend API:', error.message);
+         console.error(
+            'Error fetching album from backend API:',
+            error.message,
+         );
       }
    };
 

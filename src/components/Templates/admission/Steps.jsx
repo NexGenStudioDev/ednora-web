@@ -12,18 +12,17 @@ import axios from 'axios';
 import admissionConstant from './admission.constant.mjs';
 
 const Steps = () => {
-   
    const [activeStep, setActiveStep] = useState(0);
    const [isLoading, setIsLoading] = useState(false);
    const [image, setImage] = useState(null);
    const [imageUploadSuccess, setImageUploadSuccess] =
       useState(false);
-  
+
    const [Avtor, setAvtor] = useState(null);
    const [missingFields, setMissingFields] = useState([]);
    const [showErrors, setShowErrors] = useState(false);
-   
-    const [formData, setFormData] = useState({
+
+   const [formData, setFormData] = useState({
       firstName: '',
       middleName: '',
       lastName: '',
@@ -47,7 +46,6 @@ const Steps = () => {
       }
    }, []);
 
-     
    let admission = useSelector(state => state.admission.admission);
 
    let dispatch = useDispatch();
@@ -59,8 +57,11 @@ const Steps = () => {
          [name]: value,
       }));
 
-     setMissingFields((prev) => prev.filter((err) => !err.toLowerCase().includes(name.toLowerCase())));
-
+      setMissingFields(prev =>
+         prev.filter(
+            err => !err.toLowerCase().includes(name.toLowerCase()),
+         ),
+      );
    };
 
    const handleDropdownChange = (name, value) => {
@@ -220,30 +221,29 @@ const Steps = () => {
          'admissionFormData',
          JSON.stringify(formData),
       );
-      
-
 
       setMissingFields(missing);
       return missing.length === 0;
-
    };
 
-   const handleNext = (e) => {
-       e.preventDefault();// Prevent accidental page reload
+   const handleNext = e => {
+      e.preventDefault(); // Prevent accidental page reload
       setShowErrors(true);
       if (validateStep()) {
          if (activeStep < steps.length - 1) {
             setActiveStep(prevStep => prevStep + 1);
             setShowErrors(false);
          }
-      }else {
-   //  setIsModalOpen(true);
+      } else {
+         //  setIsModalOpen(true);
 
-      const firstErrorField = document.querySelector('.input-error');
-      firstErrorField?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-      
+         const firstErrorField =
+            document.querySelector('.input-error');
+         firstErrorField?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+         });
+      }
    };
 
    const handlePrevious = () => {

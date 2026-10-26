@@ -1,7 +1,8 @@
 import { io } from 'socket.io-client';
 
 const backendUrl =
-   import.meta.env.VITE_BACKEND_URL || 'https://ciitm-backend.onrender.com';
+   import.meta.env.VITE_BACKEND_URL ||
+   'https://ciitm-backend.onrender.com';
 
 const MAX_RETRIES = 5;
 let retryCount = 0;
@@ -57,7 +58,9 @@ function attemptReconnection() {
 
       if (retryCount >= MAX_RETRIES) {
          clearInterval(retryInterval);
-         console.warn('⚠️ Socket reconnection attempts reached max limit.');
+         console.warn(
+            '⚠️ Socket reconnection attempts reached max limit.',
+         );
          reconnecting = false;
          return;
       }
