@@ -5,8 +5,9 @@ import { appStore } from './store/appStore';
 import { Provider } from 'react-redux';
 import axios from 'axios';
 
-// Configure Axios globally for backend API integration
-if (import.meta.env.VITE_BACKEND_URL) {
+// Configure Axios: In development, keep baseURL relative so Vite's proxy transparently forwards /api
+// requests without any browser CORS restrictions. In production, use VITE_BACKEND_URL if provided.
+if (import.meta.env.PROD && import.meta.env.VITE_BACKEND_URL) {
    axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 }
 axios.defaults.withCredentials = true;
