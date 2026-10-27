@@ -187,7 +187,7 @@ const Testimonial = () => {
                      return (
                         <div
                            key={item._id || idx}
-                           className='bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-gray-100 flex flex-col justify-between hover:shadow-lg transition-shadow relative overflow-hidden'
+                           className='bg-white  rounded-3xl p-6 sm:p-7 shadow-sm border border-black flex flex-col justify-between hover:shadow-lg transition-shadow relative overflow-hidden'
                         >
                            <div className='absolute top-4 right-4 text-gray-100 pointer-events-none'>
                               <MdFormatQuote size={64} />
