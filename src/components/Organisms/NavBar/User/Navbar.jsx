@@ -118,7 +118,7 @@ const Navbar = () => {
             {/* Desktop App Download Button for Mobile */}
             <div className='flex flex-col gap-4 w-full px-8'>
                <a
-                  href='https://sourceforge.net/projects/ednora/'
+                  href='https://ednora.sourceforge.io'
                   target='_blank'
                   rel='noopener noreferrer'
                   onClick={() => setIsMenuOpen(false)}
@@ -197,7 +197,7 @@ const Navbar = () => {
 
             <div className='hidden md:flex gap-3 items-center'>
                <a
-                  href='https://sourceforge.net/projects/ednora/'
+                  href='https://ednora.sourceforge.io'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-medium rounded-lg shadow-sm hover:shadow transition-all'

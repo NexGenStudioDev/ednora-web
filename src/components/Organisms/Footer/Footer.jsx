@@ -71,7 +71,7 @@ const Footer = React.memo(() => {
                <Link to='/testimonial'>Testimonials</Link>
                <Link to='/contact'>Contact Us</Link>
                <a
-                  href='https://sourceforge.net/projects/ednora/'
+                  href='https://ednora.sourceforge.io'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-1.5 text-blue-600 hover:text-blue-800 font-medium transition'

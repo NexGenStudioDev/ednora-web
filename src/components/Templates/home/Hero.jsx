@@ -52,7 +52,7 @@ const Hero = React.memo(() => {
          <div className='card-container absolute bottom-[3vh] right-[2vw] lg:h-full w-full sm:max-w-md lg:w-1/2 flex items-end justify-end pb-10 flex-col gap-4 -mb-20'>
             <NoticeCard
                title='Download Desktop App (Ednora)'
-               link='https://sourceforge.net/projects/ednora/'
+               link='https://ednora.sourceforge.io'
                buttonText='Download'
             />
             <NoticeCard
