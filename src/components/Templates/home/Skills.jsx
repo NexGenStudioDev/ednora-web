@@ -45,9 +45,9 @@ const Skills = () => {
 
    return (
       <div className='skills-container flex flex-wrap md:flex-nowrap bg-[#333] py-[8vh] md:py-[6vh] px-[2.8vw] md:px-[1.2vw] max-[528px]:gap-[2.5vh] gap-10 items-center justify-center'>
-         {goals.map(item => (
+         {goals.map((item, index) => (
             <div
-               key={item._id}
+               key={item._id || item.id || item.title || `goal-${index}`}
                className='goal-card rounded-lg flex flex-col justify-center py-[2vw] md:py-[0.8vh] px-[2.8vw] md:px-[0.8vw] bg-white max-[350px]:w-[80%] max-[528px]:w-auto h-auto sm:w-[40vw] md:w-[15vw]'
             >
                <div className='image w-[5vw] max-[528px]:h-auto max-[528px]:w-[28%] md:w-[2.5vw]'>

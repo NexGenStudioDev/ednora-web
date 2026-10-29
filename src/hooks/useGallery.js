@@ -14,8 +14,8 @@ export const useGallery = () => {
             dispatch(set_Gallery([...data]));
          }
       } catch (error) {
-         console.error(
-            'Error fetching gallery images from backend API:',
+         console.warn(
+            'Gallery notice: Backend API not reachable:',
             error.message,
          );
       }

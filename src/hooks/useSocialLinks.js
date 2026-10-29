@@ -16,7 +16,7 @@ const useSocialLinks = () => {
             dispatch(setSocialLinks(data));
          }
       } catch (error) {
-         console.error('Error fetching social links:', error.message);
+         console.warn('Social links notice: Backend API not reachable:', error.message);
       }
    };
 

@@ -297,6 +297,52 @@ const frontendConfig = {
       heading: 'Experiences That Inspire Us',
       introduction:
          'Every learning journey is different. Student experiences can offer a valuable perspective on the teaching, resources, and opportunities that shape life at an institution.',
+      list: [
+         {
+            _id: 'testimonial-1',
+            id: 'testimonial-1',
+            name: 'Aman Raj',
+            job_Role: 'BCA (Batch 2022-2025) · Software Engineer',
+            star: 5,
+            rating: 5,
+            message:
+               'The hands-on computer labs and faculty mentorship at CIITM gave me the exact foundation I needed. Working on real full-stack web projects helped me clear campus placements with confidence.',
+            image: '/Student_Avtar.webp',
+         },
+         {
+            _id: 'testimonial-2',
+            id: 'testimonial-2',
+            name: 'Priya Kumari',
+            job_Role: 'BBA (Batch 2023-2026) · Marketing Lead',
+            star: 5,
+            rating: 5,
+            message:
+               'The faculty here emphasizes practical business case studies and communication skills. The campus atmosphere is supportive, and the seminar sessions with industry leaders are truly inspiring.',
+            image: '/Student_Avtar.webp',
+         },
+         {
+            _id: 'testimonial-3',
+            id: 'testimonial-3',
+            name: 'Rohan Verma',
+            job_Role: 'Full Stack Web Dev Certification · Frontend Dev',
+            star: 5,
+            rating: 5,
+            message:
+               'Transitioning into modern web development was smooth thanks to the guided curriculum covering React, Node.js, and databases. The hackathon lounge gave us space to build real apps.',
+            image: '/Student_Avtar.webp',
+         },
+         {
+            _id: 'testimonial-4',
+            id: 'testimonial-4',
+            name: 'Sneha Mukherjee',
+            job_Role: 'BCA (Batch 2021-2024) · Cloud Support Associate',
+            star: 5,
+            rating: 5,
+            message:
+               'From database administration to cloud architecture, CIITM provided a very well-structured syllabus. The placement cell guided us through mock technical rounds and interview preparation.',
+            image: '/Student_Avtar.webp',
+         },
+      ],
    },
 
    contactPage: {

@@ -15,8 +15,8 @@ const useTeacher = () => {
             dispatch(setTeacher(data));
          }
       } catch (error) {
-         console.error(
-            'Error fetching teachers from backend API:',
+         console.warn(
+            'Teacher notice: Backend API not reachable:',
             error.message,
          );
       }

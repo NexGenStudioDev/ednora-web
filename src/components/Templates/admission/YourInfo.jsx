@@ -1,350 +1,336 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import InputField from './InputField';
 import Dropdown from './DropDown';
+import {
+   FiUser,
+   FiMail,
+   FiPhone,
+   FiCalendar,
+   FiMapPin,
+   FiCreditCard,
+   FiGlobe,
+} from 'react-icons/fi';
 
 const YourInfo = ({
-   formData,
+   formData = {},
    handleInputChange,
-   errors,
-   showErrors,
+   errors = [],
+   showErrors = false,
 }) => {
-   const [activeBox, setActiveBox] = useState(null);
-
-   const getBorderClass = fieldName =>
-      activeBox === fieldName ? 'border-blue-500' : 'border-gray-300';
-
-   const hasError = useCallback(
-      (label, key) =>
-         showErrors &&
-         Array.isArray(errors) &&
-         (errors.includes(label) || errors.includes(key)),
-      [errors, showErrors],
-   );
-
-   const safeValue = key =>
-      formData?.[key] !== undefined && formData?.[key] !== null
-         ? String(formData[key])
-         : '';
-
-   const onFocus = useCallback(name => () => setActiveBox(name), []);
-   const onBlur = useCallback(() => () => setActiveBox(null), []);
+   const isRequiredFieldMissing = (fieldKey, fieldLabel) => {
+      if (!showErrors) return false;
+      return (
+         errors.includes(fieldLabel) ||
+         errors.includes(fieldKey) ||
+         !formData[fieldKey] ||
+         String(formData[fieldKey]).trim() === ''
+      );
+   };
 
    return (
-      <div className='sm:grid flex flex-col w-full 2xl:grid-cols-5 sm:grid-cols-2 md:grid-cols-4 sm:gap-x-4 gap-y-10'>
-         {/* First Name */}
-         <FieldWrapper
-            id='firstName'
-            label='First Name'
-            type='text'
-            required
-            value={safeValue('firstName')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+      <div className='flex flex-col gap-8'>
+         {/* Section 1: Basic Identity */}
+         <div className='bg-slate-50/60 rounded-2xl p-5 sm:p-6 border border-slate-200/80'>
+            <div className='flex items-center gap-2 mb-4 pb-2 border-b border-slate-200'>
+               <div className='w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs'>
+                  1
+               </div>
+               <div>
+                  <h3 className='text-sm font-bold text-slate-900'>
+                     Applicant Legal Identity
+                  </h3>
+                  <p className='text-xs text-slate-500'>
+                     Provide your name exactly as registered in your 10th standard certificate
+                  </p>
+               </div>
+            </div>
 
-         {/* Middle Name */}
-         <FieldWrapper
-            id='middleName'
-            label='Middle Name'
-            type='text'
-            value={safeValue('middleName')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5'>
+               <InputField
+                  label='First Name'
+                  placeholder='e.g. Rahul'
+                  name='firstName'
+                  type='text'
+                  required={true}
+                  icon={FiUser}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('firstName', 'First Name')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
 
-         {/* Last Name */}
-         <FieldWrapper
-            id='lastName'
-            label='Last Name'
-            type='text'
-            required
-            value={safeValue('lastName')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+               <InputField
+                  label='Middle Name'
+                  placeholder='Optional'
+                  name='middleName'
+                  type='text'
+                  required={false}
+                  icon={FiUser}
+                  onChange={handleInputChange}
+               />
 
-         {/* Father's Name */}
-         <FieldWrapper
-            id='fatherName'
-            label="Father's Name"
-            type='text'
-            required
-            value={safeValue('fatherName')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+               <InputField
+                  label='Last Name'
+                  placeholder='e.g. Sharma'
+                  name='lastName'
+                  type='text'
+                  required={true}
+                  icon={FiUser}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('lastName', 'Last Name')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
 
-         {/* Mother's Name */}
-         <FieldWrapper
-            id='motherName'
-            label="Mother's Name"
-            type='text'
-            required
-            value={safeValue('motherName')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+               <InputField
+                  label="Father's Full Name"
+                  placeholder="e.g. Suresh Kumar Sharma"
+                  name='fatherName'
+                  type='text'
+                  required={true}
+                  icon={FiUser}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('fatherName', "Father's Name")
+                        ? 'input-error'
+                        : ''
+                  }
+               />
 
-         {/* Aadhar Number */}
-         <FieldWrapper
-            id='AadharCardNumber'
-            label='Aadhar Number'
-            type='text'
-            inputMode='numeric'
-            required
-            value={safeValue('AadharCardNumber')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+               <InputField
+                  label="Mother's Full Name"
+                  placeholder="e.g. Anita Devi Sharma"
+                  name='motherName'
+                  type='text'
+                  required={true}
+                  icon={FiUser}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('motherName', "Mother's Name")
+                        ? 'input-error'
+                        : ''
+                  }
+               />
 
-         {/* Email */}
-         <FieldWrapper
-            id='email'
-            label='Email'
-            type='email'
-            required
-            value={safeValue('email')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+               <InputField
+                  label='Date of Birth'
+                  name='dateOfBirth'
+                  type='date'
+                  required={true}
+                  icon={FiCalendar}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('dateOfBirth', 'Date Of Birth')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
 
-         {/* Contact Number */}
-         <FieldWrapper
-            id='contactNumber'
-            label='Contact No'
-            type='tel'
-            inputMode='tel'
-            required
-            value={safeValue('contactNumber')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+               <Dropdown
+                  label='Gender'
+                  placeholder='Select Gender'
+                  name='gender'
+                  required={true}
+                  options={['Male', 'Female', 'Other', 'Prefer not to say']}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('gender', 'Gender')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
 
-         {/* Date of Birth */}
-         <FieldWrapper
-            id='dateOfBirth'
-            label='Date of Birth'
-            type='date'
-            required
-            value={safeValue('dateOfBirth')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+               <Dropdown
+                  label='Nationality'
+                  placeholder='Select Nationality'
+                  name='nationality'
+                  required={true}
+                  icon={FiGlobe}
+                  options={[
+                     'Indian',
+                     'Non-Resident Indian (NRI)',
+                     'Nepalese',
+                     'Bhutanese',
+                     'Bangladeshi',
+                     'Other International',
+                  ]}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('nationality', 'Nationality')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
 
-         {/* Gender */}
-         <DropdownWrapper
-            id='gender'
-            label='Gender'
-            required
-            value={safeValue('gender')}
-            options={['Male', 'Female', 'Rather not to say']}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+               <InputField
+                  label='Aadhaar Card Number'
+                  placeholder='12-digit Aadhaar number'
+                  name='AadharCardNumber'
+                  type='text'
+                  inputMode='numeric'
+                  maxLength={16}
+                  required={true}
+                  icon={FiCreditCard}
+                  helperText='For student identity verification'
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('AadharCardNumber', 'Aadhar Card Number')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
+            </div>
+         </div>
 
-         {/* Nationality */}
-         <DropdownWrapper
-            id='nationality'
-            label='Select Nationality'
-            required
-            value={safeValue('nationality')}
-            options={[
-               'India',
-               'Pakistan',
-               'Bangladesh',
-               'Sri Lanka',
-               'Nepal',
-               'Bhutan',
-               'Maldives',
-            ]}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+         {/* Section 2: Contact Details */}
+         <div className='bg-slate-50/60 rounded-2xl p-5 sm:p-6 border border-slate-200/80'>
+            <div className='flex items-center gap-2 mb-4 pb-2 border-b border-slate-200'>
+               <div className='w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs'>
+                  2
+               </div>
+               <div>
+                  <h3 className='text-sm font-bold text-slate-900'>
+                     Contact & Communication Channels
+                  </h3>
+                  <p className='text-xs text-slate-500'>
+                     All admission notices, merit lists, and enrollment credentials will be delivered here
+                  </p>
+               </div>
+            </div>
 
-         {/* Street */}
-         <FieldWrapper
-            id='street'
-            label='Street'
-            type='text'
-            required
-            value={safeValue('street')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5'>
+               <InputField
+                  label='Primary Email Address'
+                  placeholder='name@example.com'
+                  name='email'
+                  type='email'
+                  required={true}
+                  icon={FiMail}
+                  helperText='Will be used for portal login'
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('email', 'Email')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
 
-         {/* City */}
-         <FieldWrapper
-            id='city'
-            label='City'
-            type='text'
-            required
-            value={safeValue('city')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+               <InputField
+                  label='Mobile Contact Number'
+                  placeholder='10-digit mobile number'
+                  name='contactNumber'
+                  type='tel'
+                  inputMode='tel'
+                  maxLength={15}
+                  required={true}
+                  icon={FiPhone}
+                  helperText='Active WhatsApp or SMS number'
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('contactNumber', 'Contact Number')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
+            </div>
+         </div>
 
-         {/* State */}
-         <FieldWrapper
-            id='state'
-            label='State'
-            type='text'
-            required
-            value={safeValue('state')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+         {/* Section 3: Permanent Address */}
+         <div className='bg-slate-50/60 rounded-2xl p-5 sm:p-6 border border-slate-200/80'>
+            <div className='flex items-center gap-2 mb-4 pb-2 border-b border-slate-200'>
+               <div className='w-7 h-7 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs'>
+                  3
+               </div>
+               <div>
+                  <h3 className='text-sm font-bold text-slate-900'>
+                     Permanent Residential Address
+                  </h3>
+                  <p className='text-xs text-slate-500'>
+                     Enter your complete residential postal address for official communications
+                  </p>
+               </div>
+            </div>
 
-         {/* Pin Code */}
-         <FieldWrapper
-            id='pinCode'
-            label='Pin Code'
-            type='text'
-            inputMode='numeric'
-            required
-            value={safeValue('pinCode')}
-            handleInputChange={handleInputChange}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            getBorderClass={getBorderClass}
-            hasError={hasError}
-         />
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5'>
+               <div className='sm:col-span-2'>
+                  <InputField
+                     label='Street / Locality / Landmark'
+                     placeholder='House No., Building, Street Name, Landmark'
+                     name='street'
+                     type='text'
+                     required={true}
+                     icon={FiMapPin}
+                     onChange={handleInputChange}
+                     className={
+                        isRequiredFieldMissing('street', 'Street')
+                           ? 'input-error'
+                           : ''
+                     }
+                  />
+               </div>
+
+               <InputField
+                  label='City / Town / District'
+                  placeholder='e.g. Dhanbad'
+                  name='city'
+                  type='text'
+                  required={true}
+                  icon={FiMapPin}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('city', 'City')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
+
+               <InputField
+                  label='State / UT'
+                  placeholder='e.g. Jharkhand'
+                  name='state'
+                  type='text'
+                  required={true}
+                  icon={FiMapPin}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('state', 'State')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
+
+               <InputField
+                  label='Postal PIN Code'
+                  placeholder='e.g. 826001'
+                  name='pinCode'
+                  type='text'
+                  inputMode='numeric'
+                  maxLength={10}
+                  required={true}
+                  icon={FiMapPin}
+                  onChange={handleInputChange}
+                  className={
+                     isRequiredFieldMissing('pinCode', 'Pin Code')
+                        ? 'input-error'
+                        : ''
+                  }
+               />
+            </div>
+         </div>
       </div>
    );
 };
 
-// --------- REUSABLE FIELD WRAPPER (InputField) ----------
-const FieldWrapper = ({
-   id,
-   label,
-   type,
-   required,
-   value,
-   inputMode,
-   handleInputChange,
-   onFocus,
-   onBlur,
-   getBorderClass,
-   hasError,
-}) => (
-   <div>
-      <InputField
-         id={id}
-         placeholder={label}
-         type={type}
-         required={required}
-         name={id}
-         inputMode={inputMode}
-         value={value}
-         onChange={handleInputChange}
-         onFocus={onFocus(id)}
-         onBlur={onBlur()}
-         className={`border ${getBorderClass(id)} rounded-md p-2`}
-         aria-invalid={hasError(label, id)}
-         aria-describedby={
-            hasError(label, id) ? `err-${id}` : undefined
-         }
-      />
-      {hasError(label, id) && (
-         <p id={`err-${id}`} className='text-red-500 text-sm mt-1'>
-            {label} is required
-         </p>
-      )}
-   </div>
-);
-
-// --------- REUSABLE DROPDOWN WRAPPER ----------
-const DropdownWrapper = ({
-   id,
-   label,
-   required,
-   value,
-   options,
-   handleInputChange,
-   onFocus,
-   onBlur,
-   getBorderClass,
-   hasError,
-}) => (
-   <div>
-      <Dropdown
-         id={id}
-         placeholder={label}
-         name={id}
-         required={required}
-         value={value}
-         options={options}
-         onChange={handleInputChange}
-         onFocus={onFocus(id)}
-         onBlur={onBlur()}
-         className={`border ${getBorderClass(id)} rounded-md p-2`}
-         aria-invalid={hasError(label, id)}
-         aria-describedby={
-            hasError(label, id) ? `err-${id}` : undefined
-         }
-      />
-      {hasError(label, id) && (
-         <p id={`err-${id}`} className='text-red-500 text-sm mt-1'>
-            {label} is required
-         </p>
-      )}
-   </div>
-);
-
-// PropTypes
 YourInfo.propTypes = {
    formData: PropTypes.object,
    handleInputChange: PropTypes.func.isRequired,
    errors: PropTypes.array,
    showErrors: PropTypes.bool,
-};
-
-YourInfo.defaultProps = {
-   formData: {},
-   errors: [],
-   showErrors: false,
 };
 
 export default React.memo(YourInfo);

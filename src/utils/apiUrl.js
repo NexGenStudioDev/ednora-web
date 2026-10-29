@@ -4,7 +4,7 @@ console.log('Backend URL:', import.meta.env.VITE_BACKEND_URL);
 
 const axiosInstance = _axios.create({
    baseURL:
-      import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000',
+      import.meta.env.VITE_BACKEND_URL || '',
    withCredentials: true,
    headers: {
       'Content-Type': 'application/json',

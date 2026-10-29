@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import frontendConfig from '../config/frontend.config.js';
 import {
    MdStar,
    MdFormatQuote,
@@ -35,9 +36,16 @@ const Testimonial = () => {
          const res = await axios.get('/api/v1/findAllTestimonials');
          const list =
             res.data?.data || res.data?.Find_Testimonial || [];
-         setTestimonialsList(list);
+         if (list.length > 0) {
+            setTestimonialsList(list);
+         } else if (frontendConfig.testimonials?.list) {
+            setTestimonialsList(frontendConfig.testimonials.list);
+         }
       } catch (err) {
-         console.error('Error fetching testimonials:', err);
+         console.warn('Testimonials notice: Remote backend unavailable, using local student testimonials:', err.message);
+         if (frontendConfig.testimonials?.list) {
+            setTestimonialsList(frontendConfig.testimonials.list);
+         }
       } finally {
          setIsLoadingList(false);
       }

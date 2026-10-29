@@ -1,150 +1,225 @@
 import React, { useEffect, useState, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
    setAdmission,
    setOneAdmission,
 } from '../../../store/AdmissionSlice';
+import { IoChevronDown } from 'react-icons/io5';
 
 const Dropdown = ({
-   placeholder,
-   options,
+   placeholder = 'Select an option',
+   label,
+   options = [],
    onChange,
    name,
    isRequired = false,
-   errorMessage = 'This field is required.',
+   required = false,
+   errorMessage,
+   icon: Icon,
+   helperText,
+   className = '',
+   disabled = false,
 }) => {
    const dispatch = useDispatch();
    const admission = useSelector(state => state.admission.admission);
-   const find_index = admission.findIndex(item => item.name === name);
+   const fieldIndex = admission.findIndex(item => item.name === name);
 
-   // Initialize with value from Redux if available
-   const initialValue =
-      find_index !== -1 ? admission[find_index].value : placeholder;
-   const [selectedOption, setSelectedOption] = useState(initialValue);
+   const needsValidation = isRequired || required;
+   const displayLabel = label || placeholder;
+
+   const [selectedOption, setSelectedOption] = useState('');
    const [isOpen, setIsOpen] = useState(false);
-   const [isError, setIsError] = useState(false);
+   const [isTouched, setIsTouched] = useState(false);
 
    const dropdownRef = useRef(null);
 
-   const toggleDropdown = () => setIsOpen(prev => !prev);
-
-   const handleClickOutside = event => {
-      if (
-         dropdownRef.current &&
-         !dropdownRef.current.contains(event.target)
-      ) {
-         setIsOpen(false);
-      }
-   };
-
+   // Sync from Redux
    useEffect(() => {
+      const reduxVal = admission[fieldIndex]?.value;
+      if (reduxVal !== undefined && reduxVal !== null && reduxVal !== '') {
+         setSelectedOption(String(reduxVal));
+      }
+   }, [admission, fieldIndex]);
+
+   // Close when clicking outside
+   useEffect(() => {
+      const handleClickOutside = event => {
+         if (
+            dropdownRef.current &&
+            !dropdownRef.current.contains(event.target)
+         ) {
+            setIsOpen(false);
+         }
+      };
       document.addEventListener('mousedown', handleClickOutside);
       return () =>
-         document.removeEventListener(
-            'mousedown',
-            handleClickOutside,
-         );
+         document.removeEventListener('mousedown', handleClickOutside);
    }, []);
 
-   // Sync selectedOption with Redux
-   useEffect(() => {
-      if (selectedOption !== placeholder) {
-         const idx = admission.findIndex(item => item.name === name);
-         if (idx !== -1) {
-            dispatch(
-               setOneAdmission({ name, value: selectedOption }),
-            );
-         } else {
-            dispatch(setAdmission({ name, value: selectedOption }));
-         }
-      }
-   }, [selectedOption, admission]);
+   const isError =
+      isTouched &&
+      needsValidation &&
+      (!selectedOption || selectedOption === placeholder);
 
-   const validateDropdown = () => {
-      if (
-         isRequired &&
-         (selectedOption === placeholder || !selectedOption)
-      ) {
-         setIsError(true);
-      } else {
-         setIsError(false);
-      }
+   const toggleDropdown = () => {
+      if (disabled) return;
+      setIsOpen(prev => !prev);
+      setIsTouched(true);
    };
+
    const handleOptionClick = option => {
       setSelectedOption(option);
-      onChange && onChange({ target: { name, value: option } });
       setIsOpen(false);
-      setIsError(false);
-   };
+      setIsTouched(true);
 
-   const handleBlur = () => validateDropdown();
+      // Propagate to parent handler
+      if (onChange) {
+         onChange({
+            target: {
+               name: name,
+               value: option,
+            },
+         });
+      }
+
+      // Sync to Redux store
+      const payload = { name, value: option };
+      if (fieldIndex !== -1) {
+         dispatch(setOneAdmission(payload));
+      } else {
+         dispatch(setAdmission(payload));
+      }
+   };
 
    return (
       <div
-         className='relative min-[630px]:max-w-[248px] w-full'
+         className={`relative w-full flex flex-col gap-1.5 ${className}`}
          ref={dropdownRef}
       >
-         <div
-            tabIndex={0}
+         {displayLabel && (
+            <label className='text-xs font-semibold text-slate-700 flex items-center justify-between'>
+               <span className='flex items-center gap-1'>
+                  {displayLabel}
+                  {needsValidation && (
+                     <span className='text-rose-500 font-bold' title='Required'>
+                        *
+                     </span>
+                  )}
+               </span>
+               {helperText && (
+                  <span className='text-[11px] font-normal text-slate-400'>
+                     {helperText}
+                  </span>
+               )}
+            </label>
+         )}
+
+         <button
+            type='button'
+            disabled={disabled}
             onClick={toggleDropdown}
-            onBlur={handleBlur}
-            className={`border cursor-pointer w-full flex items-center justify-between gap-2 rounded-[8px] px-4 py-3 text-xs text-[#333333] ${
-               isError ? 'border-red-500' : 'border-[#A0A0A080]'
-            }`}
+            className={`w-full flex items-center justify-between rounded-xl border bg-white py-2.5 sm:py-3 text-sm text-left transition-all duration-150 shadow-xs outline-none ${
+               Icon ? 'pl-10 pr-3.5' : 'px-4'
+            } ${
+               isError
+                  ? 'border-rose-400 bg-rose-50/20 text-rose-900 focus:border-rose-500 focus:ring-3 focus:ring-rose-500/15'
+                  : isOpen
+                    ? 'border-blue-600 ring-3 ring-blue-500/15'
+                    : 'border-slate-200 hover:border-slate-300'
+            } ${disabled ? 'bg-slate-100 text-slate-400 cursor-not-allowed' : 'cursor-pointer'}`}
          >
-            {selectedOption}
-            <svg
-               width='14'
-               height='8'
-               viewBox='0 0 14 8'
-               fill='none'
-               xmlns='http://www.w3.org/2000/svg'
-               className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+            {Icon && (
+               <div className='absolute left-3.5 pointer-events-none text-slate-400'>
+                  <Icon size={16} />
+               </div>
+            )}
+
+            <span
+               className={`truncate block ${
+                  selectedOption && selectedOption !== placeholder
+                     ? 'text-slate-800 font-medium'
+                     : 'text-slate-400'
+               }`}
             >
-               <path
-                  d='M12.88 1L7.99 5.89C7.4125 6.4675 6.4675 6.4675 5.89 5.89L1 1'
-                  stroke='#131740'
-                  strokeWidth='1.8'
-                  strokeMiterlimit='10'
-                  strokeLinecap='round'
-                  strokeLinejoin='round'
-               />
-            </svg>
-         </div>
+               {selectedOption && selectedOption !== placeholder
+                  ? selectedOption
+                  : placeholder}
+            </span>
+
+            <IoChevronDown
+               size={16}
+               className={`text-slate-400 shrink-0 transition-transform duration-200 ${
+                  isOpen ? 'rotate-180 text-blue-600' : ''
+               }`}
+            />
+         </button>
 
          {isOpen && (
-            <div className='absolute z-10 overflow-hidden divide-y divide-[#D7D7D7] bg-white border border-[#A0A0A080] rounded-[8px] mt-2 w-full shadow-lg '>
-               {options.map((option, index) => (
-                  <div
-                     key={index}
-                     onClick={() => handleOptionClick(option)}
-                     className='flex items-center gap-2 px-4 py-3 text-xs text-[#333333] cursor-pointer hover:bg-[#FAFAFA]'
-                  >
-                     <div
-                        className={`w-4 h-4 border-2 bg-white rounded-full flex items-center justify-center ${
-                           selectedOption === option
-                              ? 'border-[#333333]'
-                              : 'border-gray-400'
-                        }`}
-                     >
-                        {selectedOption === option && (
-                           <div className='w-2 h-2 rounded-full bg-[#333333]'></div>
-                        )}
-                     </div>
-                     {option}
+            <div className='absolute top-full left-0 right-0 z-30 mt-1 max-h-60 overflow-y-auto rounded-xl border border-slate-200 bg-white py-1.5 shadow-xl animate-in fade-in zoom-in-95 duration-150 divide-y divide-slate-50'>
+               {options.length === 0 ? (
+                  <div className='px-4 py-3 text-xs text-slate-400 text-center'>
+                     No options available
                   </div>
-               ))}
+               ) : (
+                  options.map((option, index) => {
+                     const isSelected = selectedOption === option;
+                     return (
+                        <div
+                           key={index}
+                           onClick={() => handleOptionClick(option)}
+                           className={`flex items-center justify-between px-4 py-2.5 text-xs sm:text-sm cursor-pointer transition-colors ${
+                              isSelected
+                                 ? 'bg-blue-50 font-semibold text-blue-700'
+                                 : 'text-slate-700 hover:bg-slate-50'
+                           }`}
+                        >
+                           <span>{option}</span>
+                           {isSelected && (
+                              <span className='w-2 h-2 rounded-full bg-blue-600'></span>
+                           )}
+                        </div>
+                     );
+                  })
+               )}
             </div>
          )}
 
          {isError && (
-            <p className='text-red-500 text-xs mt-1'>
-               {errorMessage}
+            <p className='text-xs text-rose-500 font-medium flex items-center gap-1 mt-0.5 animate-in fade-in duration-200'>
+               <svg
+                  className='w-3.5 h-3.5 shrink-0'
+                  fill='currentColor'
+                  viewBox='0 0 20 20'
+               >
+                  <path
+                     fillRule='evenodd'
+                     d='M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z'
+                     clipRule='evenodd'
+                  />
+               </svg>
+               <span>
+                  {errorMessage || `${displayLabel} is required`}
+               </span>
             </p>
          )}
       </div>
    );
 };
 
-export default Dropdown;
+Dropdown.propTypes = {
+   placeholder: PropTypes.string,
+   label: PropTypes.string,
+   options: PropTypes.array,
+   onChange: PropTypes.func,
+   name: PropTypes.string.isRequired,
+   isRequired: PropTypes.bool,
+   required: PropTypes.bool,
+   errorMessage: PropTypes.string,
+   icon: PropTypes.elementType,
+   helperText: PropTypes.string,
+   className: PropTypes.string,
+   disabled: PropTypes.bool,
+};
+
+export default React.memo(Dropdown);
