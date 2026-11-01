@@ -132,7 +132,7 @@ const Testimonial = () => {
             <div>
                <div className='inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-blue-800 text-xs font-semibold uppercase tracking-wider mb-3 border border-blue-200'>
                   <MdSchool size={16} />
-                  <span>Ednora Community Voices</span>
+                  <span>Eduvanta Community Voices</span>
                </div>
                <h1 className='text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight'>
                   Experiences That Inspire Us

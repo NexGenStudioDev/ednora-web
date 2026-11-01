@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/images/logo.png';
-import { EDNORA_LOGO_URL } from '../../../config/frontend.config.js';
+import { EDUVANTA_LOGO_URL } from '../../../config/frontend.config.js';
 import useSocialLinks from '../../../hooks/useSocialLinks';
 import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -40,8 +40,8 @@ const Footer = React.memo(() => {
          <div className='left w-[50%] max-[599px]:pb-10 max-[999px]:w-full flex items-start max-[999px]:items-center justify-center flex-col gap-4'>
             <Link to='/'>
                <img
-                  src={logo || EDNORA_LOGO_URL}
-                  alt='Ednora Logo'
+                  src={logo || EDUVANTA_LOGO_URL}
+                  alt='Eduvanta Logo'
                   className='h-10 sm:h-12 w-auto object-contain'
                />
             </Link>
@@ -58,6 +58,7 @@ const Footer = React.memo(() => {
                <Link to='/'>Home</Link>
                <Link to='/about'>About Us</Link>
                <Link to='/gallery'>Gallery</Link>
+               <Link to='/notices'>Notice Bulletin</Link>
                <Link to='/admission'>Admissions</Link>
                <Link to='/contact'>Contact Us</Link>
             </div>
@@ -68,10 +69,11 @@ const Footer = React.memo(() => {
                </p>
                <Link to='/admission'>Online Admission</Link>
                <Link to='/status'>Check Status</Link>
+               <Link to='/notices'>Campus Notices</Link>
                <Link to='/testimonial'>Testimonials</Link>
                <Link to='/contact'>Contact Us</Link>
                <a
-                  href='https://ednora.sourceforge.io'
+                  href='https://sourceforge.net/projects/eduvanta/'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-1.5 text-blue-600 hover:text-blue-800 font-medium transition'
@@ -120,7 +122,7 @@ const Footer = React.memo(() => {
             {/* Left: Branding & Copyright */}
             <div className='flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 text-center sm:text-left text-gray-500'>
                <p className='font-medium text-gray-700'>
-                  © {new Date().getFullYear()} Ednora
+                  © {new Date().getFullYear()} Eduvanta
                </p>
                <span className='hidden sm:inline text-gray-300'>
                   •

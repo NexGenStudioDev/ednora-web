@@ -126,7 +126,7 @@ const ContactUs = () => {
          <div className='max-w-7xl mx-auto mb-12 text-center'>
             <div className='inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-blue-800 text-xs font-semibold uppercase tracking-wider mb-4 border border-blue-200'>
                <MdSchool size={16} />
-               <span>Ednora Admissions & Student Helpdesk</span>
+               <span>Eduvanta Admissions & Student Helpdesk</span>
             </div>
             <h1 className='text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 tracking-tight'>
                Let&apos;s Start a Conversation
@@ -145,7 +145,7 @@ const ContactUs = () => {
                   <div className='absolute -right-8 -bottom-8 w-40 h-40 bg-blue-50 rounded-full blur-2xl pointer-events-none'></div>
 
                   <h2 className='text-xl sm:text-2xl font-bold text-gray-900 mb-2'>
-                     Ednora Academy of Technology & Management
+                     Eduvanta Academy of Technology & Management
                   </h2>
                   <p className='text-sm text-gray-600 leading-relaxed mb-6'>
                      Where Knowledge Finds Its Future. Premier
@@ -165,7 +165,7 @@ const ContactUs = () => {
                               Campus Address
                            </h3>
                            <p className='text-sm font-medium text-gray-800 mt-0.5'>
-                              Ednora Campus, Knowledge City, Dhanbad,
+                              Eduvanta Campus, Knowledge City, Dhanbad,
                               Jharkhand - 826001, India
                            </p>
                         </div>
@@ -205,14 +205,14 @@ const ContactUs = () => {
                            </h3>
                            <p className='text-sm font-semibold text-gray-800 mt-0.5'>
                               <a
-                                 href='mailto:info@ednora.edu'
+                                 href='mailto:info@eduvanta.edu'
                                  className='hover:text-blue-600 transition'
                               >
-                                 info@ednora.edu
+                                 info@eduvanta.edu
                               </a>
                            </p>
                            <p className='text-xs text-gray-500'>
-                              Admissions: admissions@ednora.edu
+                              Admissions: admissions@eduvanta.edu
                            </p>
                         </div>
                      </div>
@@ -248,7 +248,7 @@ const ContactUs = () => {
                               href={socialLinks.facebook}
                               target='_blank'
                               rel='noopener noreferrer'
-                              aria-label='Ednora Facebook'
+                              aria-label='Eduvanta Facebook'
                               className='w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition shadow-sm'
                            >
                               <FaFacebook size={18} />
@@ -259,7 +259,7 @@ const ContactUs = () => {
                               href={socialLinks.instagram}
                               target='_blank'
                               rel='noopener noreferrer'
-                              aria-label='Ednora Instagram'
+                              aria-label='Eduvanta Instagram'
                               className='w-10 h-10 rounded-xl bg-pink-600 text-white flex items-center justify-center hover:bg-pink-700 transition shadow-sm'
                            >
                               <FaInstagram size={18} />
@@ -270,7 +270,7 @@ const ContactUs = () => {
                               href={socialLinks.linkedin}
                               target='_blank'
                               rel='noopener noreferrer'
-                              aria-label='Ednora LinkedIn'
+                              aria-label='Eduvanta LinkedIn'
                               className='w-10 h-10 rounded-xl bg-blue-800 text-white flex items-center justify-center hover:bg-blue-900 transition shadow-sm'
                            >
                               <FaLinkedin size={18} />
@@ -279,7 +279,7 @@ const ContactUs = () => {
                         {socialLinks?.email && (
                            <a
                               href={`mailto:${socialLinks.email}`}
-                              aria-label='Email Ednora'
+                              aria-label='Email Eduvanta'
                               className='w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center hover:bg-red-700 transition shadow-sm'
                            >
                               <MdEmail size={20} />
@@ -475,7 +475,7 @@ const ContactUs = () => {
                      </button>
 
                      <p className='text-center text-xs text-gray-400'>
-                        By submitting, you agree to allow Ednora
+                        By submitting, you agree to allow Eduvanta
                         counselors to contact you regarding
                         educational programs.
                      </p>

@@ -4,7 +4,7 @@ import Google_Wrapper from './Google_Wrapper';
 import Input from './Input';
 import signupImage from '../../assets/images/signup.png';
 import logo from '../../assets/images/logo.png';
-import { EDNORA_LOGO_URL } from '../../config/frontend.config.js';
+import { EDUVANTA_LOGO_URL } from '../../config/frontend.config.js';
 import Checkbox from './Checkbox';
 import { Sign_Up_EndPoint } from '../../utils/constants';
 import { useDispatch, useSelector } from 'react-redux';
@@ -93,14 +93,14 @@ const Signup = () => {
             <form className='w-full h-full bg-[#FAFAFA] p-6'>
                <div className='logo mb-6'>
                   <img
-                     src={logo || EDNORA_LOGO_URL}
-                     alt='Ednora Logo'
+                     src={logo || EDUVANTA_LOGO_URL}
+                     alt='Eduvanta Logo'
                      className='h-8 w-auto object-contain'
                   />
                </div>
 
                <h1 className='heading text-[1.8vw] max-[999px]:text-[4.5vw] font-semibold mb-2'>
-                  Start Your Journey with Ednora
+                  Start Your Journey with Eduvanta
                </h1>
                <p className='text-[0.9vw] max-[999px]:text-[2.5vw] mb-6 text-gray-600 leading-relaxed'>
                   Take the first step toward your academic goals. Create your account to begin the registration process, follow your application progress, and connect with the team for guidance on your next steps.

@@ -21,11 +21,11 @@ const About = () => {
    return (
       <>
          <title>
-            About Us — Ednora | Where Knowledge Finds Its Future
+            About Us — Eduvanta | Where Knowledge Finds Its Future
          </title>
          <meta
             name='description'
-            content='Learn about Ednora, our history, mission, modern computing facilities, and dedicated faculty preparing students for technical excellence.'
+            content='Learn about Eduvanta, our history, mission, modern computing facilities, and dedicated faculty preparing students for technical excellence.'
          />
 
          <AboutHero />

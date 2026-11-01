@@ -21,6 +21,7 @@ const PaymentPage = lazy(() => import('./pages/PaymentPage'));
 const StatusPage = lazy(() => import('./pages/StatusPage'));
 const Success = lazy(() => import('./pages/Success'));
 const Testimonial = lazy(() => import('./pages/Testimonial'));
+const NoticesPage = lazy(() => import('./pages/NoticesPage'));
 const Album_Image = lazy(
    () => import('./components/Templates/album/Album_Image'),
 );
@@ -89,6 +90,12 @@ const App = () => {
                      path='/testimonial'
                      element={<Testimonial />}
                   />
+                  <Route path='/notices' element={<NoticesPage />} />
+                  <Route path='/notice' element={<NoticesPage />} />
+                  <Route path='/notion' element={<NoticesPage />} />
+                  <Route path='/notions' element={<NoticesPage />} />
+                  <Route path='/notice/:id' element={<NoticesPage />} />
+                  <Route path='/notices/:id' element={<NoticesPage />} />
                   <Route
                      path='/album/:AlbumName'
                      element={<Album_Image />}

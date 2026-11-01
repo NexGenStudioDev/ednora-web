@@ -1,19 +1,26 @@
 /**
- * Ednora Frontend Configuration
+ * Eduvanta Frontend Configuration
  * Contains all static content, images, headings, and branding
  * loaded directly by the frontend without relying on backend socket or API.
  */
 
-export const EDNORA_LOGO_URL =
+export const EDUVANTA_SOURCEFORGE_URL =
+   'https://sourceforge.net/projects/eduvanta/';
+
+export const EDUVANTA_LOGO_URL =
    'https://res.cloudinary.com/dpnc8ddpf/image/upload/v1793010964/030f5f9d-b9c7-4135-b37f-dedb90870eab_lgxmb0.png';
 
-export const EDNORA_LOGO_LOCAL = '/logo.png';
+export const EDUVANTA_LOGO_LOCAL = '/logo.png';
+
+// Backward compatibility aliases
+export const EDNORA_LOGO_URL = EDUVANTA_LOGO_URL;
+export const EDNORA_LOGO_LOCAL = EDUVANTA_LOGO_LOCAL;
 
 const frontendConfig = {
    logo: {
-      url: EDNORA_LOGO_URL,
-      local: EDNORA_LOGO_LOCAL,
-      alt: 'Ednora — Where Knowledge Finds Its Future',
+      url: EDUVANTA_LOGO_URL,
+      local: EDUVANTA_LOGO_LOCAL,
+      alt: 'Eduvanta — Where Knowledge Finds Its Future',
    },
 
    landingPage: {
@@ -21,15 +28,15 @@ const frontendConfig = {
          homeBackgroundImage: '/Home_bg.webp',
          homeTitle: 'Learn Today. Build Tomorrow.',
          homeParagraph:
-            'At Ednora, learning goes beyond textbooks. We help students build strong technical skills, explore new ideas, solve real-world problems, and turn their curiosity into practical knowledge. Through hands-on learning, expert guidance, and project-based education, we prepare students for the opportunities of tomorrow.',
+            'At Eduvanta, learning goes beyond textbooks. We help students build strong technical skills, explore new ideas, solve real-world problems, and turn their curiosity into practical knowledge. Through hands-on learning, expert guidance, and project-based education, we prepare students for the opportunities of tomorrow.',
          primaryCTA: 'Explore Our Courses',
-         secondaryCTA: 'Discover Ednora',
+         secondaryCTA: 'Discover Eduvanta',
       },
       AboutSection: {
          Heading_First: 'Empowering Students to Shape the Future',
          Heading_Second: 'Empowering Students to Shape the Future',
          paragraph_First:
-            'Ednora is a learning community focused on technology, innovation, and personal growth. We believe every student should have the opportunity to explore their interests, develop practical skills, and build the confidence to achieve their goals.',
+            'Eduvanta is a learning community focused on technology, innovation, and personal growth. We believe every student should have the opportunity to explore their interests, develop practical skills, and build the confidence to achieve their goals.',
          paragraph_Second:
             'Our learning approach combines academic foundations with hands-on projects, modern computing facilities, and guided mentorship. From understanding core concepts to building real applications, we encourage students to learn by doing and prepare for a rapidly changing digital world.',
          CTA: 'Learn More About Us',
@@ -88,12 +95,12 @@ const frontendConfig = {
          Heading:
             'Discover Your Potential. Develop Your Skills. Shape Your Future.',
          paragraph:
-            'Every great achievement begins with curiosity and a willingness to learn. At Ednora, we create opportunities for students to explore technology, strengthen their knowledge, and develop the practical skills needed to turn ideas into meaningful outcomes.',
+            'Every great achievement begins with curiosity and a willingness to learn. At Eduvanta, we create opportunities for students to explore technology, strengthen their knowledge, and develop the practical skills needed to turn ideas into meaningful outcomes.',
       },
       History: {
          title: 'Built Around Learning, Driven by Innovation',
          paragraph_First:
-            'Ednora was established with a clear purpose: to make technical education relevant to the needs of a changing world. We believe students learn best when strong academic foundations are combined with practical experience and opportunities to explore.',
+            'Eduvanta was established with a clear purpose: to make technical education relevant to the needs of a changing world. We believe students learn best when strong academic foundations are combined with practical experience and opportunities to explore.',
          paragraph_Second:
             'Our approach focuses on helping learners move beyond theory and understand how knowledge is applied in real situations. Through practical exercises, laboratory sessions, collaborative projects, and guided learning, students can develop skills that extend beyond the classroom.',
          paragraph_Third:
@@ -129,7 +136,7 @@ const frontendConfig = {
       LearningEnvironment: {
          heading: 'A Space to Learn, Create, and Grow',
          paragraph:
-            'A great learning environment supports both academic progress and personal development. Ednora aims to provide spaces and resources that encourage focused study, practical experimentation, collaboration, and creativity. From technology-enabled classrooms to hands-on computing facilities, the goal is to help students learn effectively and put their knowledge into practice.',
+            'A great learning environment supports both academic progress and personal development. Eduvanta aims to provide spaces and resources that encourage focused study, practical experimentation, collaboration, and creativity. From technology-enabled classrooms to hands-on computing facilities, the goal is to help students learn effectively and put their knowledge into practice.',
       },
       Description: {
          image: '/Knowledge.webp',
@@ -288,7 +295,7 @@ const frontendConfig = {
    },
 
    gallery: {
-      heading: 'Life at Ednora',
+      heading: 'Life at Eduvanta',
       introduction:
          'Learning happens in many places, from classrooms and computer labs to collaborative projects and campus events. Explore moments that reflect student creativity, teamwork, academic activities, and the experiences that make campus life meaningful.',
    },
@@ -350,8 +357,8 @@ const frontendConfig = {
       paragraph:
          "Have questions about admissions, academic programs, campus facilities, or student life? We're here to help. Get in touch with our team to find the information you need and take the next step in your educational journey.",
       location:
-         'Ednora Campus, Knowledge City, Dhanbad, Jharkhand 826001',
-      email: 'info@ednora.edu',
+         'Eduvanta Campus, Knowledge City, Dhanbad, Jharkhand 826001',
+      email: 'info@eduvanta.edu',
       phone: '+91 96613 42993',
       hours: 'Monday to Saturday, 9:00 AM – 5:30 PM',
       cta: 'Contact Our Team',
@@ -361,14 +368,14 @@ const frontendConfig = {
       Login: {
          title: 'Welcome Back!',
          paragraph:
-            'Continue your learning journey with Ednora. Sign in to access your student portal, review available academic information, check attendance, download fee receipts, and stay informed about important updates.',
+            'Continue your learning journey with Eduvanta. Sign in to access your student portal, review available academic information, check attendance, download fee receipts, and stay informed about important updates.',
          button: 'Sign In',
          supporting:
             "Don't have an account? Create one to get started.",
          image: '/login.png',
       },
       SignUp: {
-         title: 'Start Your Journey with Ednora',
+         title: 'Start Your Journey with Eduvanta',
          paragraph:
             'Take the first step toward your academic goals. Create your account to begin the registration process, follow your application progress, and connect with the team for guidance on your next steps.',
          button: 'Create Account',
@@ -378,7 +385,7 @@ const frontendConfig = {
    },
 
    footer: {
-      heading: 'Ednora — Where Knowledge Finds Its Future',
+      heading: 'Eduvanta — Where Knowledge Finds Its Future',
       paragraph:
          'Helping learners build knowledge, develop practical skills, and explore new possibilities through education, technology, and innovation.',
       closingLine:

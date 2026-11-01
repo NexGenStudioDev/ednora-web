@@ -5,7 +5,7 @@ import Google_Wrapper from './Google_Wrapper';
 import Input from './Input';
 import loginImage from '../../assets/images/login.png';
 import logo from '../../assets/images/logo.png';
-import { EDNORA_LOGO_URL } from '../../config/frontend.config.js';
+import { EDUVANTA_LOGO_URL } from '../../config/frontend.config.js';
 import { useDispatch, useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import Checkbox from './Checkbox';
@@ -64,7 +64,7 @@ const Login = () => {
          Swal.fire({
             icon: 'success',
             title: 'Logged in successfully',
-            text: 'All administrative and student portal features are accessible via the Ednora Desktop App.',
+            text: 'All administrative and student portal features are accessible via the Eduvanta Desktop App.',
             timer: 2000,
             showConfirmButton: false,
          });
@@ -95,8 +95,8 @@ const Login = () => {
 
                <div className='logo mb-6'>
                   <img
-                     src={logo || EDNORA_LOGO_URL}
-                     alt='Ednora Logo'
+                     src={logo || EDUVANTA_LOGO_URL}
+                     alt='Eduvanta Logo'
                      className='h-8 w-auto object-contain'
                   />
                </div>
@@ -105,7 +105,7 @@ const Login = () => {
                      Welcome Back!
                   </h1>
                   <p className='text-[1vw] max-[999px]:text-[3vw] text-gray-600 mt-1 leading-relaxed'>
-                     Continue your learning journey with Ednora. Sign in to access your student portal, review available academic information, check attendance, download fee receipts, and stay informed about important updates.
+                     Continue your learning journey with Eduvanta. Sign in to access your student portal, review available academic information, check attendance, download fee receipts, and stay informed about important updates.
                   </p>
                </div>
 

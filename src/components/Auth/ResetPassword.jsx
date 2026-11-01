@@ -6,7 +6,7 @@ import { resetPasswordSchema } from '../../validation/resetPassword.schema';
 
 import resetImage from '../../assets/images/reset.jpg';
 import logo from '../../assets/images/logo.png';
-import { EDNORA_LOGO_URL } from '../../config/frontend.config.js';
+import { EDUVANTA_LOGO_URL } from '../../config/frontend.config.js';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
@@ -61,8 +61,8 @@ const ResetPassword = () => {
             >
                <div className='logo mb-[clamp(1rem,2vw,1.5rem)]'>
                   <img
-                     src={logo || EDNORA_LOGO_URL}
-                     alt='Ednora Logo'
+                     src={logo || EDUVANTA_LOGO_URL}
+                     alt='Eduvanta Logo'
                      className='h-8 w-auto object-contain'
                   />
                </div>

@@ -4,7 +4,7 @@ import { IoMenu, IoClose, IoChevronDown } from 'react-icons/io5';
 import { MdLaptopMac, MdOpenInNew } from 'react-icons/md';
 import gsap from 'gsap';
 import logo from '../../../../assets/images/logo.png';
-import { EDNORA_LOGO_URL } from '../../../../config/frontend.config.js';
+import { EDUVANTA_LOGO_URL } from '../../../../config/frontend.config.js';
 import { useSelector } from 'react-redux';
 
 const Navbar = () => {
@@ -52,6 +52,7 @@ const Navbar = () => {
       { to: '/', label: 'Home' },
       { to: '/about', label: 'About Us' },
       { to: '/gallery', label: 'Gallery' },
+      { to: '/notices', label: 'Notices' },
       { to: '#students', label: 'Admissions', dropdown: true },
       { to: '/contact', label: 'Contact Us' },
    ];
@@ -118,7 +119,7 @@ const Navbar = () => {
             {/* Desktop App Download Button for Mobile */}
             <div className='flex flex-col gap-4 w-full px-8'>
                <a
-                  href='https://ednora.sourceforge.io'
+                  href='https://sourceforge.net/projects/eduvanta/'
                   target='_blank'
                   rel='noopener noreferrer'
                   onClick={() => setIsMenuOpen(false)}
@@ -135,8 +136,8 @@ const Navbar = () => {
          <nav className='fixed top-0 left-0 w-full px-10 py-3 bg-white flex justify-between items-center z-50 shadow-md'>
             <NavLink to='/'>
                <img
-                  src={logo || EDNORA_LOGO_URL}
-                  alt='Ednora Logo'
+                  src={logo || EDUVANTA_LOGO_URL}
+                  alt='Eduvanta Logo'
                   className='h-10 sm:h-12 w-auto object-contain'
                />
             </NavLink>
@@ -197,7 +198,7 @@ const Navbar = () => {
 
             <div className='hidden md:flex gap-3 items-center'>
                <a
-                  href='https://ednora.sourceforge.io'
+                  href='https://sourceforge.net/projects/eduvanta/'
                   target='_blank'
                   rel='noopener noreferrer'
                   className='flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white text-sm font-medium rounded-lg shadow-sm hover:shadow transition-all'
