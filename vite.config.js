@@ -9,6 +9,9 @@ export default defineConfig(({ mode }) => {
 
    return {
       plugins: [react()],
+      esbuild: {
+         drop: mode === 'production' ? ['console', 'debugger'] : [],
+      },
       server: {
          host: '0.0.0.0',
          port: 3000,

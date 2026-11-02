@@ -70,7 +70,7 @@ const StatusPage = () => {
             title: 'No Application Record Found',
             text:
                error.response?.data?.message ||
-               `No admission or enrollment status found for "${cleanId}". Please verify your unique ID or contact CIITM admissions desk.`,
+               `No admission or enrollment status found for "${cleanId}". Please verify your unique ID or contact Eduvanta admissions desk.`,
             confirmButtonColor: '#2563eb',
          });
       } finally {
@@ -98,14 +98,14 @@ const StatusPage = () => {
          <div className='max-w-4xl mx-auto mb-8 text-center'>
             <div className='inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/70 text-blue-800 text-xs font-semibold uppercase tracking-wider mb-3 border border-blue-200'>
                <MdBadge size={16} />
-               <span>CIITM Admissions & Enrollment Verification</span>
+               <span>Eduvanta Admissions & Enrollment Verification</span>
             </div>
             <h1 className='text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight'>
                Track Application & Student Status
             </h1>
             <p className='mt-2 text-sm sm:text-base text-gray-600 max-w-xl mx-auto'>
                Enter your unique registration ID (e.g.
-               CIITM-2026-XXXX) to check document review, verification
+               EDUVANTA-2026-XXXX) to check document review, verification
                progress, and enrollment confirmation.
             </p>
          </div>
@@ -124,7 +124,7 @@ const StatusPage = () => {
                   <ValidateUniqueIdInput
                      getValidationStatus={() => {}}
                      getStudentId={id => setStudentId(id)}
-                     placeholder='e.g. CIITM-2026-9842'
+                     placeholder='e.g. EDUVANTA-2026-9842'
                      className='w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100 focus:border-blue-500 transition'
                   />
                </div>
@@ -299,7 +299,7 @@ const StatusPage = () => {
                <p className='text-xs sm:text-sm text-gray-500 mb-4'>
                   We could not find an admission record for ID &ldquo;
                   {studentId}&rdquo;. Please verify your ID or reach
-                  out to CIITM admissions.
+                  out to Eduvanta admissions.
                </p>
                <a
                   href='tel:+919431125555'
