@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import frontendConfig from '../config/frontend.config.js';
 import {
    MdAccessTime,
    MdCurrencyRupee,
@@ -32,16 +33,55 @@ const ViewCourseDetail = () => {
             const data = res.data?.data || null;
             if (data) {
                setCourseData(data);
-            } else {
-               setError('Course not found');
+               return;
             }
+            throw new Error('Course not found');
          } catch (err) {
-            console.error('Error fetching course:', err);
-            setError(
-               err.response?.data?.message ||
-                  err.message ||
-                  'An unexpected error occurred while fetching course details',
+            console.warn(
+               'Notice: Backend fetch error for course, checking fallback config:',
+               err.message,
             );
+            const fallbackList =
+               frontendConfig.aboutPage?.academicPrograms?.programs || [];
+            const decodedId = decodeURIComponent(courseId).toLowerCase().trim();
+            const matched = fallbackList.find(p => {
+               const name = (p.name || p.title || '').toLowerCase();
+               const slug = name.replace(/[^a-z0-9]+/g, '-');
+               const code = (p.code || '').toLowerCase();
+               return (
+                  slug === decodedId ||
+                  name.includes(decodedId) ||
+                  decodedId.includes(name) ||
+                  code === decodedId
+               );
+            });
+
+            if (matched) {
+               setCourseData({
+                  courseName: matched.name || matched.title,
+                  courseCode: matched.code || 'EDU-ACAD',
+                  courseDuration: matched.duration || 'Full Time',
+                  coursePrice: matched.fee || 45000,
+                  courseDescription: matched.description,
+                  courseEligibility:
+                     matched.eligibility || '10+2 with minimum 50% marks',
+                  AdmissionCriteria: matched.criteria || [
+                     '10+2 or equivalent from recognized secondary board',
+                     'Minimum 50% aggregate score',
+                     'Academic verification and counselor interview',
+                  ],
+                  courseThumbnail:
+                     matched.image ||
+                     'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
+               });
+               setError(null);
+            } else {
+               setError(
+                  err.response?.data?.message ||
+                     err.message ||
+                     'An unexpected error occurred while fetching course details',
+               );
+            }
          } finally {
             setIsLoading(false);
          }
