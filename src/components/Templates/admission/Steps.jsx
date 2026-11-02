@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import YourInfo from './YourInfo';
 import ParentsInfo from './ParentsInfo';
 import AreyouHuman from './AreyouHuman';
@@ -23,6 +23,7 @@ import {
 
 const Steps = () => {
    const navigate = useNavigate();
+   const location = useLocation();
    const dispatch = useDispatch();
    const admission = useSelector(state => state.admission.admission);
 
@@ -73,7 +74,15 @@ const Steps = () => {
       mode: 'Regular On-Campus (Day Scholar)',
    });
 
-   // Restore previous progress from sessionStorage if available
+   // Pre-fill course if passed via URL (e.g. /admission?course=BCA)
+   useEffect(() => {
+      const searchParams = new URLSearchParams(location.search);
+      const courseParam = searchParams.get('course');
+      if (courseParam) {
+         setFormData(prev => ({ ...prev, courseName: courseParam }));
+         dispatch(setOneAdmission({ name: 'courseName', value: courseParam }));
+      }
+   }, [location.search, dispatch]);
    useEffect(() => {
       try {
          const savedData = sessionStorage.getItem('admissionFormData');
@@ -291,21 +300,22 @@ const Steps = () => {
             postData.append('avtar', Avtor);
          }
 
-         // Generate guaranteed fallback unique registration reference ID
-         const generatedId = `CIITM-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+         // Generate fallback registration reference if offline
+         const generatedId = `EDUVANTA-2026-${Math.floor(1000 + Math.random() * 9000)}`;
 
          try {
             const res = await axios.post('/api/v1/online/admission', postData, {
                headers: {
-                  'Content-Type': admissionConstant.CONTENT_TYPE,
+                  'Content-Type': undefined, // Allow Axios to auto-inject multipart/form-data with WebKit boundary
                },
-               timeout: 10000,
+               timeout: 25000,
             });
 
             const uniqueId =
                res.data?.uniqueId ||
                res.data?.data?.uniqueId ||
                res.data?.student?.uniqueId ||
+               res.data?.data?._id ||
                generatedId;
 
             setSubmissionSuccess({
@@ -321,21 +331,20 @@ const Steps = () => {
                }),
             });
          } catch (apiError) {
-            console.warn('Backend API submission notice (simulating offline success fallback):', apiError);
+            console.error('Backend API admission submission error:', apiError);
+            const errorMsg =
+               apiError?.response?.data?.message ||
+               apiError?.message ||
+               'We could not process your application on the server. Please verify your details and try again.';
 
-            // Handle gracefully so student has a record and reference number
-            setSubmissionSuccess({
-               uniqueId: generatedId,
-               name: `${formData.firstName} ${formData.lastName}`.trim(),
-               course: formData.courseName,
-               email: formData.email,
-               phone: formData.contactNumber,
-               date: new Date().toLocaleDateString('en-IN', {
-                  day: 'numeric',
-                  month: 'short',
-                  year: 'numeric',
-               }),
+            Swal.fire({
+               icon: 'error',
+               title: 'Application Submission Issue',
+               text: errorMsg,
+               confirmButtonColor: '#2563eb',
             });
+            setIsLoading(false);
+            return;
          }
 
          // Clear session storage on completed submission

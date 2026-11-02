@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import Dropdown from './DropDown';
 import socket from '../../../config/socket.mjs';
 import {
@@ -59,6 +60,26 @@ const UniversityInfo = ({
 
    useEffect(() => {
       let isMounted = true;
+
+      // 1. Fetch live courses from Backend REST API
+      axios
+         .get('/api/v1/user/findAllCourse')
+         .then(res => {
+            const data = res.data?.data;
+            if (isMounted && Array.isArray(data) && data.length > 0) {
+               const mapped = data
+                  .map(item => item.courseName || item.name)
+                  .filter(Boolean);
+               if (mapped.length > 0) {
+                  setCourseList(prev => [...new Set([...mapped, ...prev])]);
+               }
+            }
+         })
+         .catch(err => {
+            console.warn('HTTP course roster notice:', err.message);
+         });
+
+      // 2. Also listen via WebSocket if active
       try {
          if (socket && typeof socket.emit === 'function') {
             if (!socket.connected) {
